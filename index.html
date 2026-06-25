@@ -7,60 +7,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #F5F4EF;
-    --card: #FFFFFF;
-    --border: #E4E3DC;
-    --text: #16161A;
-    --muted: #6B6966;
-    --hint: #A09D97;
-    --blue: #1059A8;
-    --blue-bg: #EAF1FB;
-    --amber: #9A5200;
-    --amber-bg: #FEF3E3;
-    --green: #1A6E45;
-    --r: 10px;
+    --bg: #F5F4EF; --card: #FFFFFF; --border: #E4E3DC;
+    --text: #16161A; --muted: #6B6966; --hint: #A09D97;
+    --blue: #1059A8; --blue-bg: #EAF1FB;
+    --amber: #9A5200; --amber-bg: #FEF3E3;
+    --green: #1A6E45; --r: 10px;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
-
-  /* ── Estructura ── */
   .shell { max-width: 1080px; margin: 0 auto; padding: 30px 20px 60px; }
-
-  /* ── Header ── */
   .hdr { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
-  .hdr-left h1 { font-size: 20px; font-weight: 700; letter-spacing: -.3px; }
-  .hdr-left p  { font-size: 13px; color: var(--muted); margin-top: 3px; }
-
-  /* ── Botón ── */
-  .btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 7px 15px; border: 1px solid var(--border); border-radius: var(--r);
-    background: var(--card); color: var(--text); font-size: 13px; font-weight: 500;
-    cursor: pointer; transition: background .12s;
-  }
-  .btn:hover { background: var(--bg); }
-  .btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .btn:disabled { opacity: .45; cursor: default; }
-
-  /* ── Solapas ── */
-  .tabs-nav { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 22px; }
-  .tab-btn {
-    padding: 10px 20px; font-size: 14px; font-weight: 600; border: none; background: none;
-    cursor: pointer; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -2px;
-    transition: color .12s;
-  }
+  .hdr h1 { font-size: 20px; font-weight: 700; letter-spacing: -.3px; }
+  .hdr p  { font-size: 13px; color: var(--muted); margin-top: 3px; }
+  .tabs-nav { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 22px; }
+  .tab-btn { padding: 10px 20px; font-size: 14px; font-weight: 600; border: none; background: none; cursor: pointer; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .12s; }
   .tab-btn.active { color: var(--text); border-bottom-color: var(--text); }
-  .tab-btn:hover  { color: var(--text); }
+  .tab-btn:hover { color: var(--text); }
   .tab-pane { display: none; }
   .tab-pane.active { display: block; }
-
-  /* ── Cards ── */
   .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); margin-bottom: 18px; overflow: hidden; }
   .card-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 16px 18px 0; }
   .card-title { font-size: 14px; font-weight: 700; }
-  .card-body  { padding: 16px 18px 18px; }
-
-  /* ── KPIs ── */
+  .card-body { padding: 16px 18px 18px; }
   .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 18px; }
   .kpi { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 18px; }
   .kpi-lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin-bottom: 6px; }
@@ -68,389 +36,113 @@
   .kpi-sub { font-size: 12px; color: var(--hint); margin-top: 4px; }
   .kpi-val.blue  { color: var(--blue); }
   .kpi-val.amber { color: var(--amber); }
-  .kpi-val.green { color: var(--green); }
-
-  /* ── Leyenda ── */
   .legend { display: flex; gap: 14px; flex-wrap: wrap; }
   .leg { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
   .leg-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
-
-  /* ── Chart ── */
   .chart-wrap { position: relative; width: 100%; }
-
-  /* ── Tabla ── */
   .tbl-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  thead th {
-    text-align: left; padding: 8px 11px;
-    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px;
-    color: var(--muted); border-bottom: 1px solid var(--border); background: var(--bg); white-space: nowrap;
-  }
+  thead th { text-align: left; padding: 8px 11px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); border-bottom: 1px solid var(--border); background: var(--bg); white-space: nowrap; }
   th.r, td.r { text-align: right; }
   td { padding: 9px 11px; border-bottom: 1px solid var(--border); vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tbody tr:hover td { background: #FAFAF7; }
   tr.total-row td { background: #F3F2EE; font-weight: 700; border-top: 1px solid #D0CFC8; border-bottom: none; }
-
-  /* ── Pills ── */
-  .pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; white-space: nowrap; }
-  .pill-f { background: var(--blue-bg);  color: var(--blue); }
-  .pill-b { background: var(--amber-bg); color: var(--amber); }
-  .pill-n { background: #EEEDEA; color: var(--muted); }
-
-  /* ── Barra proporcional ── */
   .prg { display: flex; align-items: center; gap: 6px; }
   .prg-bar { flex: 1; min-width: 60px; height: 5px; background: #EDECEA; border-radius: 3px; overflow: hidden; }
   .prg-fill { height: 100%; background: var(--blue); border-radius: 3px; }
   .prg-lbl { font-size: 11px; color: var(--hint); min-width: 34px; text-align: right; }
-
-  /* ── Selector de talento ── */
-  .talent-selector { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .talent-selector label { font-size: 13px; font-weight: 600; color: var(--muted); }
-  .talent-selector select {
-    padding: 7px 12px; border: 1px solid var(--border); border-radius: var(--r);
-    font-size: 13px; background: var(--card); color: var(--text);
-    cursor: pointer; outline: none; min-width: 200px;
-  }
-  .talent-selector select:focus { border-color: var(--blue); }
-
-  /* ── Estado loading/error ── */
+  .talent-sel { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .talent-sel label { font-size: 13px; font-weight: 600; color: var(--muted); }
+  .talent-sel select { padding: 7px 12px; border: 1px solid var(--border); border-radius: var(--r); font-size: 13px; background: var(--card); color: var(--text); cursor: pointer; outline: none; min-width: 220px; }
+  .talent-sel select:focus { border-color: var(--blue); }
   .state-box { text-align: center; padding: 50px 20px; }
   .spinner { width: 24px; height: 24px; border: 2px solid var(--border); border-top-color: var(--text); border-radius: 50%; animation: spin .65s linear infinite; margin: 0 auto 14px; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .state-box h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-  .state-box p  { font-size: 13px; color: var(--muted); max-width: 360px; margin: 0 auto 14px; }
-  .err { background: #FDEAEA; border: 1px solid #F5C0C0; border-radius: var(--r); padding: 14px 16px; font-size: 13px; color: #9B1C1C; line-height: 1.6; }
-
-  /* ── Tag USD ── */
+  .state-box p  { font-size: 13px; color: var(--muted); max-width: 360px; margin: 0 auto; }
   .usd-tag { font-size: 10px; background: #EEEDEA; color: var(--hint); padding: 1px 5px; border-radius: 3px; }
-
-  /* ── Nota info ── */
   .note { background: #FEF9E7; border: 1px solid #F5E07A; border-radius: var(--r); padding: 10px 14px; font-size: 12px; color: #856400; margin-bottom: 16px; line-height: 1.55; }
+  .err { background: #FDEAEA; border: 1px solid #F5C0C0; border-radius: var(--r); padding: 14px 16px; font-size: 13px; color: #9B1C1C; line-height: 1.6; }
+  @media (max-width: 580px) { .shell { padding: 18px 14px 50px; } .kpi-val { font-size: 19px; } }
 </style>
 </head>
 <body>
 <div class="shell">
 
-  <!-- Header -->
   <div class="hdr">
-    <div class="hdr-left">
+    <div>
       <h1>ZAS Chile · Factura vs Boleta</h1>
-      <p id="subtitle">Cargando datos de Odoo…</p>
+      <p id="subtitle">Cargando…</p>
     </div>
-    <button class="btn" id="btnRefresh" onclick="cargar()">
-      <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
-      Actualizar
-    </button>
   </div>
 
-  <!-- Solapas -->
   <div class="tabs-nav">
-    <button class="tab-btn active" onclick="mostrarSolapa('general', this)">Venta general</button>
-    <button class="tab-btn"        onclick="mostrarSolapa('talento', this)">Por talento</button>
+    <button class="tab-btn active" onclick="tab('general',this)">Venta general</button>
+    <button class="tab-btn"        onclick="tab('talento',this)">Por talento</button>
   </div>
 
-  <!-- TAB 1: General -->
   <div id="tab-general" class="tab-pane active">
-    <div id="content-general">
-      <div class="card"><div class="card-body">
-        <div class="state-box">
-          <div class="spinner"></div>
-          <h3>Cargando ventas…</h3>
-          <p>Conectando con Odoo en tiempo real.</p>
-        </div>
-      </div></div>
-    </div>
+    <div class="card"><div class="card-body">
+      <div class="state-box"><div class="spinner"></div><h3>Cargando datos…</h3></div>
+    </div></div>
   </div>
 
-  <!-- TAB 2: Por talento -->
   <div id="tab-talento" class="tab-pane">
-    <div id="content-talento">
-      <div class="card"><div class="card-body">
-        <div class="state-box">
-          <h3>Esperando datos…</h3>
-          <p>Primero cargá la solapa "Venta general".</p>
-        </div>
-      </div></div>
-    </div>
+    <div class="card"><div class="card-body">
+      <div class="state-box"><h3>Abrí primero "Venta general"</h3></div>
+    </div></div>
   </div>
 
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════
-   CONFIGURACIÓN
-═══════════════════════════════════════════════ */
-const CLAUDE_API = 'https://api.anthropic.com/v1/messages';
-const MCP_URL    = 'https://zas-agent-api.quantumsur.ai/api/mcp';
-
-// Dólar observado promedio mensual BCCH (serie F073)
-// Para convertir USD → CLP en ventas internacionales
-const FX = {
-  '2024-01':969,'2024-02':981,'2024-03':988,'2024-04':960,'2024-05':897,
-  '2024-06':931,'2024-07':943,'2024-08':938,'2024-09':942,'2024-10':952,
-  '2024-11':971,'2024-12':997,'2025-01':1010,'2025-02':998,'2025-03':990,
-  '2025-04':969,'2025-05':944,'2025-06':951,'2025-07':953,'2025-08':945,
-  '2025-09':955,'2025-10':963,'2025-11':971,'2025-12':981,'2026-01':988,
-  '2026-02':970,'2026-03':960,'2026-04':945,'2026-05':935,'2026-06':942,
-};
-
 const MESES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+let c1 = null, c2 = null;
+let DATA = null;
 
-/* ═══════════════════════════════════════════════
-   ESTADO GLOBAL
-═══════════════════════════════════════════════ */
-let ORDENES  = [];  // órdenes procesadas
-let LINEAS   = [];  // líneas procesadas
-let chart1   = null;
-let chart2   = null;
+function clp(n) { return '$\u202F' + Math.round(n).toLocaleString('es-CL'); }
+function ml(k)  { const [y,m]=k.split('-'); return MESES[+m-1]+' '+y.slice(2); }
+function pct(a,t){ return t ? Math.round(a/t*100)+'%' : '—'; }
 
-/* ═══════════════════════════════════════════════
-   UTILS
-═══════════════════════════════════════════════ */
-function clp(n) {
-  return '$\u202F' + Math.round(n).toLocaleString('es-CL');
-}
-function mesKey(fecha) {
-  return fecha ? fecha.slice(0, 7) : '0000-00';
-}
-function mesLabel(k) {
-  const [y, m] = k.split('-');
-  return MESES[parseInt(m, 10) - 1] + ' ' + y.slice(2);
-}
-function toCLP(monto, moneda, fecha) {
-  if (!moneda || moneda === 'CLP') return +monto;
-  if (moneda === 'USD') {
-    const rate = FX[mesKey(fecha)] || 950;
-    return +monto * rate;
-  }
-  return +monto;
-}
-function parseTalento(nombre) {
-  if (!nombre) return null;
-  // Extrae todo lo que está ANTES del primer paréntesis y limpia espacios
-  const m = nombre.match(/^([^(]+)/);
-  if (!m) return nombre.trim().toUpperCase();
-  return m[1].trim().toUpperCase();
-}
-function pctStr(a, total) {
-  if (!total) return '—';
-  return Math.round(a / total * 100) + '%';
+function tab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
 }
 
-/* ═══════════════════════════════════════════════
-   LLAMADA A CLAUDE + MCP
-═══════════════════════════════════════════════ */
-async function llamarClaude(system, user) {
-  const resp = await fetch(CLAUDE_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 8000,
-      system,
-      messages: [{ role: 'user', content: user }],
-      mcp_servers: [{ type: 'url', url: MCP_URL, name: 'zas' }]
-    })
-  });
-  if (!resp.ok) throw new Error('HTTP ' + resp.status);
-  return resp.json();
-}
+/* ── RENDER GENERAL ── */
+function renderGeneral(general) {
+  const keys = Object.keys(general).sort();
+  let tF=0, tB=0, tN=0;
+  keys.forEach(k => { tF+=general[k].f; tB+=general[k].b; tN+=general[k].n; });
+  const tot = tF+tB+tN;
+  const tieneUSD = keys.some(k => general[k].usd);
 
-function extraerRows(data) {
-  const rows = [];
-  for (const blk of (data.content || [])) {
-    if (blk.type !== 'mcp_tool_result') continue;
-    try {
-      const p = JSON.parse(blk.content?.[0]?.text || '{}');
-      const r = p?.result?.rows || p?.rows || [];
-      rows.push(...r);
-    } catch {}
-  }
-  return rows;
-}
-
-/* ═══════════════════════════════════════════════
-   FETCH ÓRDENES
-═══════════════════════════════════════════════ */
-async function fetchOrdenes() {
-  const data = await llamarClaude(
-    'Eres un extractor de datos Odoo. Usá la herramienta MCP odoo_search_rows para buscar órdenes. Llamá la herramienta directamente sin preguntar.',
-    `Llamá odoo_search_rows con:
-- model: "sale.order"
-- filters: [{"field":"x_studio_bu_1","operator":"eq","value":"ZAS CHILE"}]
-- order: "odoo_id_desc"
-- limit: 50`
-  );
-  return extraerRows(data);
-}
-
-/* ═══════════════════════════════════════════════
-   FETCH LÍNEAS
-═══════════════════════════════════════════════ */
-async function fetchLineas(ids) {
-  if (!ids.length) return [];
-  const data = await llamarClaude(
-    'Eres un extractor de datos Odoo. Usá la herramienta MCP odoo_search_rows. Llamá la herramienta directamente.',
-    `Llamá odoo_search_rows con:
-- model: "sale.order.line"
-- filters: [{"field":"order_id","operator":"in","value":[${ids.join(',')}]}]
-- order: "odoo_id_asc"
-- limit: 100`
-  );
-  return extraerRows(data);
-}
-
-/* ═══════════════════════════════════════════════
-   PROCESAR DATOS
-═══════════════════════════════════════════════ */
-function procesarOrdenes(rawRows) {
-  return rawRows
-    .filter(r => {
-      const p = r.latestPayload || {};
-      return p.x_studio_bu_1 === 'ZAS CHILE'
-        && p.state !== 'cancel'
-        && p.state !== 'draft';
-    })
-    .map(r => {
-      const p = r.latestPayload || {};
-      const moneda  = p.currency_id?.[1] || 'CLP';
-      const fecha   = (p.date_order || '').slice(0, 10);
-      const netOrig = +(p.amount_untaxed || 0);
-      const netCLP  = toCLP(netOrig, moneda, fecha);
-      const tipo    = p.x_studio_factura_o_boleta || '';
-      return {
-        id:       r.odooId,
-        name:     p.name || '',
-        fecha,
-        mes:      mesKey(fecha),
-        moneda,
-        netOrig,
-        netCLP,
-        tipo:     tipo === 'Factura' ? 'Factura' : tipo === 'Boleta' ? 'Boleta' : '',
-        lineIds:  p.order_line || [],
-      };
-    });
-}
-
-function procesarLineas(rawRows, ordenes) {
-  // Index de órdenes por id para heredar moneda y fecha
-  const ordIdx = {};
-  ordenes.forEach(o => { ordIdx[o.id] = o; });
-
-  return rawRows
-    .filter(r => {
-      const p = r.latestPayload || {};
-      return !p.display_type;  // skip secciones
-    })
-    .map(r => {
-      const p    = r.latestPayload || {};
-      const oid  = p.order_id?.[0];
-      const ord  = ordIdx[oid];
-      const moneda = ord ? ord.moneda : (p.currency_id?.[1] || 'CLP');
-      const fecha  = ord ? ord.fecha : '';
-      const sub    = +(p.price_subtotal || 0);
-      const talent = parseTalento(p.name);
-      return {
-        orderId:  oid,
-        nombre:   p.name || '',
-        talento:  talent,
-        subtotal: sub,
-        subCLP:   toCLP(sub, moneda, fecha),
-        mes:      ord ? ord.mes : mesKey(fecha),
-        tipo:     ord ? ord.tipo : '',
-        moneda,
-      };
-    })
-    .filter(l => l.talento && l.talento.length > 1);
-}
-
-/* ═══════════════════════════════════════════════
-   AGRUPACIONES
-═══════════════════════════════════════════════ */
-function agruparPorMes(ordenes) {
-  const m = {};
-  for (const o of ordenes) {
-    if (!m[o.mes]) m[o.mes] = { f: 0, b: 0, n: 0, usd: false };
-    if (o.moneda === 'USD') m[o.mes].usd = true;
-    if      (o.tipo === 'Factura') m[o.mes].f += o.netCLP;
-    else if (o.tipo === 'Boleta')  m[o.mes].b += o.netCLP;
-    else                           m[o.mes].n += o.netCLP;
-  }
-  return m;
-}
-
-function agruparTalentoMes(lineas) {
-  // { talento: { mes: { f, b, n } } }
-  const m = {};
-  for (const l of lineas) {
-    if (!l.talento) continue;
-    if (!m[l.talento]) m[l.talento] = {};
-    if (!m[l.talento][l.mes]) m[l.talento][l.mes] = { f: 0, b: 0, n: 0 };
-    if      (l.tipo === 'Factura') m[l.talento][l.mes].f += l.subCLP;
-    else if (l.tipo === 'Boleta')  m[l.talento][l.mes].b += l.subCLP;
-    else                           m[l.talento][l.mes].n += l.subCLP;
-  }
-  return m;
-}
-
-/* ═══════════════════════════════════════════════
-   RENDER TAB 1 — GENERAL
-═══════════════════════════════════════════════ */
-function renderGeneral(ordenes) {
-  const porMes = agruparPorMes(ordenes);
-  const keys   = Object.keys(porMes).sort();
-
-  let totF = 0, totB = 0, totN = 0;
-  keys.forEach(k => { totF += porMes[k].f; totB += porMes[k].b; totN += porMes[k].n; });
-  const totTotal = totF + totB + totN;
-
-  const tieneUSD = keys.some(k => porMes[k].usd);
-
-  // Filas tabla
   const filas = keys.map(k => {
-    const { f, b, n, usd } = porMes[k];
-    const tot = f + b + n;
-    const pF  = tot ? Math.round(f / tot * 100) : 0;
+    const {f,b,n,usd} = general[k];
+    const t = f+b+n, pF = t ? Math.round(f/t*100) : 0;
     return `<tr>
-      <td><strong>${mesLabel(k)}</strong></td>
+      <td><strong>${ml(k)}</strong></td>
       <td class="r" style="color:var(--blue)">${clp(f)}</td>
       <td class="r" style="color:var(--amber)">${clp(b)}</td>
-      <td class="r">${n > 0 ? clp(n) : '—'}</td>
-      <td class="r"><strong>${clp(tot)}</strong></td>
-      <td>
-        <div class="prg">
-          <div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div>
-          <span class="prg-lbl">${pF}% F</span>
-        </div>
-      </td>
-      <td>${usd ? '<span class="usd-tag">USD→CLP</span>' : ''}</td>
+      <td class="r">${n>0?clp(n):'—'}</td>
+      <td class="r"><strong>${clp(t)}</strong></td>
+      <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div><span class="prg-lbl">${pF}% F</span></div></td>
+      <td>${usd?'<span class="usd-tag">USD→CLP</span>':''}</td>
     </tr>`;
   }).join('');
 
-  const pFtot = totTotal ? Math.round(totF / totTotal * 100) : 0;
+  const pFt = tot ? Math.round(tF/tot*100) : 0;
 
-  const html = `
-    ${tieneUSD ? `<div class="note">Ventas en USD convertidas a CLP usando el dólar observado promedio mensual del Banco Central de Chile.</div>` : ''}
-
+  document.getElementById('tab-general').innerHTML = `
+    ${tieneUSD?`<div class="note">Ventas en USD convertidas a CLP con el dólar observado promedio mensual del Banco Central de Chile.</div>`:''}
     <div class="kpi-row">
-      <div class="kpi">
-        <div class="kpi-lbl">Total neto</div>
-        <div class="kpi-val">${clp(totTotal)}</div>
-        <div class="kpi-sub">${ordenes.length} órdenes</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-lbl">Factura · entra a ZAS</div>
-        <div class="kpi-val blue">${clp(totF)}</div>
-        <div class="kpi-sub">${pctStr(totF, totTotal)} del total</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-lbl">Boleta · entra a tercero</div>
-        <div class="kpi-val amber">${clp(totB)}</div>
-        <div class="kpi-sub">${pctStr(totB, totTotal)} del total</div>
-      </div>
+      <div class="kpi"><div class="kpi-lbl">Total neto</div><div class="kpi-val">${clp(tot)}</div><div class="kpi-sub">${DATA.total_ordenes} órdenes</div></div>
+      <div class="kpi"><div class="kpi-lbl">Factura · entra a ZAS</div><div class="kpi-val blue">${clp(tF)}</div><div class="kpi-sub">${pct(tF,tot)} del total</div></div>
+      <div class="kpi"><div class="kpi-lbl">Boleta · entra a tercero</div><div class="kpi-val amber">${clp(tB)}</div><div class="kpi-sub">${pct(tB,tot)} del total</div></div>
     </div>
-
     <div class="card">
       <div class="card-head">
         <span class="card-title">Importe neto mensual en CLP</span>
@@ -460,329 +152,173 @@ function renderGeneral(ordenes) {
         </div>
       </div>
       <div class="card-body">
-        <div class="chart-wrap" style="height:${Math.max(180, keys.length * 46 + 60)}px">
-          <canvas id="chartGeneral" role="img" aria-label="Gráfico mensual factura vs boleta ZAS Chile">Datos mensuales ZAS Chile.</canvas>
+        <div class="chart-wrap" style="height:${Math.max(180,keys.length*46+60)}px">
+          <canvas id="cG" role="img" aria-label="Gráfico mensual ZAS Chile"></canvas>
         </div>
       </div>
     </div>
-
     <div class="card">
-      <div class="card-head">
-        <span class="card-title">Detalle mes a mes</span>
-      </div>
+      <div class="card-head"><span class="card-title">Detalle mes a mes</span></div>
       <div class="card-body">
-        <div class="tbl-wrap">
-          <table>
-            <thead><tr>
-              <th>Mes</th>
-              <th class="r">Factura</th>
-              <th class="r">Boleta</th>
-              <th class="r">Sin tipo</th>
-              <th class="r">Total neto</th>
-              <th>Proporción F/B</th>
-              <th>FX</th>
-            </tr></thead>
-            <tbody>${filas}</tbody>
-            <tfoot>
-              <tr class="total-row">
-                <td>TOTAL</td>
-                <td class="r" style="color:var(--blue)">${clp(totF)}</td>
-                <td class="r" style="color:var(--amber)">${clp(totB)}</td>
-                <td class="r">${totN > 0 ? clp(totN) : '—'}</td>
-                <td class="r">${clp(totTotal)}</td>
-                <td>
-                  <div class="prg">
-                    <div class="prg-bar"><div class="prg-fill" style="width:${pFtot}%"></div></div>
-                    <span class="prg-lbl">${pFtot}% F</span>
-                  </div>
-                </td>
-                <td></td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Mes</th><th class="r">Factura</th><th class="r">Boleta</th><th class="r">Sin tipo</th><th class="r">Total neto</th><th>Proporción F/B</th><th>FX</th></tr></thead>
+          <tbody>${filas}</tbody>
+          <tfoot><tr class="total-row">
+            <td>TOTAL</td>
+            <td class="r" style="color:var(--blue)">${clp(tF)}</td>
+            <td class="r" style="color:var(--amber)">${clp(tB)}</td>
+            <td class="r">${tN>0?clp(tN):'—'}</td>
+            <td class="r">${clp(tot)}</td>
+            <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pFt}%"></div></div><span class="prg-lbl">${pFt}% F</span></div></td>
+            <td></td>
+          </tr></tfoot>
+        </table></div>
       </div>
     </div>`;
 
-  document.getElementById('content-general').innerHTML = html;
-
-  // Dibujar chart
   requestAnimationFrame(() => {
-    if (chart1) { chart1.destroy(); chart1 = null; }
-    const ctx = document.getElementById('chartGeneral');
-    if (!ctx) return;
-    chart1 = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: keys.map(mesLabel),
-        datasets: [
-          { label: 'Factura', data: keys.map(k => Math.round(porMes[k].f)), backgroundColor: '#1059A8', borderRadius: 3 },
-          { label: 'Boleta',  data: keys.map(k => Math.round(porMes[k].b)), backgroundColor: '#E8920A', borderRadius: 3 },
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: c => ' ' + clp(c.raw) } }
-        },
-        scales: {
-          x: { ticks: { autoSkip: false, maxRotation: 45, font: { size: 11 } }, grid: { display: false } },
-          y: {
-            ticks: {
-              callback: v => v >= 1e9 ? '$' + (v/1e9).toFixed(1) + 'B'
-                          : v >= 1e6 ? '$' + (v/1e6).toFixed(1) + 'M'
-                          : v >= 1e3 ? '$' + (v/1e3).toFixed(0) + 'K'
-                          : '$' + v,
-              font: { size: 11 }
-            },
-            grid: { color: 'rgba(0,0,0,.05)' }
-          }
+    if (c1) { c1.destroy(); c1=null; }
+    c1 = new Chart(document.getElementById('cG'), {
+      type:'bar',
+      data:{ labels:keys.map(ml), datasets:[
+        {label:'Factura', data:keys.map(k=>Math.round(general[k].f)), backgroundColor:'#1059A8', borderRadius:3},
+        {label:'Boleta',  data:keys.map(k=>Math.round(general[k].b)), backgroundColor:'#E8920A', borderRadius:3},
+      ]},
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{display:false}, tooltip:{callbacks:{label:c=>' '+clp(c.raw)}} },
+        scales:{
+          x:{ ticks:{autoSkip:false,maxRotation:45,font:{size:11}}, grid:{display:false} },
+          y:{ ticks:{ callback:v=>v>=1e6?'$'+(v/1e6).toFixed(1)+'M':v>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+v, font:{size:11} }, grid:{color:'rgba(0,0,0,.05)'} }
         }
       }
     });
   });
 }
 
-/* ═══════════════════════════════════════════════
-   RENDER TAB 2 — POR TALENTO
-═══════════════════════════════════════════════ */
-function renderTalento(lineas) {
-  const talMesMap  = agruparTalentoMes(lineas);
-  const talentos   = Object.keys(talMesMap).filter(t => t !== '(SIN DESGLOSE)').sort();
-  const todos      = ['(Todos los talentos)', ...talentos];
+/* ── RENDER TALENTO ── */
+function renderTalento(talentos) {
+  const lista = Object.keys(talentos).sort();
+  const opciones = ['(Todos los talentos)', ...lista].map(t =>
+    `<option value="${t}">${t}</option>`).join('');
 
-  // Populate selector
-  const sel = document.createElement('select');
-  sel.id = 'selTalento';
-  todos.forEach(t => {
-    const opt = document.createElement('option');
-    opt.value = t; opt.textContent = t;
-    sel.appendChild(opt);
-  });
-  sel.onchange = () => renderTablaYGraficoTalento(talMesMap, sel.value);
-
-  document.getElementById('content-talento').innerHTML = `
+  document.getElementById('tab-talento').innerHTML = `
     <div class="card">
       <div class="card-head">
-        <span class="card-title">Seleccioná un talento</span>
-        <div class="talent-selector">
+        <span class="card-title">Detalle por talento</span>
+        <div class="talent-sel">
           <label>Talento:</label>
-          <div id="sel-container"></div>
+          <select id="selT" onchange="renderDetalleTalento()">${opciones}</select>
         </div>
       </div>
       <div class="card-body">
-        <div id="talento-chart-wrap" class="chart-wrap" style="height:220px;margin-bottom:18px">
-          <canvas id="chartTalento" role="img" aria-label="Gráfico por talento"></canvas>
+        <div id="talKpis" class="kpi-row" style="margin-bottom:14px"></div>
+        <div class="chart-wrap" id="talChartWrap" style="height:220px;margin-bottom:18px">
+          <canvas id="cT" role="img" aria-label="Gráfico talento"></canvas>
         </div>
-        <div class="tbl-wrap" id="talento-tabla"></div>
+        <div class="tbl-wrap" id="talTabla"></div>
       </div>
     </div>`;
 
-  document.getElementById('sel-container').appendChild(sel);
-  renderTablaYGraficoTalento(talMesMap, todos[0]);
+  renderDetalleTalento();
 }
 
-function renderTablaYGraficoTalento(talMesMap, seleccion) {
-  // Construir data: todos los meses presentes
-  let mesesSet = new Set();
-  const talsFiltrados = seleccion === '(Todos los talentos)'
-    ? Object.keys(talMesMap)
-    : [seleccion];
+function renderDetalleTalento() {
+  const talentos = DATA.talentos;
+  const sel = document.getElementById('selT').value;
+  const lista = sel === '(Todos los talentos)' ? Object.keys(talentos) : [sel];
 
-  talsFiltrados.forEach(t => {
-    if (talMesMap[t]) Object.keys(talMesMap[t]).forEach(m => mesesSet.add(m));
-  });
-  const meses = [...mesesSet].sort();
-
-  // Sumar por mes
   const dataMes = {};
-  meses.forEach(m => { dataMes[m] = { f: 0, b: 0, n: 0 }; });
-  talsFiltrados.forEach(t => {
-    if (!talMesMap[t]) return;
-    Object.entries(talMesMap[t]).forEach(([m, d]) => {
-      if (!dataMes[m]) dataMes[m] = { f: 0, b: 0, n: 0 };
-      dataMes[m].f += d.f;
-      dataMes[m].b += d.b;
-      dataMes[m].n += d.n;
+  lista.forEach(t => {
+    if (!talentos[t]) return;
+    Object.entries(talentos[t]).forEach(([m,d]) => {
+      if (!dataMes[m]) dataMes[m] = {f:0,b:0,n:0};
+      dataMes[m].f += d.f; dataMes[m].b += d.b; dataMes[m].n += d.n;
     });
   });
 
-  // Totales
-  let totF = 0, totB = 0, totN = 0;
-  meses.forEach(m => { totF += dataMes[m].f; totB += dataMes[m].b; totN += dataMes[m].n; });
-  const totTotal = totF + totB + totN;
+  const meses = Object.keys(dataMes).sort();
+  let tF=0,tB=0,tN=0;
+  meses.forEach(m=>{ tF+=dataMes[m].f; tB+=dataMes[m].b; tN+=dataMes[m].n; });
+  const tot = tF+tB+tN;
 
-  // Tabla
+  document.getElementById('talKpis').innerHTML = `
+    <div class="kpi"><div class="kpi-lbl">Total neto</div><div class="kpi-val">${clp(tot)}</div></div>
+    <div class="kpi"><div class="kpi-lbl">Factura</div><div class="kpi-val blue">${clp(tF)}</div><div class="kpi-sub">${pct(tF,tot)}</div></div>
+    <div class="kpi"><div class="kpi-lbl">Boleta</div><div class="kpi-val amber">${clp(tB)}</div><div class="kpi-sub">${pct(tB,tot)}</div></div>`;
+
+  const pFt = tot ? Math.round(tF/tot*100) : 0;
   const filas = meses.map(m => {
-    const { f, b, n } = dataMes[m];
-    const tot = f + b + n;
-    const pF  = tot ? Math.round(f / tot * 100) : 0;
+    const {f,b,n} = dataMes[m];
+    const t=f+b+n, pF=t?Math.round(f/t*100):0;
     return `<tr>
-      <td><strong>${mesLabel(m)}</strong></td>
+      <td><strong>${ml(m)}</strong></td>
       <td class="r" style="color:var(--blue)">${clp(f)}</td>
       <td class="r" style="color:var(--amber)">${clp(b)}</td>
-      <td class="r">${n > 0 ? clp(n) : '—'}</td>
-      <td class="r"><strong>${clp(tot)}</strong></td>
-      <td>
-        <div class="prg">
-          <div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div>
-          <span class="prg-lbl">${pF}% F</span>
-        </div>
-      </td>
+      <td class="r">${n>0?clp(n):'—'}</td>
+      <td class="r"><strong>${clp(t)}</strong></td>
+      <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div><span class="prg-lbl">${pF}% F</span></div></td>
     </tr>`;
   }).join('');
 
-  const pFtot = totTotal ? Math.round(totF / totTotal * 100) : 0;
+  document.getElementById('talTabla').innerHTML = `<table>
+    <thead><tr><th>Mes</th><th class="r">Factura</th><th class="r">Boleta</th><th class="r">Sin tipo</th><th class="r">Total neto</th><th>Proporción F/B</th></tr></thead>
+    <tbody>${filas}</tbody>
+    <tfoot><tr class="total-row">
+      <td>TOTAL</td>
+      <td class="r" style="color:var(--blue)">${clp(tF)}</td>
+      <td class="r" style="color:var(--amber)">${clp(tB)}</td>
+      <td class="r">${tN>0?clp(tN):'—'}</td>
+      <td class="r">${clp(tot)}</td>
+      <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pFt}%"></div></div><span class="prg-lbl">${pFt}% F</span></div></td>
+    </tr></tfoot>
+  </table>`;
 
-  document.getElementById('talento-tabla').innerHTML = `
-    <div class="kpi-row" style="margin-bottom:14px">
-      <div class="kpi"><div class="kpi-lbl">Total neto</div><div class="kpi-val">${clp(totTotal)}</div></div>
-      <div class="kpi"><div class="kpi-lbl">Factura</div><div class="kpi-val blue">${clp(totF)}</div><div class="kpi-sub">${pctStr(totF, totTotal)}</div></div>
-      <div class="kpi"><div class="kpi-lbl">Boleta</div><div class="kpi-val amber">${clp(totB)}</div><div class="kpi-sub">${pctStr(totB, totTotal)}</div></div>
-    </div>
-    <table>
-      <thead><tr>
-        <th>Mes</th>
-        <th class="r">Factura</th>
-        <th class="r">Boleta</th>
-        <th class="r">Sin tipo</th>
-        <th class="r">Total neto</th>
-        <th>Proporción F/B</th>
-      </tr></thead>
-      <tbody>${filas}</tbody>
-      <tfoot>
-        <tr class="total-row">
-          <td>TOTAL</td>
-          <td class="r" style="color:var(--blue)">${clp(totF)}</td>
-          <td class="r" style="color:var(--amber)">${clp(totB)}</td>
-          <td class="r">${totN > 0 ? clp(totN) : '—'}</td>
-          <td class="r">${clp(totTotal)}</td>
-          <td>
-            <div class="prg">
-              <div class="prg-bar"><div class="prg-fill" style="width:${pFtot}%"></div></div>
-              <span class="prg-lbl">${pFtot}% F</span>
-            </div>
-          </td>
-        </tr>
-      </tfoot>
-    </table>`;
+  const w = document.getElementById('talChartWrap');
+  if (w) w.style.height = Math.max(180, meses.length*46+60)+'px';
 
-  // Chart
   requestAnimationFrame(() => {
-    if (chart2) { chart2.destroy(); chart2 = null; }
-    const ctx = document.getElementById('chartTalento');
+    if (c2) { c2.destroy(); c2=null; }
+    const ctx = document.getElementById('cT');
     if (!ctx) return;
-
-    const wrap = document.getElementById('talento-chart-wrap');
-    if (wrap) wrap.style.height = Math.max(180, meses.length * 46 + 60) + 'px';
-
-    chart2 = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: meses.map(mesLabel),
-        datasets: [
-          { label: 'Factura', data: meses.map(m => Math.round(dataMes[m].f)), backgroundColor: '#1059A8', borderRadius: 3 },
-          { label: 'Boleta',  data: meses.map(m => Math.round(dataMes[m].b)), backgroundColor: '#E8920A', borderRadius: 3 },
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: c => ' ' + clp(c.raw) } }
-        },
-        scales: {
-          x: { ticks: { autoSkip: false, maxRotation: 45, font: { size: 11 } }, grid: { display: false } },
-          y: {
-            ticks: {
-              callback: v => v >= 1e6 ? '$' + (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? '$' + (v/1e3).toFixed(0) + 'K' : '$' + v,
-              font: { size: 11 }
-            },
-            grid: { color: 'rgba(0,0,0,.05)' }
-          }
+    c2 = new Chart(ctx, {
+      type:'bar',
+      data:{ labels:meses.map(ml), datasets:[
+        {label:'Factura', data:meses.map(m=>Math.round(dataMes[m].f)), backgroundColor:'#1059A8', borderRadius:3},
+        {label:'Boleta',  data:meses.map(m=>Math.round(dataMes[m].b)), backgroundColor:'#E8920A', borderRadius:3},
+      ]},
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{display:false}, tooltip:{callbacks:{label:c=>' '+clp(c.raw)}} },
+        scales:{
+          x:{ ticks:{autoSkip:false,maxRotation:45,font:{size:11}}, grid:{display:false} },
+          y:{ ticks:{callback:v=>v>=1e6?'$'+(v/1e6).toFixed(1)+'M':v>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+v, font:{size:11}}, grid:{color:'rgba(0,0,0,.05)'} }
         }
       }
     });
   });
 }
 
-/* ═══════════════════════════════════════════════
-   SOLAPAS
-═══════════════════════════════════════════════ */
-function mostrarSolapa(id, btn) {
-  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-}
-
-/* ═══════════════════════════════════════════════
-   CARGA PRINCIPAL
-═══════════════════════════════════════════════ */
-async function cargar() {
-  const btn = document.getElementById('btnRefresh');
-  btn.disabled = true;
-  document.getElementById('subtitle').textContent = 'Cargando…';
-
-  document.getElementById('content-general').innerHTML =
-    `<div class="card"><div class="card-body"><div class="state-box">
-      <div class="spinner"></div><h3>Obteniendo órdenes…</h3>
-      <p>Conectando con Odoo en tiempo real.</p>
-    </div></div></div>`;
-
-  try {
-    // 1. Órdenes
-    const rawOrd = await fetchOrdenes();
-    ORDENES = procesarOrdenes(rawOrd);
-
-    if (!ORDENES.length) {
-      document.getElementById('content-general').innerHTML =
-        `<div class="card"><div class="card-body"><div class="err">No se encontraron órdenes de ZAS CHILE. Verificá la conexión con Odoo.</div></div></div>`;
-      btn.disabled = false;
-      return;
-    }
-
-    // 2. Líneas (para tab de talento) — en lotes de 20
-    document.getElementById('content-general').innerHTML =
-      `<div class="card"><div class="card-body"><div class="state-box">
-        <div class="spinner"></div><h3>Cargando líneas de venta…</h3>
-        <p>${ORDENES.length} órdenes encontradas. Obteniendo detalle de talentos.</p>
-      </div></div></div>`;
-
-    const idsValidos = ORDENES.slice(0, 40).map(o => o.id);
-    let rawLines = [];
-    for (let i = 0; i < idsValidos.length; i += 20) {
-      const batch = await fetchLineas(idsValidos.slice(i, i + 20));
-      rawLines.push(...batch);
-    }
-    LINEAS = procesarLineas(rawLines, ORDENES);
-
-    // 3. Render
-    renderGeneral(ORDENES);
-    renderTalento(LINEAS);
-
-    const now = new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
+/* ── INIT ── */
+fetch('./data.json?t=' + Date.now())
+  .then(r => {
+    if (!r.ok) throw new Error('data.json no encontrado (HTTP '+r.status+')');
+    return r.json();
+  })
+  .then(d => {
+    DATA = d;
+    const upd = new Date(d.updated_at).toLocaleString('es-AR', {
+      day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit'
+    });
     document.getElementById('subtitle').textContent =
-      `${ORDENES.length} órdenes · actualizado ${now} · datos en tiempo real de Odoo`;
-
-  } catch (e) {
-    const msg = e.message || 'Error desconocido';
-    document.getElementById('content-general').innerHTML =
-      `<div class="card"><div class="card-body">
-        <div class="err"><strong>Error al cargar datos</strong><br>${msg}<br><br>
-        <button class="btn" onclick="cargar()">Reintentar</button></div>
-      </div></div>`;
-    document.getElementById('subtitle').textContent = 'Error de conexión';
-  } finally {
-    btn.disabled = false;
-  }
-}
-
-/* ═══════════════════════════════════════════════
-   INICIO
-═══════════════════════════════════════════════ */
-cargar();
+      `Datos al ${upd} · ${d.total_ordenes} órdenes · se actualiza automáticamente cada día a las 8:30 hs`;
+    renderGeneral(d.general);
+    renderTalento(d.talentos);
+  })
+  .catch(e => {
+    document.getElementById('tab-general').innerHTML =
+      `<div class="err"><strong>No se pudo cargar data.json</strong><br>${e.message}<br><br>
+       El archivo se genera automáticamente cada mañana a las 8:30 hs. Si es la primera vez que abrís esto, puede que todavía no se haya generado. Volvé a intentarlo mañana o ejecutá el workflow manualmente desde GitHub Actions.</div>`;
+    document.getElementById('subtitle').textContent = 'Sin datos disponibles aún';
+  });
 </script>
 </body>
 </html>
