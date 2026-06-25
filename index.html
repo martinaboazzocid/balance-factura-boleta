@@ -3,261 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAS Chile · Dashboard Ventas</title>
+<title>ZAS Chile · Factura vs Boleta</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #F6F5F0;
-    --surface: #FFFFFF;
-    --border: rgba(0,0,0,.07);
-    --border-strong: rgba(0,0,0,.13);
-    --text: #18181A;
-    --muted: #6A6965;
-    --hint: #A09D96;
-    --factura-color: #0F54A4;
-    --factura-bg: #E8F0FA;
-    --boleta-color: #9A5100;
-    --boleta-bg: #FEF2E2;
-    --zas-color: #1A6E44;
-    --zas-bg: #E3F5EC;
-    --warn-color: #7A5200;
-    --warn-bg: #FFF8E6;
-    --danger-color: #A01C1C;
-    --danger-bg: #FDEAEA;
-    --r: 8px;
-    --r-lg: 12px;
+    --bg: #F5F4EF;
+    --card: #FFFFFF;
+    --border: #E4E3DC;
+    --text: #16161A;
+    --muted: #6B6966;
+    --hint: #A09D97;
+    --blue: #1059A8;
+    --blue-bg: #EAF1FB;
+    --amber: #9A5200;
+    --amber-bg: #FEF3E3;
+    --green: #1A6E45;
+    --r: 10px;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 14px;
-    line-height: 1.55;
-  }
-
-  /* ── Layout ── */
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 32px 22px 72px; }
+  /* ── Estructura ── */
+  .shell { max-width: 1080px; margin: 0 auto; padding: 30px 20px 60px; }
 
   /* ── Header ── */
-  .top-bar { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
-  .top-bar h1 { font-size: 21px; font-weight: 600; letter-spacing: -.3px; }
-  .top-bar p  { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .hdr { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
+  .hdr-left h1 { font-size: 20px; font-weight: 700; letter-spacing: -.3px; }
+  .hdr-left p  { font-size: 13px; color: var(--muted); margin-top: 3px; }
 
-  /* ── Buttons ── */
+  /* ── Botón ── */
   .btn {
-    display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px;
-    border: 1px solid var(--border-strong); border-radius: var(--r);
-    background: var(--surface); color: var(--text);
-    font-size: 13px; font-weight: 500; cursor: pointer; text-decoration: none;
-    transition: background .1s;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 15px; border: 1px solid var(--border); border-radius: var(--r);
+    background: var(--card); color: var(--text); font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: background .12s;
   }
   .btn:hover { background: var(--bg); }
-  .btn-sm { padding: 5px 11px; font-size: 12px; }
-  .btn-primary { background: var(--text); color: #fff; border-color: var(--text); }
-  .btn-primary:hover { background: #2a2a2e; }
-  .btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .btn:disabled { opacity: .45; cursor: default; }
 
-  /* ── Drive input ── */
-  .drive-row {
-    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--r-lg); padding: 14px 18px; margin-bottom: 20px;
+  /* ── Solapas ── */
+  .tabs-nav { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 22px; }
+  .tab-btn {
+    padding: 10px 20px; font-size: 14px; font-weight: 600; border: none; background: none;
+    cursor: pointer; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -2px;
+    transition: color .12s;
   }
-  .drive-row label { font-size: 12px; font-weight: 500; color: var(--muted); white-space: nowrap; }
-  .drive-row input {
-    flex: 1; min-width: 200px; padding: 7px 11px;
-    border: 1px solid var(--border-strong); border-radius: var(--r);
-    font-size: 13px; background: var(--bg); color: var(--text); outline: none;
-  }
-  .drive-row input:focus { border-color: var(--factura-color); }
-  #driveMsg { font-size: 12px; color: var(--muted); }
+  .tab-btn.active { color: var(--text); border-bottom-color: var(--text); }
+  .tab-btn:hover  { color: var(--text); }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
 
-  /* ── KPI cards ── */
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 20px; }
-  .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 16px 18px; }
-  .kpi-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin-bottom: 7px; }
-  .kpi-val { font-size: 24px; font-weight: 600; letter-spacing: -.5px; line-height: 1; }
-  .kpi-sub  { font-size: 12px; color: var(--hint); margin-top: 5px; }
-  .kpi-val.blue   { color: var(--factura-color); }
-  .kpi-val.amber  { color: var(--boleta-color); }
-  .kpi-val.green  { color: var(--zas-color); }
+  /* ── Cards ── */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); margin-bottom: 18px; overflow: hidden; }
+  .card-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 16px 18px 0; }
+  .card-title { font-size: 14px; font-weight: 700; }
+  .card-body  { padding: 16px 18px 18px; }
 
-  /* ── Info banner ── */
-  .info-banner {
-    background: var(--warn-bg); border: 1px solid rgba(180,120,0,.2);
-    border-radius: var(--r); padding: 10px 14px; font-size: 12px;
-    color: var(--warn-color); margin-bottom: 16px; line-height: 1.55;
-  }
+  /* ── KPIs ── */
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 18px; }
+  .kpi { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 18px; }
+  .kpi-lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin-bottom: 6px; }
+  .kpi-val { font-size: 23px; font-weight: 700; letter-spacing: -.5px; line-height: 1; }
+  .kpi-sub { font-size: 12px; color: var(--hint); margin-top: 4px; }
+  .kpi-val.blue  { color: var(--blue); }
+  .kpi-val.amber { color: var(--amber); }
+  .kpi-val.green { color: var(--green); }
 
-  /* ── Section cards ── */
-  .card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--r-lg); margin-bottom: 18px; overflow: hidden;
-  }
-  .card-head {
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 8px; padding: 16px 18px 0;
-  }
-  .card-title { font-size: 14px; font-weight: 600; }
-  .card-body  { padding: 14px 18px 18px; }
-
-  /* ── Legend ── */
+  /* ── Leyenda ── */
   .legend { display: flex; gap: 14px; flex-wrap: wrap; }
-  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
-  .leg-dot  { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+  .leg { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
+  .leg-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
 
   /* ── Chart ── */
-  .chart-box { position: relative; width: 100%; }
+  .chart-wrap { position: relative; width: 100%; }
 
-  /* ── Tables ── */
+  /* ── Tabla ── */
   .tbl-wrap { overflow-x: auto; }
-  table  { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
   thead th {
     text-align: left; padding: 8px 11px;
-    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .4px;
-    color: var(--muted); border-bottom: 1px solid var(--border); background: var(--bg);
-    white-space: nowrap;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px;
+    color: var(--muted); border-bottom: 1px solid var(--border); background: var(--bg); white-space: nowrap;
   }
   th.r, td.r { text-align: right; }
   td { padding: 9px 11px; border-bottom: 1px solid var(--border); vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tbody tr:hover td { background: #FAFAF7; }
-  tr.sum-row td { background: #F3F2EE; font-weight: 600; border-top: 1px solid var(--border-strong); border-bottom: none; }
+  tr.total-row td { background: #F3F2EE; font-weight: 700; border-top: 1px solid #D0CFC8; border-bottom: none; }
 
   /* ── Pills ── */
-  .pill {
-    display: inline-block; padding: 2px 8px; border-radius: 20px;
-    font-size: 11px; font-weight: 600; white-space: nowrap;
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .pill-f { background: var(--blue-bg);  color: var(--blue); }
+  .pill-b { background: var(--amber-bg); color: var(--amber); }
+  .pill-n { background: #EEEDEA; color: var(--muted); }
+
+  /* ── Barra proporcional ── */
+  .prg { display: flex; align-items: center; gap: 6px; }
+  .prg-bar { flex: 1; min-width: 60px; height: 5px; background: #EDECEA; border-radius: 3px; overflow: hidden; }
+  .prg-fill { height: 100%; background: var(--blue); border-radius: 3px; }
+  .prg-lbl { font-size: 11px; color: var(--hint); min-width: 34px; text-align: right; }
+
+  /* ── Selector de talento ── */
+  .talent-selector { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .talent-selector label { font-size: 13px; font-weight: 600; color: var(--muted); }
+  .talent-selector select {
+    padding: 7px 12px; border: 1px solid var(--border); border-radius: var(--r);
+    font-size: 13px; background: var(--card); color: var(--text);
+    cursor: pointer; outline: none; min-width: 200px;
   }
-  .pill-f { background: var(--factura-bg); color: var(--factura-color); }
-  .pill-b { background: var(--boleta-bg);  color: var(--boleta-color); }
-  .pill-n { background: #EDEDEA; color: var(--muted); }
+  .talent-selector select:focus { border-color: var(--blue); }
 
-  /* ── Bar inline ── */
-  .bar-row { display: flex; align-items: center; gap: 6px; }
-  .bar-bg   { flex: 1; height: 5px; background: #EDECEA; border-radius: 3px; overflow: hidden; min-width: 50px; }
-  .bar-fill { height: 100%; border-radius: 3px; background: var(--factura-color); }
-  .bar-pct  { font-size: 11px; color: var(--hint); min-width: 30px; text-align: right; }
-
-  /* ── USD tag ── */
-  .usd-tag { font-size: 10px; color: var(--hint); background: #EDEDEA; padding: 1px 5px; border-radius: 3px; }
-
-  /* ── States ── */
-  .state-box { text-align: center; padding: 52px 20px; }
-  .state-box .spin {
-    width: 22px; height: 22px; border: 2px solid var(--border-strong);
-    border-top-color: var(--text); border-radius: 50%;
-    animation: spin .65s linear infinite; margin: 0 auto 14px;
-  }
+  /* ── Estado loading/error ── */
+  .state-box { text-align: center; padding: 50px 20px; }
+  .spinner { width: 24px; height: 24px; border: 2px solid var(--border); border-top-color: var(--text); border-radius: 50%; animation: spin .65s linear infinite; margin: 0 auto 14px; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .state-box h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
-  .state-box p  { font-size: 13px; color: var(--muted); max-width: 360px; margin: 0 auto; }
-  .err-box {
-    background: var(--danger-bg); border: 1px solid rgba(160,28,28,.15);
-    border-radius: var(--r); padding: 14px 16px; font-size: 13px;
-    color: var(--danger-color); line-height: 1.55;
-  }
+  .state-box h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .state-box p  { font-size: 13px; color: var(--muted); max-width: 360px; margin: 0 auto 14px; }
+  .err { background: #FDEAEA; border: 1px solid #F5C0C0; border-radius: var(--r); padding: 14px 16px; font-size: 13px; color: #9B1C1C; line-height: 1.6; }
 
-  /* ── Tabs ── */
-  .tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--border); padding: 0 18px; }
-  .tab {
-    padding: 10px 13px; font-size: 13px; font-weight: 500;
-    border: none; background: none; cursor: pointer;
-    color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px;
-  }
-  .tab.on { color: var(--text); border-bottom-color: var(--text); }
-  .tab:hover { color: var(--text); }
-  .tab-panel { display: none; }
-  .tab-panel.on { display: block; }
+  /* ── Tag USD ── */
+  .usd-tag { font-size: 10px; background: #EEEDEA; color: var(--hint); padding: 1px 5px; border-radius: 3px; }
 
-  /* ── Responsive ── */
-  @media (max-width: 580px) {
-    .wrap { padding: 18px 14px 50px; }
-    .kpi-val { font-size: 19px; }
-  }
+  /* ── Nota info ── */
+  .note { background: #FEF9E7; border: 1px solid #F5E07A; border-radius: var(--r); padding: 10px 14px; font-size: 12px; color: #856400; margin-bottom: 16px; line-height: 1.55; }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="shell">
 
   <!-- Header -->
-  <div class="top-bar">
-    <div>
-      <h1>ZAS Chile · Ventas</h1>
-      <p id="updateLine">Conectando con Odoo…</p>
+  <div class="hdr">
+    <div class="hdr-left">
+      <h1>ZAS Chile · Factura vs Boleta</h1>
+      <p id="subtitle">Cargando datos de Odoo…</p>
     </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn" onclick="reload()" id="reloadBtn">
-        <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
-        Actualizar
-      </button>
-    </div>
-  </div>
-
-  <!-- Drive row -->
-  <div class="drive-row">
-    <label>% talento (Drive):</label>
-    <input type="text" id="driveInput" placeholder="Pegar link de Google Sheets con columnas Talento / Porcentaje …" />
-    <button class="btn btn-primary btn-sm" onclick="loadDrive()">
-      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-      Cargar %
+    <button class="btn" id="btnRefresh" onclick="cargar()">
+      <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+      Actualizar
     </button>
-    <span id="driveMsg"></span>
   </div>
 
-  <!-- KPIs -->
-  <div class="kpis">
-    <div class="kpi">
-      <div class="kpi-label">Total neto · Chile</div>
-      <div class="kpi-val" id="kTotal">—</div>
-      <div class="kpi-sub" id="kOrdenes">cargando…</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Factura · entra a ZAS</div>
-      <div class="kpi-val blue" id="kFactura">—</div>
-      <div class="kpi-sub" id="kFacturaPct"></div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Boleta · entra a tercero</div>
-      <div class="kpi-val amber" id="kBoleta">—</div>
-      <div class="kpi-sub" id="kBoletaPct"></div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">ZAS neto est. (sobre factura)</div>
-      <div class="kpi-val green" id="kZas">—</div>
-      <div class="kpi-sub" id="kZasSub">split promedio por talento</div>
-    </div>
+  <!-- Solapas -->
+  <div class="tabs-nav">
+    <button class="tab-btn active" onclick="mostrarSolapa('general', this)">Venta general</button>
+    <button class="tab-btn"        onclick="mostrarSolapa('talento', this)">Por talento</button>
   </div>
 
-  <!-- Main body -->
-  <div id="body">
-    <div class="card">
-      <div class="card-body">
+  <!-- TAB 1: General -->
+  <div id="tab-general" class="tab-pane active">
+    <div id="content-general">
+      <div class="card"><div class="card-body">
         <div class="state-box">
-          <div class="spin"></div>
-          <h3>Cargando ventas de ZAS Chile</h3>
-          <p>Consultando Odoo en tiempo real. Puede tomar unos segundos…</p>
+          <div class="spinner"></div>
+          <h3>Cargando ventas…</h3>
+          <p>Conectando con Odoo en tiempo real.</p>
         </div>
-      </div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Por talento -->
+  <div id="tab-talento" class="tab-pane">
+    <div id="content-talento">
+      <div class="card"><div class="card-body">
+        <div class="state-box">
+          <h3>Esperando datos…</h3>
+          <p>Primero cargá la solapa "Venta general".</p>
+        </div>
+      </div></div>
     </div>
   </div>
 
 </div>
 
 <script>
-/* ════════════════════════════════════════════
-   CONSTANTES Y ESTADO
-════════════════════════════════════════════ */
-const API   = 'https://api.anthropic.com/v1/messages';
-const MCP   = 'https://zas-agent-api.quantumsur.ai/api/mcp';
-const MODEL = 'claude-sonnet-4-6';
+/* ═══════════════════════════════════════════════
+   CONFIGURACIÓN
+═══════════════════════════════════════════════ */
+const CLAUDE_API = 'https://api.anthropic.com/v1/messages';
+const MCP_URL    = 'https://zas-agent-api.quantumsur.ai/api/mcp';
 
-// Promedios mensuales BCCH (fallback si Odoo no trae currency_rate)
-// Fuente: serie F073 Banco Central de Chile
-const FX_FALLBACK = {
+// Dólar observado promedio mensual BCCH (serie F073)
+// Para convertir USD → CLP en ventas internacionales
+const FX = {
   '2024-01':969,'2024-02':981,'2024-03':988,'2024-04':960,'2024-05':897,
   '2024-06':931,'2024-07':943,'2024-08':938,'2024-09':942,'2024-10':952,
   '2024-11':971,'2024-12':997,'2025-01':1010,'2025-02':998,'2025-03':990,
@@ -266,540 +195,594 @@ const FX_FALLBACK = {
   '2026-02':970,'2026-03':960,'2026-04':945,'2026-05':935,'2026-06':942,
 };
 
-let allOrders  = [];  // array de órdenes procesadas
-let talentPcts = {};  // { "CARLITA": 72, … } desde Drive
-let chart1     = null;
+const MESES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 
-const MES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+/* ═══════════════════════════════════════════════
+   ESTADO GLOBAL
+═══════════════════════════════════════════════ */
+let ORDENES  = [];  // órdenes procesadas
+let LINEAS   = [];  // líneas procesadas
+let chart1   = null;
+let chart2   = null;
 
-/* ════════════════════════════════════════════
-   UTILIDADES
-════════════════════════════════════════════ */
-const fmt = n => '$\u2009' + Math.round(n).toLocaleString('es-CL');
-const pct  = (a,b) => b ? Math.round(a/b*100) : 0;
-const mk   = d => d ? d.slice(0,7) : '????-??';
-const mlbl = k => { const[y,m]=k.split('-'); return MES[+m-1]+' '+y.slice(2); };
-
-function toCLP(amount, currency, dateStr, odooRate) {
-  if (!currency || currency === 'CLP') return +amount;
-  if (currency === 'USD') {
-    // Odoo guarda el rate como USD→CLP (currency_rate ≈ 0.00109 es CLP por unidad CLP,
-    // pero en realidad es el inverse; en Zas Talents el rate guardado en sale.order.line
-    // es el mismo que en sale.order: 0.00109... = 1/916 ≈ CLP_per_USD-inverse
-    // Validamos: si rate < 0.01 asumimos que es 1/(CLP per USD)
-    let clpPerUsd;
-    if (odooRate && odooRate > 0) {
-      clpPerUsd = odooRate < 0.1 ? Math.round(1 / odooRate) : odooRate;
-    } else {
-      clpPerUsd = FX_FALLBACK[mk(dateStr)] || 960;
-    }
-    return +amount * clpPerUsd;
+/* ═══════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════ */
+function clp(n) {
+  return '$\u202F' + Math.round(n).toLocaleString('es-CL');
+}
+function mesKey(fecha) {
+  return fecha ? fecha.slice(0, 7) : '0000-00';
+}
+function mesLabel(k) {
+  const [y, m] = k.split('-');
+  return MESES[parseInt(m, 10) - 1] + ' ' + y.slice(2);
+}
+function toCLP(monto, moneda, fecha) {
+  if (!moneda || moneda === 'CLP') return +monto;
+  if (moneda === 'USD') {
+    const rate = FX[mesKey(fecha)] || 950;
+    return +monto * rate;
   }
-  return +amount;
+  return +monto;
+}
+function parseTalento(nombre) {
+  if (!nombre) return null;
+  // Extrae todo lo que está ANTES del primer paréntesis y limpia espacios
+  const m = nombre.match(/^([^(]+)/);
+  if (!m) return nombre.trim().toUpperCase();
+  return m[1].trim().toUpperCase();
+}
+function pctStr(a, total) {
+  if (!total) return '—';
+  return Math.round(a / total * 100) + '%';
 }
 
-function parseTalent(name) {
-  if (!name) return null;
-  const m = name.match(/^([^(]+)/);
-  const raw = m ? m[1].trim() : name.trim();
-  return raw.toUpperCase().replace(/\s+/g,' ');
-}
-
-function getTalentPct(name) {
-  if (!name) return 70;
-  const k = name.toUpperCase();
-  if (talentPcts[k] != null) return talentPcts[k];
-  for (const [key, val] of Object.entries(talentPcts)) {
-    if (k.includes(key) || key.includes(k)) return val;
-  }
-  return 70;
-}
-
-/* ════════════════════════════════════════════
-   API CLAUDE
-════════════════════════════════════════════ */
-async function claudeCall(system, user, maxTok = 8000) {
-  const r = await fetch(API, {
+/* ═══════════════════════════════════════════════
+   LLAMADA A CLAUDE + MCP
+═══════════════════════════════════════════════ */
+async function llamarClaude(system, user) {
+  const resp = await fetch(CLAUDE_API, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      model: MODEL,
-      max_tokens: maxTok,
+      model: 'claude-sonnet-4-6',
+      max_tokens: 8000,
       system,
       messages: [{ role: 'user', content: user }],
-      mcp_servers: [{ type: 'url', url: MCP, name: 'zas-os' }]
+      mcp_servers: [{ type: 'url', url: MCP_URL, name: 'zas' }]
     })
   });
-  if (!r.ok) throw new Error(`HTTP ${r.status}`);
-  return r.json();
+  if (!resp.ok) throw new Error('HTTP ' + resp.status);
+  return resp.json();
 }
 
-// Extrae rows de cualquier bloque mcp_tool_result
-function extractRows(data) {
+function extraerRows(data) {
   const rows = [];
-  for (const b of (data.content || [])) {
-    if (b.type !== 'mcp_tool_result') continue;
+  for (const blk of (data.content || [])) {
+    if (blk.type !== 'mcp_tool_result') continue;
     try {
-      const parsed = JSON.parse(b.content?.[0]?.text || '{}');
-      const rr = parsed?.result?.rows || parsed?.rows || [];
-      rows.push(...rr);
+      const p = JSON.parse(blk.content?.[0]?.text || '{}');
+      const r = p?.result?.rows || p?.rows || [];
+      rows.push(...r);
     } catch {}
   }
   return rows;
 }
 
-/* ════════════════════════════════════════════
-   FETCH VENTAS CHILE
-════════════════════════════════════════════ */
-async function fetchOrders() {
-  // Traer órdenes ZAS CHILE — pedimos hasta 50 (máximo seguro por tamaño)
-  const data = await claudeCall(
-    'Eres un extractor de datos Odoo. Usa SIEMPRE las herramientas MCP disponibles. No respondas sin haberlas llamado.',
-    `Llama a odoo_search_rows del MCP zas-os con estos parámetros exactos:
+/* ═══════════════════════════════════════════════
+   FETCH ÓRDENES
+═══════════════════════════════════════════════ */
+async function fetchOrdenes() {
+  const data = await llamarClaude(
+    'Eres un extractor de datos Odoo. Usá la herramienta MCP odoo_search_rows para buscar órdenes. Llamá la herramienta directamente sin preguntar.',
+    `Llamá odoo_search_rows con:
 - model: "sale.order"
 - filters: [{"field":"x_studio_bu_1","operator":"eq","value":"ZAS CHILE"}]
 - order: "odoo_id_desc"
-- limit: 50
-Llama la herramienta AHORA y devuelve el resultado.`
+- limit: 50`
   );
-  return extractRows(data);
+  return extraerRows(data);
 }
 
-async function fetchLines(orderIds) {
-  if (!orderIds.length) return [];
-  const data = await claudeCall(
-    'Eres un extractor de datos Odoo. Usa las herramientas MCP disponibles.',
-    `Llama a odoo_search_rows del MCP zas-os con estos parámetros exactos:
+/* ═══════════════════════════════════════════════
+   FETCH LÍNEAS
+═══════════════════════════════════════════════ */
+async function fetchLineas(ids) {
+  if (!ids.length) return [];
+  const data = await llamarClaude(
+    'Eres un extractor de datos Odoo. Usá la herramienta MCP odoo_search_rows. Llamá la herramienta directamente.',
+    `Llamá odoo_search_rows con:
 - model: "sale.order.line"
-- filters: [{"field":"order_id","operator":"in","value":[${orderIds.join(',')}]}]
+- filters: [{"field":"order_id","operator":"in","value":[${ids.join(',')}]}]
 - order: "odoo_id_asc"
-- limit: 100
-Llama la herramienta AHORA.`
+- limit: 100`
   );
-  return extractRows(data);
+  return extraerRows(data);
 }
 
-/* ════════════════════════════════════════════
-   PROCESO DATOS
-════════════════════════════════════════════ */
-function parseOrder(row) {
-  const p = row.latestPayload || {};
-  return {
-    id:        row.odooId,
-    name:      p.name || '',
-    date:      (p.date_order || '').slice(0,10),
-    state:     p.state || '',
-    currency:  p.currency_id?.[1] || 'CLP',
-    rate:      +(p.currency_rate || 0),   // Odoo rate (puede ser inverse)
-    netOrig:   +(p.amount_untaxed || 0),
-    tipo:      p.x_studio_factura_o_boleta || '',
-    bu:        p.x_studio_bu_1 || '',
-    lineIds:   p.order_line || [],
-    campaña:   p.x_studio_nombre_de_la_campaa || '',
-    lines:     [],
-    netCLP:    0,
-  };
-}
-
-function enrichOrders(orders, lineRows) {
-  // Index lines by order_id
-  const byOrder = {};
-  for (const lr of lineRows) {
-    const p = lr.latestPayload || {};
-    if (p.display_type) continue;          // skip section headers
-    const oid = p.order_id?.[0];
-    if (!oid) continue;
-    if (!byOrder[oid]) byOrder[oid] = [];
-    byOrder[oid].push({
-      name:     p.name || '',
-      subtotal: +(p.price_subtotal || 0),
-      currency: p.currency_id?.[1] || 'CLP',
-      rate:     +(p.currency_rate || 0),
+/* ═══════════════════════════════════════════════
+   PROCESAR DATOS
+═══════════════════════════════════════════════ */
+function procesarOrdenes(rawRows) {
+  return rawRows
+    .filter(r => {
+      const p = r.latestPayload || {};
+      return p.x_studio_bu_1 === 'ZAS CHILE'
+        && p.state !== 'cancel'
+        && p.state !== 'draft';
+    })
+    .map(r => {
+      const p = r.latestPayload || {};
+      const moneda  = p.currency_id?.[1] || 'CLP';
+      const fecha   = (p.date_order || '').slice(0, 10);
+      const netOrig = +(p.amount_untaxed || 0);
+      const netCLP  = toCLP(netOrig, moneda, fecha);
+      const tipo    = p.x_studio_factura_o_boleta || '';
+      return {
+        id:       r.odooId,
+        name:     p.name || '',
+        fecha,
+        mes:      mesKey(fecha),
+        moneda,
+        netOrig,
+        netCLP,
+        tipo:     tipo === 'Factura' ? 'Factura' : tipo === 'Boleta' ? 'Boleta' : '',
+        lineIds:  p.order_line || [],
+      };
     });
-  }
-
-  for (const o of orders) {
-    if (o.state === 'cancel' || o.state === 'draft') continue;
-    o.netCLP = toCLP(o.netOrig, o.currency, o.date, o.rate);
-    o.lines  = (byOrder[o.id] || []).map(l => ({
-      talent:   parseTalent(l.name),
-      subtotal: toCLP(l.subtotal, l.currency || o.currency, o.date, l.rate || o.rate),
-    })).filter(l => l.talent && l.talent.length > 1);
-    o.tipo = o.tipo === 'Factura' ? 'Factura' : o.tipo === 'Boleta' ? 'Boleta' : '';
-  }
-
-  return orders.filter(o => o.state !== 'cancel' && o.state !== 'draft' && o.bu === 'ZAS CHILE');
 }
 
-/* ════════════════════════════════════════════
-   AGREGACIONES
-════════════════════════════════════════════ */
-function buildMonthMap(orders) {
+function procesarLineas(rawRows, ordenes) {
+  // Index de órdenes por id para heredar moneda y fecha
+  const ordIdx = {};
+  ordenes.forEach(o => { ordIdx[o.id] = o; });
+
+  return rawRows
+    .filter(r => {
+      const p = r.latestPayload || {};
+      return !p.display_type;  // skip secciones
+    })
+    .map(r => {
+      const p    = r.latestPayload || {};
+      const oid  = p.order_id?.[0];
+      const ord  = ordIdx[oid];
+      const moneda = ord ? ord.moneda : (p.currency_id?.[1] || 'CLP');
+      const fecha  = ord ? ord.fecha : '';
+      const sub    = +(p.price_subtotal || 0);
+      const talent = parseTalento(p.name);
+      return {
+        orderId:  oid,
+        nombre:   p.name || '',
+        talento:  talent,
+        subtotal: sub,
+        subCLP:   toCLP(sub, moneda, fecha),
+        mes:      ord ? ord.mes : mesKey(fecha),
+        tipo:     ord ? ord.tipo : '',
+        moneda,
+      };
+    })
+    .filter(l => l.talento && l.talento.length > 1);
+}
+
+/* ═══════════════════════════════════════════════
+   AGRUPACIONES
+═══════════════════════════════════════════════ */
+function agruparPorMes(ordenes) {
   const m = {};
-  for (const o of orders) {
-    const key = mk(o.date);
-    if (!m[key]) m[key] = { f:0, b:0, n:0, usd:false, count:0 };
-    m[key].count++;
-    if (o.currency === 'USD') m[key].usd = true;
-    if (o.tipo === 'Factura')  m[key].f += o.netCLP;
-    else if (o.tipo === 'Boleta') m[key].b += o.netCLP;
-    else                          m[key].n += o.netCLP;
+  for (const o of ordenes) {
+    if (!m[o.mes]) m[o.mes] = { f: 0, b: 0, n: 0, usd: false };
+    if (o.moneda === 'USD') m[o.mes].usd = true;
+    if      (o.tipo === 'Factura') m[o.mes].f += o.netCLP;
+    else if (o.tipo === 'Boleta')  m[o.mes].b += o.netCLP;
+    else                           m[o.mes].n += o.netCLP;
   }
   return m;
 }
 
-function buildTalentMap(orders) {
-  const t = {};
-  for (const o of orders) {
-    const addLine = (talent, clp) => {
-      if (!t[talent]) t[talent] = { f:0, b:0, n:0, months: new Set() };
-      t[talent].months.add(mk(o.date));
-      if (o.tipo === 'Factura')     t[talent].f += clp;
-      else if (o.tipo === 'Boleta') t[talent].b += clp;
-      else                          t[talent].n += clp;
-    };
-
-    if (o.lines.length) {
-      o.lines.forEach(l => addLine(l.talent, l.subtotal));
-    } else {
-      addLine('(sin desglose)', o.netCLP);
-    }
+function agruparTalentoMes(lineas) {
+  // { talento: { mes: { f, b, n } } }
+  const m = {};
+  for (const l of lineas) {
+    if (!l.talento) continue;
+    if (!m[l.talento]) m[l.talento] = {};
+    if (!m[l.talento][l.mes]) m[l.talento][l.mes] = { f: 0, b: 0, n: 0 };
+    if      (l.tipo === 'Factura') m[l.talento][l.mes].f += l.subCLP;
+    else if (l.tipo === 'Boleta')  m[l.talento][l.mes].b += l.subCLP;
+    else                           m[l.talento][l.mes].n += l.subCLP;
   }
-  return t;
+  return m;
 }
 
-/* ════════════════════════════════════════════
-   RENDER
-════════════════════════════════════════════ */
-function updateKPIs(orders) {
-  const totF = orders.filter(o => o.tipo==='Factura').reduce((s,o)=>s+o.netCLP,0);
-  const totB = orders.filter(o => o.tipo==='Boleta').reduce((s,o)=>s+o.netCLP,0);
-  const totN = orders.filter(o => o.tipo==='').reduce((s,o)=>s+o.netCLP,0);
-  const tot  = totF + totB + totN;
+/* ═══════════════════════════════════════════════
+   RENDER TAB 1 — GENERAL
+═══════════════════════════════════════════════ */
+function renderGeneral(ordenes) {
+  const porMes = agruparPorMes(ordenes);
+  const keys   = Object.keys(porMes).sort();
 
-  // ZAS neto estimado: promedio de splits por talento sobre ventas con factura
-  const tasMap = buildTalentMap(orders.filter(o => o.tipo==='Factura'));
-  let zasEst = 0;
-  for (const [name, d] of Object.entries(tasMap)) {
-    const talPct = getTalentPct(name);
-    const total  = d.f + d.b + d.n;
-    zasEst += total * (1 - talPct/100);
-  }
+  let totF = 0, totB = 0, totN = 0;
+  keys.forEach(k => { totF += porMes[k].f; totB += porMes[k].b; totN += porMes[k].n; });
+  const totTotal = totF + totB + totN;
 
-  document.getElementById('kTotal').textContent    = fmt(tot);
-  document.getElementById('kOrdenes').textContent  = `${orders.length} órdenes confirmadas`;
-  document.getElementById('kFactura').textContent  = fmt(totF);
-  document.getElementById('kFacturaPct').textContent = tot ? `${pct(totF,tot)}% del total` : '';
-  document.getElementById('kBoleta').textContent   = fmt(totB);
-  document.getElementById('kBoletaPct').textContent  = tot ? `${pct(totB,tot)}% del total` : '';
-  document.getElementById('kZas').textContent      = fmt(zasEst);
-}
+  const tieneUSD = keys.some(k => porMes[k].usd);
 
-function renderChart(monthMap) {
-  if (chart1) { chart1.destroy(); chart1 = null; }
-  const keys  = Object.keys(monthMap).sort();
-  const ctx   = document.getElementById('ch1');
-  if (!ctx) return;
-  chart1 = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: keys.map(mlbl),
-      datasets: [
-        { label:'Factura', data: keys.map(k=>Math.round(monthMap[k].f)), backgroundColor:'#0F54A4', borderRadius:3 },
-        { label:'Boleta',  data: keys.map(k=>Math.round(monthMap[k].b)), backgroundColor:'#E69200', borderRadius:3 },
-      ]
-    },
-    options: {
-      responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ display:false },
-        tooltip:{ callbacks:{ label: c=>' '+fmt(c.raw) } }
+  // Filas tabla
+  const filas = keys.map(k => {
+    const { f, b, n, usd } = porMes[k];
+    const tot = f + b + n;
+    const pF  = tot ? Math.round(f / tot * 100) : 0;
+    return `<tr>
+      <td><strong>${mesLabel(k)}</strong></td>
+      <td class="r" style="color:var(--blue)">${clp(f)}</td>
+      <td class="r" style="color:var(--amber)">${clp(b)}</td>
+      <td class="r">${n > 0 ? clp(n) : '—'}</td>
+      <td class="r"><strong>${clp(tot)}</strong></td>
+      <td>
+        <div class="prg">
+          <div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div>
+          <span class="prg-lbl">${pF}% F</span>
+        </div>
+      </td>
+      <td>${usd ? '<span class="usd-tag">USD→CLP</span>' : ''}</td>
+    </tr>`;
+  }).join('');
+
+  const pFtot = totTotal ? Math.round(totF / totTotal * 100) : 0;
+
+  const html = `
+    ${tieneUSD ? `<div class="note">Ventas en USD convertidas a CLP usando el dólar observado promedio mensual del Banco Central de Chile.</div>` : ''}
+
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="kpi-lbl">Total neto</div>
+        <div class="kpi-val">${clp(totTotal)}</div>
+        <div class="kpi-sub">${ordenes.length} órdenes</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-lbl">Factura · entra a ZAS</div>
+        <div class="kpi-val blue">${clp(totF)}</div>
+        <div class="kpi-sub">${pctStr(totF, totTotal)} del total</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-lbl">Boleta · entra a tercero</div>
+        <div class="kpi-val amber">${clp(totB)}</div>
+        <div class="kpi-sub">${pctStr(totB, totTotal)} del total</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">Importe neto mensual en CLP</span>
+        <div class="legend">
+          <div class="leg"><div class="leg-dot" style="background:#1059A8"></div>Factura</div>
+          <div class="leg"><div class="leg-dot" style="background:#E8920A"></div>Boleta</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap" style="height:${Math.max(180, keys.length * 46 + 60)}px">
+          <canvas id="chartGeneral" role="img" aria-label="Gráfico mensual factura vs boleta ZAS Chile">Datos mensuales ZAS Chile.</canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">Detalle mes a mes</span>
+      </div>
+      <div class="card-body">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr>
+              <th>Mes</th>
+              <th class="r">Factura</th>
+              <th class="r">Boleta</th>
+              <th class="r">Sin tipo</th>
+              <th class="r">Total neto</th>
+              <th>Proporción F/B</th>
+              <th>FX</th>
+            </tr></thead>
+            <tbody>${filas}</tbody>
+            <tfoot>
+              <tr class="total-row">
+                <td>TOTAL</td>
+                <td class="r" style="color:var(--blue)">${clp(totF)}</td>
+                <td class="r" style="color:var(--amber)">${clp(totB)}</td>
+                <td class="r">${totN > 0 ? clp(totN) : '—'}</td>
+                <td class="r">${clp(totTotal)}</td>
+                <td>
+                  <div class="prg">
+                    <div class="prg-bar"><div class="prg-fill" style="width:${pFtot}%"></div></div>
+                    <span class="prg-lbl">${pFtot}% F</span>
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>`;
+
+  document.getElementById('content-general').innerHTML = html;
+
+  // Dibujar chart
+  requestAnimationFrame(() => {
+    if (chart1) { chart1.destroy(); chart1 = null; }
+    const ctx = document.getElementById('chartGeneral');
+    if (!ctx) return;
+    chart1 = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: keys.map(mesLabel),
+        datasets: [
+          { label: 'Factura', data: keys.map(k => Math.round(porMes[k].f)), backgroundColor: '#1059A8', borderRadius: 3 },
+          { label: 'Boleta',  data: keys.map(k => Math.round(porMes[k].b)), backgroundColor: '#E8920A', borderRadius: 3 },
+        ]
       },
-      scales:{
-        x:{ ticks:{ autoSkip:false, maxRotation:45, font:{size:11} }, grid:{display:false} },
-        y:{ ticks:{ callback: v => v>=1e6?'$'+(v/1e6).toFixed(1)+'M':v>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+v, font:{size:11} },
-            grid:{ color:'rgba(0,0,0,.05)' } }
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: c => ' ' + clp(c.raw) } }
+        },
+        scales: {
+          x: { ticks: { autoSkip: false, maxRotation: 45, font: { size: 11 } }, grid: { display: false } },
+          y: {
+            ticks: {
+              callback: v => v >= 1e9 ? '$' + (v/1e9).toFixed(1) + 'B'
+                          : v >= 1e6 ? '$' + (v/1e6).toFixed(1) + 'M'
+                          : v >= 1e3 ? '$' + (v/1e3).toFixed(0) + 'K'
+                          : '$' + v,
+              font: { size: 11 }
+            },
+            grid: { color: 'rgba(0,0,0,.05)' }
+          }
+        }
       }
-    }
+    });
   });
 }
 
-function monthTable(monthMap) {
-  const keys = Object.keys(monthMap).sort();
-  let tF=0,tB=0,tN=0;
-  const rows = keys.map(k => {
-    const {f,b,n,usd,count} = monthMap[k];
-    const tot = f+b+n;
-    const p = pct(f,tot);
-    tF+=f; tB+=b; tN+=n;
-    return `<tr>
-      <td><b style="font-weight:500">${mlbl(k)}</b></td>
-      <td class="r" style="color:var(--factura-color)">${fmt(f)}</td>
-      <td class="r" style="color:var(--boleta-color)">${fmt(b)}</td>
-      <td class="r" style="color:var(--hint)">${n?fmt(n):'—'}</td>
-      <td class="r">${fmt(tot)}</td>
-      <td style="min-width:90px"><div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:${p}%"></div></div><span class="bar-pct">${p}%</span></div></td>
-      <td>${usd?'<span class="usd-tag">USD→CLP</span>':''}</td>
-    </tr>`;
-  }).join('');
-  const gT=tF+tB+tN;
-  return `<table>
-    <thead><tr>
-      <th>Mes</th><th class="r">Factura</th><th class="r">Boleta</th>
-      <th class="r">Sin tipo</th><th class="r">Total neto</th>
-      <th>Prop. F/B</th><th>FX</th>
-    </tr></thead>
-    <tbody>${rows}</tbody>
-    <tfoot><tr class="sum-row">
-      <td>TOTAL</td>
-      <td class="r" style="color:var(--factura-color)">${fmt(tF)}</td>
-      <td class="r" style="color:var(--boleta-color)">${fmt(tB)}</td>
-      <td class="r" style="color:var(--hint)">${tN?fmt(tN):'—'}</td>
-      <td class="r">${fmt(gT)}</td><td></td><td></td>
-    </tr></tfoot>
-  </table>`;
+/* ═══════════════════════════════════════════════
+   RENDER TAB 2 — POR TALENTO
+═══════════════════════════════════════════════ */
+function renderTalento(lineas) {
+  const talMesMap  = agruparTalentoMes(lineas);
+  const talentos   = Object.keys(talMesMap).filter(t => t !== '(SIN DESGLOSE)').sort();
+  const todos      = ['(Todos los talentos)', ...talentos];
+
+  // Populate selector
+  const sel = document.createElement('select');
+  sel.id = 'selTalento';
+  todos.forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t; opt.textContent = t;
+    sel.appendChild(opt);
+  });
+  sel.onchange = () => renderTablaYGraficoTalento(talMesMap, sel.value);
+
+  document.getElementById('content-talento').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">Seleccioná un talento</span>
+        <div class="talent-selector">
+          <label>Talento:</label>
+          <div id="sel-container"></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id="talento-chart-wrap" class="chart-wrap" style="height:220px;margin-bottom:18px">
+          <canvas id="chartTalento" role="img" aria-label="Gráfico por talento"></canvas>
+        </div>
+        <div class="tbl-wrap" id="talento-tabla"></div>
+      </div>
+    </div>`;
+
+  document.getElementById('sel-container').appendChild(sel);
+  renderTablaYGraficoTalento(talMesMap, todos[0]);
 }
 
-function talentTable(orders) {
-  const tm = buildTalentMap(orders);
-  const sorted = Object.entries(tm)
-    .map(([name,d]) => ({
-      name, f:d.f, b:d.b, n:d.n,
-      total: d.f+d.b+d.n,
-      months:[...d.months].sort(),
-      tPct: getTalentPct(name)
-    }))
-    .sort((a,b) => b.total - a.total);
+function renderTablaYGraficoTalento(talMesMap, seleccion) {
+  // Construir data: todos los meses presentes
+  let mesesSet = new Set();
+  const talsFiltrados = seleccion === '(Todos los talentos)'
+    ? Object.keys(talMesMap)
+    : [seleccion];
 
-  const rows = sorted.map(t => {
-    const p = pct(t.f, t.total);
-    const zasAmt = t.total * (1 - t.tPct/100);
-    const talAmt = t.total * (t.tPct/100);
+  talsFiltrados.forEach(t => {
+    if (talMesMap[t]) Object.keys(talMesMap[t]).forEach(m => mesesSet.add(m));
+  });
+  const meses = [...mesesSet].sort();
+
+  // Sumar por mes
+  const dataMes = {};
+  meses.forEach(m => { dataMes[m] = { f: 0, b: 0, n: 0 }; });
+  talsFiltrados.forEach(t => {
+    if (!talMesMap[t]) return;
+    Object.entries(talMesMap[t]).forEach(([m, d]) => {
+      if (!dataMes[m]) dataMes[m] = { f: 0, b: 0, n: 0 };
+      dataMes[m].f += d.f;
+      dataMes[m].b += d.b;
+      dataMes[m].n += d.n;
+    });
+  });
+
+  // Totales
+  let totF = 0, totB = 0, totN = 0;
+  meses.forEach(m => { totF += dataMes[m].f; totB += dataMes[m].b; totN += dataMes[m].n; });
+  const totTotal = totF + totB + totN;
+
+  // Tabla
+  const filas = meses.map(m => {
+    const { f, b, n } = dataMes[m];
+    const tot = f + b + n;
+    const pF  = tot ? Math.round(f / tot * 100) : 0;
     return `<tr>
+      <td><strong>${mesLabel(m)}</strong></td>
+      <td class="r" style="color:var(--blue)">${clp(f)}</td>
+      <td class="r" style="color:var(--amber)">${clp(b)}</td>
+      <td class="r">${n > 0 ? clp(n) : '—'}</td>
+      <td class="r"><strong>${clp(tot)}</strong></td>
       <td>
-        <div style="font-weight:500">${t.name}</div>
-        <div style="font-size:11px;color:var(--hint)">${t.months.map(mlbl).join(', ')}</div>
+        <div class="prg">
+          <div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div>
+          <span class="prg-lbl">${pF}% F</span>
+        </div>
       </td>
-      <td class="r" style="color:var(--factura-color)">${fmt(t.f)}</td>
-      <td class="r" style="color:var(--boleta-color)">${fmt(t.b)}</td>
-      <td class="r">${fmt(t.total)}</td>
-      <td style="min-width:90px"><div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:${p}%"></div></div><span class="bar-pct">${p}%</span></div></td>
-      <td class="r">${t.tPct}%</td>
-      <td class="r" style="color:var(--zas-color)">${fmt(zasAmt)}</td>
-      <td class="r">${fmt(talAmt)}</td>
     </tr>`;
   }).join('');
 
-  const tots = sorted.reduce((a,t)=>({f:a.f+t.f,b:a.b+t.b,tot:a.tot+t.total,
-    zas:a.zas+t.total*(1-t.tPct/100),tal:a.tal+t.total*(t.tPct/100)}),{f:0,b:0,tot:0,zas:0,tal:0});
+  const pFtot = totTotal ? Math.round(totF / totTotal * 100) : 0;
 
-  return `<table>
-    <thead><tr>
-      <th>Talento</th><th class="r">Factura</th><th class="r">Boleta</th>
-      <th class="r">Total neto</th><th>Split F/B</th>
-      <th class="r">% Tal.</th><th class="r">Monto ZAS</th><th class="r">Monto Talento</th>
-    </tr></thead>
-    <tbody>${rows}</tbody>
-    <tfoot><tr class="sum-row">
-      <td>TOTAL</td>
-      <td class="r" style="color:var(--factura-color)">${fmt(tots.f)}</td>
-      <td class="r" style="color:var(--boleta-color)">${fmt(tots.b)}</td>
-      <td class="r">${fmt(tots.tot)}</td><td></td><td></td>
-      <td class="r" style="color:var(--zas-color)">${fmt(tots.zas)}</td>
-      <td class="r">${fmt(tots.tal)}</td>
-    </tr></tfoot>
-  </table>`;
-}
-
-function orderTable(orders) {
-  const sorted = [...orders].sort((a,b) => b.date.localeCompare(a.date));
-  const rows = sorted.slice(0,60).map(o => {
-    const pilCls = o.tipo==='Factura'?'pill-f':o.tipo==='Boleta'?'pill-b':'pill-n';
-    const pilTxt = o.tipo || '—';
-    const origStr = o.currency==='USD'
-      ? '$'+o.netOrig.toLocaleString()+' USD'
-      : fmt(o.netOrig);
-    return `<tr>
-      <td style="font-weight:500">${o.name}</td>
-      <td>${o.date}</td>
-      <td><span class="pill ${pilCls}">${pilTxt}</span></td>
-      <td class="r">${origStr}</td>
-      <td class="r">${o.currency==='USD'?fmt(o.netCLP)+' <span class="usd-tag">conv.</span>':fmt(o.netCLP)}</td>
-      <td style="font-size:11px;color:var(--muted);max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${o.campaña}</td>
-    </tr>`;
-  }).join('');
-  const extra = sorted.length>60
-    ? `<tr><td colspan="6" style="text-align:center;color:var(--hint);font-size:12px;padding:12px">… y ${sorted.length-60} órdenes más</td></tr>`:'';
-  return `<table>
-    <thead><tr>
-      <th>Orden</th><th>Fecha</th><th>Tipo</th>
-      <th class="r">Importe orig.</th><th class="r">En CLP</th><th>Campaña</th>
-    </tr></thead>
-    <tbody>${rows}${extra}</tbody>
-  </table>`;
-}
-
-function renderAll(orders) {
-  const monthMap = buildMonthMap(orders);
-  const keys     = Object.keys(monthMap).sort();
-  const usdKeys  = keys.filter(k => monthMap[k].usd);
-
-  updateKPIs(orders);
-
-  const usdBanner = usdKeys.length
-    ? `<div class="info-banner">⚠ Ventas en USD convertidas a CLP usando el tipo de cambio registrado en Odoo al momento de cada orden. Meses con conversión: ${usdKeys.map(mlbl).join(', ')}.</div>`
-    : '';
-
-  document.getElementById('body').innerHTML = `
-    ${usdBanner}
-
-    <!-- Mensual -->
-    <div class="card">
-      <div class="card-head">
-        <span class="card-title">Resumen mensual · Factura vs Boleta</span>
-        <div class="legend">
-          <div class="leg-item"><div class="leg-dot" style="background:#0F54A4"></div>Factura (entra a ZAS)</div>
-          <div class="leg-item"><div class="leg-dot" style="background:#E69200"></div>Boleta (entra a tercero)</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="chart-box" style="height:${Math.max(180, keys.length*44+60)}px">
-          <canvas id="ch1" role="img" aria-label="Barras mensuales Factura vs Boleta ZAS Chile">Resumen mensual ZAS Chile.</canvas>
-        </div>
-        <div style="margin-top:22px" class="tbl-wrap">
-          ${monthTable(monthMap)}
-        </div>
-      </div>
+  document.getElementById('talento-tabla').innerHTML = `
+    <div class="kpi-row" style="margin-bottom:14px">
+      <div class="kpi"><div class="kpi-lbl">Total neto</div><div class="kpi-val">${clp(totTotal)}</div></div>
+      <div class="kpi"><div class="kpi-lbl">Factura</div><div class="kpi-val blue">${clp(totF)}</div><div class="kpi-sub">${pctStr(totF, totTotal)}</div></div>
+      <div class="kpi"><div class="kpi-lbl">Boleta</div><div class="kpi-val amber">${clp(totB)}</div><div class="kpi-sub">${pctStr(totB, totTotal)}</div></div>
     </div>
+    <table>
+      <thead><tr>
+        <th>Mes</th>
+        <th class="r">Factura</th>
+        <th class="r">Boleta</th>
+        <th class="r">Sin tipo</th>
+        <th class="r">Total neto</th>
+        <th>Proporción F/B</th>
+      </tr></thead>
+      <tbody>${filas}</tbody>
+      <tfoot>
+        <tr class="total-row">
+          <td>TOTAL</td>
+          <td class="r" style="color:var(--blue)">${clp(totF)}</td>
+          <td class="r" style="color:var(--amber)">${clp(totB)}</td>
+          <td class="r">${totN > 0 ? clp(totN) : '—'}</td>
+          <td class="r">${clp(totTotal)}</td>
+          <td>
+            <div class="prg">
+              <div class="prg-bar"><div class="prg-fill" style="width:${pFtot}%"></div></div>
+              <span class="prg-lbl">${pFtot}% F</span>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>`;
 
-    <!-- Talentos tabs -->
-    <div class="card">
-      <div class="card-head">
-        <span class="card-title">Por talento · split Factura / Boleta y distribución ZAS / Talento</span>
-        <span style="font-size:12px;color:var(--muted)">% talento: ${Object.keys(talentPcts).length?'desde Drive':'estimado 70%'}</span>
-      </div>
-      <div class="card-body">
-        <div class="tbl-wrap">${talentTable(orders)}</div>
-      </div>
-    </div>
+  // Chart
+  requestAnimationFrame(() => {
+    if (chart2) { chart2.destroy(); chart2 = null; }
+    const ctx = document.getElementById('chartTalento');
+    if (!ctx) return;
 
-    <!-- Órdenes -->
-    <div class="card">
-      <div class="card-head">
-        <span class="card-title">Detalle de órdenes</span>
-        <span style="font-size:12px;color:var(--muted)">${orders.length} confirmadas · mostrando últimas 60</span>
-      </div>
-      <div class="card-body">
-        <div class="tbl-wrap">${orderTable(orders)}</div>
-      </div>
-    </div>
-  `;
+    const wrap = document.getElementById('talento-chart-wrap');
+    if (wrap) wrap.style.height = Math.max(180, meses.length * 46 + 60) + 'px';
 
-  requestAnimationFrame(() => renderChart(monthMap));
-
-  document.getElementById('updateLine').textContent =
-    `${orders.length} órdenes · actualizado ${new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})}`;
+    chart2 = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: meses.map(mesLabel),
+        datasets: [
+          { label: 'Factura', data: meses.map(m => Math.round(dataMes[m].f)), backgroundColor: '#1059A8', borderRadius: 3 },
+          { label: 'Boleta',  data: meses.map(m => Math.round(dataMes[m].b)), backgroundColor: '#E8920A', borderRadius: 3 },
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: c => ' ' + clp(c.raw) } }
+        },
+        scales: {
+          x: { ticks: { autoSkip: false, maxRotation: 45, font: { size: 11 } }, grid: { display: false } },
+          y: {
+            ticks: {
+              callback: v => v >= 1e6 ? '$' + (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? '$' + (v/1e3).toFixed(0) + 'K' : '$' + v,
+              font: { size: 11 }
+            },
+            grid: { color: 'rgba(0,0,0,.05)' }
+          }
+        }
+      }
+    });
+  });
 }
 
-/* ════════════════════════════════════════════
-   DRIVE
-════════════════════════════════════════════ */
-async function loadDrive() {
-  const url = document.getElementById('driveInput').value.trim();
-  if (!url) return;
-  document.getElementById('driveMsg').textContent = 'Cargando…';
-  try {
-    const data = await claudeCall(
-      'Eres un asistente que lee Google Sheets. Devuelve SOLO JSON válido, sin markdown ni texto extra.',
-      `Lee el Google Sheets en: ${url}
-El archivo tiene columnas: Talento (nombre) y Porcentaje (número, el % que corresponde al talento).
-Devuelve SOLO este JSON (sin backticks, sin texto extra):
-{"talents":[{"name":"NOMBRE","pct":70},...]}`
-    );
-    const txt = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
-    const clean = txt.replace(/```json|```/g,'').trim();
-    const parsed = JSON.parse(clean);
-    talentPcts = {};
-    (parsed.talents||[]).forEach(t => { talentPcts[t.name.toUpperCase()] = +t.pct; });
-    document.getElementById('driveMsg').textContent = `✓ ${Object.keys(talentPcts).length} talentos cargados`;
-    if (allOrders.length) renderAll(allOrders);
-  } catch(e) {
-    document.getElementById('driveMsg').textContent = 'Error: ' + e.message;
-  }
+/* ═══════════════════════════════════════════════
+   SOLAPAS
+═══════════════════════════════════════════════ */
+function mostrarSolapa(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
 }
 
-/* ════════════════════════════════════════════
-   LOAD PRINCIPAL
-════════════════════════════════════════════ */
-async function reload() {
-  const btn = document.getElementById('reloadBtn');
+/* ═══════════════════════════════════════════════
+   CARGA PRINCIPAL
+═══════════════════════════════════════════════ */
+async function cargar() {
+  const btn = document.getElementById('btnRefresh');
   btn.disabled = true;
-  setLoading('Obteniendo órdenes de ZAS CHILE…');
+  document.getElementById('subtitle').textContent = 'Cargando…';
+
+  document.getElementById('content-general').innerHTML =
+    `<div class="card"><div class="card-body"><div class="state-box">
+      <div class="spinner"></div><h3>Obteniendo órdenes…</h3>
+      <p>Conectando con Odoo en tiempo real.</p>
+    </div></div></div>`;
 
   try {
     // 1. Órdenes
-    const rawOrders = await fetchOrders();
-    const orders = rawOrders
-      .filter(r => r.latestPayload?.x_studio_bu_1 === 'ZAS CHILE')
-      .map(parseOrder);
+    const rawOrd = await fetchOrdenes();
+    ORDENES = procesarOrdenes(rawOrd);
 
-    if (!orders.length) {
-      setError('No se encontraron órdenes de ZAS CHILE en Odoo. Verificá la conexión o el filtro.');
+    if (!ORDENES.length) {
+      document.getElementById('content-general').innerHTML =
+        `<div class="card"><div class="card-body"><div class="err">No se encontraron órdenes de ZAS CHILE. Verificá la conexión con Odoo.</div></div></div>`;
       btn.disabled = false;
       return;
     }
 
-    setLoading(`Cargando líneas de ${orders.length} órdenes…`);
+    // 2. Líneas (para tab de talento) — en lotes de 20
+    document.getElementById('content-general').innerHTML =
+      `<div class="card"><div class="card-body"><div class="state-box">
+        <div class="spinner"></div><h3>Cargando líneas de venta…</h3>
+        <p>${ORDENES.length} órdenes encontradas. Obteniendo detalle de talentos.</p>
+      </div></div></div>`;
 
-    // 2. Líneas — en lotes de 20 IDs para no superar el budget
-    const validIds = orders
-      .filter(o => o.state !== 'cancel' && o.state !== 'draft')
-      .slice(0, 40)
-      .map(o => o.id);
-
-    let lineRows = [];
-    for (let i = 0; i < validIds.length; i += 20) {
-      const batch = validIds.slice(i, i+20);
-      const batchRows = await fetchLines(batch);
-      lineRows.push(...batchRows);
+    const idsValidos = ORDENES.slice(0, 40).map(o => o.id);
+    let rawLines = [];
+    for (let i = 0; i < idsValidos.length; i += 20) {
+      const batch = await fetchLineas(idsValidos.slice(i, i + 20));
+      rawLines.push(...batch);
     }
+    LINEAS = procesarLineas(rawLines, ORDENES);
 
-    // 3. Enriquecer y renderizar
-    allOrders = enrichOrders(orders, lineRows);
-    renderAll(allOrders);
+    // 3. Render
+    renderGeneral(ORDENES);
+    renderTalento(LINEAS);
 
-  } catch(e) {
-    setError(e.message || 'Error desconocido al conectar con Odoo.');
+    const now = new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('subtitle').textContent =
+      `${ORDENES.length} órdenes · actualizado ${now} · datos en tiempo real de Odoo`;
+
+  } catch (e) {
+    const msg = e.message || 'Error desconocido';
+    document.getElementById('content-general').innerHTML =
+      `<div class="card"><div class="card-body">
+        <div class="err"><strong>Error al cargar datos</strong><br>${msg}<br><br>
+        <button class="btn" onclick="cargar()">Reintentar</button></div>
+      </div></div>`;
+    document.getElementById('subtitle').textContent = 'Error de conexión';
   } finally {
     btn.disabled = false;
   }
 }
 
-function setLoading(msg) {
-  document.getElementById('body').innerHTML = `
-    <div class="card"><div class="card-body">
-      <div class="state-box">
-        <div class="spin"></div>
-        <h3>${msg}</h3>
-        <p>Consultando Odoo en tiempo real…</p>
-      </div>
-    </div></div>`;
-}
-
-function setError(msg) {
-  document.getElementById('body').innerHTML = `
-    <div class="card"><div class="card-body">
-      <div class="err-box">
-        <b>Error al cargar datos</b><br>${msg}<br>
-        <br><button class="btn btn-sm" onclick="reload()">Reintentar</button>
-      </div>
-    </div></div>`;
-  document.getElementById('updateLine').textContent = 'Error de carga';
-}
-
-/* ════════════════════════════════════════════
-   INIT
-════════════════════════════════════════════ */
-reload();
+/* ═══════════════════════════════════════════════
+   INICIO
+═══════════════════════════════════════════════ */
+cargar();
 </script>
 </body>
 </html>
