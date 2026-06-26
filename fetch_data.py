@@ -1,9 +1,6 @@
 """
-fetch_data.py - ZAS Chile - Factura vs Boleta + Deuda por Talento
-Fuentes:
-  - Odoo (JSON-RPC): ventas Campanas Chile
-  - Google Sheets 1: % fee ZAS por talento por mes
-  - Google Sheets 2: pagos realizados por ZAS a talentos (filtro ZAS CHILE)
+fetch_data.py - ZAS Chile - Factura vs Boleta
+Fuente: Odoo (JSON-RPC) - ventas Campanas Chile
 """
 
 import json, os, http.cookiejar, urllib.request, unicodedata, re
@@ -14,13 +11,6 @@ ODOO_URL  = "https://zas-talent.odoo.com"
 ODOO_DB   = "zas-talent"
 ODOO_USER = "martina.boazzo@zastalents.com"
 ODOO_PASS = os.environ.get("ODOO_PASSWORD", "")
-
-# Sheet 1: % fee por talento
-SHEET_FEES_ID = "1V6JhXxa8de9MvAVwEv9lyEz4fji5rNQQqMkWZueSXrA"
-# Sheet 2: pagos a talentos
-SHEET_PAGOS_ID = "1xnXxQ30BgcxSmCT9opUeHLRIGOZpe4d4yB59hohMESw"
-
-GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 
 FX_CLP = {
     "2024-01":969,"2024-02":981,"2024-03":988,"2024-04":960,"2024-05":897,
@@ -81,30 +71,6 @@ def search_read(model, domain, fields, batch=500):
     print(f"    {model}: {len(all_recs)} registros        ")
     return all_recs
 
-# ── Google Sheets ─────────────────────────────────────────────────────────────
-def fetch_sheet(sheet_id, range_name):
-    """Lee un rango de Google Sheets via API publica (requiere GOOGLE_API_KEY)"""
-    url = (f"https://sheets.googleapis.com/v4/spreadsheets/{sheet_id}"
-           f"/values/{urllib.request.quote(range_name)}?key={GOOGLE_API_KEY}")
-    req = urllib.request.Request(url, headers={"Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read()).get("values", [])
-
-def fetch_sheet_export(sheet_id, gid="0"):
-    """Exporta como CSV si no hay API key disponible (requiere que el sheet sea publico)"""
-    url = (f"https://docs.google.com/spreadsheets/d/{sheet_id}"
-           f"/export?format=csv&gid={gid}")
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        content = r.read().decode("utf-8")
-    rows = []
-    for line in content.split("\n"):
-        line = line.strip()
-        if line:
-            # CSV simple split (sin comillas complejas)
-            rows.append([c.strip() for c in line.split(",")])
-    return rows
-
 # ── Utilidades ────────────────────────────────────────────────────────────────
 def norm(s):
     """Normaliza nombre: mayusculas, sin acentos, sin espacios extra"""
@@ -129,133 +95,12 @@ def to_clp(monto, moneda, fecha):
     # Otras monedas: ignorar (no son ZAS CHILE)
     return float(monto or 0)
 
-def parse_pct(val):
-    """Convierte '30.0%' o '30' o 0.3 a float 0.30"""
-    if val is None or val == "" or str(val).upper() in ("EXTERNO", "EX ZAS CON AGENCIA", "#N/A"):
-        return None
-    s = str(val).strip().replace("%", "").replace(",", ".")
-    try:
-        f = float(s)
-        return f / 100 if f > 1 else f
-    except:
-        return None
-
-def parse_monto(val):
-    """Convierte '1,234,567' o '$1.234' a float"""
-    if not val:
-        return 0.0
-    s = str(val).strip().replace("$", "").replace(",", "").replace(".", "")
-    try:
-        return float(s)
-    except:
-        # Intentar reemplazando coma decimal
-        try:
-            return float(str(val).strip().replace("$", "").replace(",", "."))
-        except:
-            return 0.0
-
 def parse_talento(nombre):
     if not nombre:
         return None
     idx = nombre.find("(")
     raw = nombre[:idx].strip() if idx > 0 else nombre.strip()
     return raw.upper()
-
-# ── Leer fees desde Sheet 1 ───────────────────────────────────────────────────
-# Columnas del sheet: Creator | Country | Signing Date | Termination Date | ene-2024 | feb-2024 | ...
-# Los meses arrancan en columna index 4
-MES_COLS = [
-    "ene-2024","feb-2024","mar-2024","abr-2024","may-2024","jun-2024",
-    "jul-2024","ago-2024","sep-2024","oct-2024","nov-2024","dic-2024",
-    "ene-2025","feb-2025","mar-2025","abr-2025","may-2025","jun-2025",
-    "jul-2025","ago-2025","sep-2025","oct-2025","nov-2025","dic-2025",
-    "ene-2026","feb-2026","mar-2026","abr-2026","may-2026","jun-2026",
-    "jul-2026","ago-2026","sep-2026","oct-2026","nov-2026","dic-2026",
-]
-
-def load_fees(sheet_id):
-    """
-    Retorna dict: { norm(nombre): avg_pct_zas }
-    avg_pct_zas es el promedio de los % en la fila (solo valores numericos, ignora EXTERNO/vacio)
-    """
-    print("  Leyendo fees desde Google Sheets...")
-    fees = {}
-    try:
-        rows = fetch_sheet_export(sheet_id, gid="0")
-    except Exception as e:
-        print(f"  ⚠ No se pudo leer fees: {e}")
-        return fees
-
-    for row in rows:
-        if not row or not row[0]:
-            continue
-        nombre = str(row[0]).strip()
-        # Ignorar filas de encabezado
-        if nombre.upper() in ("CREATOR", "NO_HEADER", ""):
-            continue
-        if len(nombre) < 2:
-            continue
-
-        # Leer todos los % de la fila (columnas 4 en adelante)
-        pcts = []
-        for i in range(4, len(row)):
-            p = parse_pct(row[i])
-            if p is not None:
-                pcts.append(p)
-
-        if pcts:
-            avg = sum(pcts) / len(pcts)
-            key = norm(nombre)
-            fees[key] = avg
-            print(f"    Fee {nombre}: {avg*100:.1f}% (prom de {len(pcts)} meses)")
-
-    print(f"  {len(fees)} talentos con fee cargados")
-    return fees
-
-# ── Leer pagos desde Sheet 2 ──────────────────────────────────────────────────
-# Columna F (idx 5): TALENTO, Columna O (idx 14): MONTO NETO, Columna P (idx 15): BU
-def load_pagos(sheet_id):
-    """
-    Retorna dict: { norm(talento): total_clp_pagado }
-    Solo filas donde BU == "ZAS CHILE"
-    """
-    print("  Leyendo pagos desde Google Sheets...")
-    pagos = defaultdict(float)
-    try:
-        # El sheet principal esta en gid=1511391806 segun la URL
-        rows = fetch_sheet_export(sheet_id, gid="1511391806")
-    except Exception as e:
-        print(f"  ⚠ No se pudo leer pagos: {e}")
-        return dict(pagos)
-
-    for row in rows:
-        if len(row) < 16:
-            continue
-        talento_raw = row[5].strip() if len(row) > 5 else ""
-        monto_raw   = row[14].strip() if len(row) > 14 else ""
-        bu_raw      = row[15].strip() if len(row) > 15 else ""
-        moneda_raw  = row[12].strip() if len(row) > 12 else "CLP"
-
-        if norm(bu_raw) != "ZAS CHILE":
-            continue
-        if not talento_raw or talento_raw.upper() in ("TALENTO", "N/A", "EXTERNOS", ""):
-            continue
-
-        monto = parse_monto(monto_raw)
-        if monto <= 0:
-            continue
-
-        # Convertir a CLP
-        moneda = moneda_raw.upper().strip()
-        clp = to_clp(monto, moneda, "")  # sin fecha usamos rate default
-
-        key = norm(talento_raw)
-        pagos[key] += clp
-
-    print(f"  {len(pagos)} talentos con pagos de ZAS CHILE")
-    for k, v in list(pagos.items())[:5]:
-        print(f"    {k}: ${v:,.0f} CLP")
-    return dict(pagos)
 
 # ── Odoo utils ────────────────────────────────────────────────────────────────
 def fetch_ordenes():
@@ -288,7 +133,7 @@ def fetch_lineas(order_ids):
     )
 
 # ── Procesamiento ─────────────────────────────────────────────────────────────
-def procesar(orders, lines, fees, pagos):
+def procesar(orders, lines):
     ord_idx = {o["id"]: o for o in orders}
 
     # Resumen general por mes
@@ -304,9 +149,8 @@ def procesar(orders, lines, fees, pagos):
         if   tipo == "Factura": general[mes]["f"] += net_clp
         elif tipo == "Boleta":  general[mes]["b"] += net_clp
 
-    # Resumen por talento por mes + acumulado para deuda + detalle de ordenes
-    talentos_mes   = defaultdict(lambda: defaultdict(lambda: {"f":0.0,"b":0.0,"ordenes":[]}))
-    talentos_total = defaultdict(float)  # total ventas por talento en CLP
+    # Resumen por talento por mes + detalle de ordenes
+    talentos_mes = defaultdict(lambda: defaultdict(lambda: {"f":0.0,"b":0.0,"ordenes":[]}))
 
     for l in lines:
         nombre  = l.get("name") or ""
@@ -327,13 +171,12 @@ def procesar(orders, lines, fees, pagos):
 
         if   tipo == "Factura": talentos_mes[talento][mes]["f"] += sub_clp
         elif tipo == "Boleta":  talentos_mes[talento][mes]["b"] += sub_clp
-        talentos_total[talento] += sub_clp
 
-        # Guardar detalle de la orden (linea) para el drilldown
+        # Guardar detalle de la orden para el drilldown
         if tipo in ("Factura", "Boleta"):
             talentos_mes[talento][mes]["ordenes"].append({
-                "nombre": nombre,        # descripcion de la linea (ej: "Chris Moll (Reel Instagram)")
-                "orden":  ord_name,      # numero de orden (ej: "S00123")
+                "nombre": nombre,
+                "orden":  ord_name,
                 "tipo":   tipo,
                 "monto_clp":  round(sub_clp),
                 "monto_orig": round(sub_orig),
@@ -341,45 +184,7 @@ def procesar(orders, lines, fees, pagos):
                 "fecha":  fecha,
             })
 
-    # Calcular deuda por talento
-    deudas = {}
-    for talento, total_ventas in talentos_total.items():
-        key_norm = norm(talento)
-
-        # Buscar fee en el sheet (match normalizado)
-        fee_zas_pct = fees.get(key_norm)
-        if fee_zas_pct is None:
-            # Intentar match parcial
-            for k, v in fees.items():
-                if key_norm in k or k in key_norm:
-                    fee_zas_pct = v
-                    break
-        if fee_zas_pct is None:
-            fee_zas_pct = 0.30  # fallback 30%
-
-        # Pagos ya realizados por ZAS al talento
-        pagos_realizados = pagos.get(key_norm, 0.0)
-        if pagos_realizados == 0:
-            for k, v in pagos.items():
-                if key_norm in k or k in key_norm:
-                    pagos_realizados = v
-                    break
-
-        # Deuda = lo que le corresponde al talento - lo que ya le pagamos
-        pct_talento    = 1 - fee_zas_pct
-        le_corresponde = total_ventas * pct_talento
-        deuda          = le_corresponde - pagos_realizados
-
-        deudas[talento] = {
-            "total_ventas":    round(total_ventas),
-            "pct_zas":         round(fee_zas_pct * 100, 1),
-            "pct_talento":     round(pct_talento * 100, 1),
-            "le_corresponde":  round(le_corresponde),
-            "pagos_realizados":round(pagos_realizados),
-            "deuda":           round(deuda),
-        }
-
-    # Convertir a dicts planos (mantener ordenes como lista)
+    # Convertir a dicts planos
     talentos_out = {}
     for t, meses in talentos_mes.items():
         talentos_out[t] = {}
@@ -389,7 +194,7 @@ def procesar(orders, lines, fees, pagos):
                 "b": vals["b"],
                 "ordenes": vals["ordenes"],
             }
-    return dict(general), talentos_out, deudas
+    return dict(general), talentos_out
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
@@ -401,24 +206,19 @@ def main():
 
     odoo_auth()
 
-    # Leer sheets
-    fees  = load_fees(SHEET_FEES_ID)
-    pagos = load_pagos(SHEET_PAGOS_ID)
-
     # Leer Odoo
     orders = fetch_ordenes()
     order_ids = [o["id"] for o in orders]
     lines = fetch_lineas(order_ids)
 
     print(f"\n  Procesando {len(orders)} ordenes, {len(lines)} lineas...")
-    general, talentos, deudas = procesar(orders, lines, fees, pagos)
+    general, talentos = procesar(orders, lines)
 
     output = {
         "updated_at":    datetime.now(timezone.utc).isoformat(),
         "total_ordenes": len(orders),
         "general":       general,
         "talentos":      talentos,
-        "deudas":        deudas,
     }
 
     with open("data.json", "w", encoding="utf-8") as f:
@@ -427,7 +227,6 @@ def main():
     print(f"\n  ✓ data.json generado")
     print(f"  Meses: {sorted(general.keys())}")
     print(f"  Talentos: {len(talentos)}")
-    print(f"  Deudas calculadas: {len(deudas)}")
 
 if __name__ == "__main__":
     main()
