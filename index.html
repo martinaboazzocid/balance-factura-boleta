@@ -70,6 +70,18 @@
   .usd-tag{font-size:10px;background:#EEEDEA;color:var(--hint);padding:1px 5px;border-radius:3px}
   .note{background:#FEF9E7;border:1px solid #F5E07A;border-radius:var(--r);padding:10px 14px;font-size:12px;color:#856400;margin-bottom:16px}
   .err{background:#FDEAEA;border:1px solid #F5C0C0;border-radius:var(--r);padding:14px 16px;font-size:13px;color:#9B1C1C;line-height:1.6}
+  .deuda-box{border-radius:var(--r);padding:16px 18px;margin-bottom:18px}
+  .deuda-box.positiva{background:#FEF3E3;border:1px solid #F5C59A}
+  .deuda-box.negativa{background:#E3F5EC;border:1px solid #8DDDB0}
+  .deuda-box.sin-data{background:#F5F4EF;border:1px solid var(--border)}
+  .deuda-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+  .deuda-title.positiva{color:var(--amber)}
+  .deuda-title.negativa{color:var(--green)}
+  .deuda-title.sin-data{color:var(--muted)}
+  .deuda-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+  .deuda-item{display:flex;flex-direction:column;gap:3px}
+  .deuda-item-lbl{font-size:11px;color:var(--muted)}
+  .deuda-item-val{font-size:17px;font-weight:700;letter-spacing:-.3px}
   @media(max-width:580px){.shell{padding:18px 14px 50px}.kpi-val{font-size:19px}}
 </style>
 </head>
@@ -238,6 +250,7 @@ function mostrarTalento(nombre){
   talSel=nombre;
   document.querySelectorAll('.talent-chip').forEach(c=>c.classList.toggle('active',c.textContent===nombre));
   const talentos=DATA.talentos;
+  const deudas=DATA.deudas||{};
   const lista=nombre==='(Todos)'?Object.keys(talentos):[nombre];
   const dataMes={};
   lista.forEach(t=>{
@@ -266,7 +279,45 @@ function mostrarTalento(nombre){
     </tr>`;
   }).join('');
 
-  document.getElementById('talDetalle').innerHTML=`
+  // Bloque deuda
+  let deudaHTML = '';
+  if(nombre !== '(Todos)' && deudas[nombre]){
+    const d = deudas[nombre];
+    const esPositiva = d.deuda > 0;
+    const cls = esPositiva ? 'positiva' : 'negativa';
+    const titulo = esPositiva ? 'ZAS le debe al talento' : 'El talento tiene saldo a favor de ZAS';
+    const deudaAbs = Math.abs(d.deuda);
+    deudaHTML = `
+    <div class="deuda-box ${cls}">
+      <div class="deuda-title ${cls}">${titulo}</div>
+      <div class="deuda-grid">
+        <div class="deuda-item">
+          <span class="deuda-item-lbl">Total ventas</span>
+          <span class="deuda-item-val">${clp(d.total_ventas)}</span>
+        </div>
+        <div class="deuda-item">
+          <span class="deuda-item-lbl">% ZAS (promedio fee)</span>
+          <span class="deuda-item-val">${d.pct_zas}%</span>
+        </div>
+        <div class="deuda-item">
+          <span class="deuda-item-lbl">Le corresponde al talento (${d.pct_talento}%)</span>
+          <span class="deuda-item-val">${clp(d.le_corresponde)}</span>
+        </div>
+        <div class="deuda-item">
+          <span class="deuda-item-lbl">Ya pagado por ZAS</span>
+          <span class="deuda-item-val">${clp(d.pagos_realizados)}</span>
+        </div>
+        <div class="deuda-item">
+          <span class="deuda-item-lbl">${esPositiva ? 'Deuda ZAS → Talento' : 'Saldo a favor de ZAS'}</span>
+          <span class="deuda-item-val" style="color:var(--${esPositiva?'amber':'green'})">${clp(deudaAbs)}</span>
+        </div>
+      </div>
+    </div>`;
+  } else if(nombre !== '(Todos)'){
+    deudaHTML = `<div class="deuda-box sin-data"><div class="deuda-title sin-data">Sin datos de fee o pagos para este talento</div></div>`;
+  }
+
+  document.getElementById('talDetalle').innerHTML=deudaHTML+`
     <div class="kpi-row">
       <div class="kpi"><div class="kpi-lbl">Total neto</div><div class="kpi-val">${clp(tot)}</div></div>
       <div class="kpi"><div class="kpi-lbl">Factura</div><div class="kpi-val blue">${clp(tF)}</div><div class="kpi-sub">${pct(tF,tot)}</div></div>
