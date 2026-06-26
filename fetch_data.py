@@ -15,9 +15,9 @@ from datetime import datetime, timezone
 from collections import defaultdict
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────────
-ODOO_URL  = os.environ.get("ODOO_URL",  "https://zas-talent.odoo.com")
-ODOO_DB   = os.environ.get("ODOO_DB",   "zas-talent")
-ODOO_USER = os.environ.get("ODOO_USER", "martina.boazzo@zastalents.com")
+ODOO_URL  = "https://zas-talent.odoo.com"
+ODOO_DB   = "zas-talent"
+ODOO_USER = "martina.boazzo@zastalents.com"
 ODOO_PASS = os.environ.get("ODOO_PASSWORD", "")
 
 # Dólar observado promedio mensual BCCH (serie F073)
