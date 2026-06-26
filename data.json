@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-06-26T17:26:06.912909+00:00",
-  "total_ordenes": 1128,
+  "updated_at": "2026-06-26T20:35:23.770202+00:00",
+  "total_ordenes": 1130,
   "general": {
     "2026-06": {
-      "f": 97951340.8,
-      "b": 33020000.0,
+      "f": 107769652.8,
+      "b": 33820000.0,
       "usd": true
     },
     "2026-05": {
-      "f": 106506668.0,
+      "f": 106356668.0,
       "b": 0.0,
       "usd": true
     },
@@ -104,6 +104,2544 @@
     }
   },
   "talentos": {
+    "CARLITA": {
+      "2026-06": {
+        "f": 8100000.0,
+        "b": 4500000.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL03047",
+            "tipo": "Factura",
+            "monto_clp": 2000000,
+            "monto_orig": 2000000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL03047",
+            "tipo": "Factura",
+            "monto_clp": 450000,
+            "monto_orig": 450000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL03047",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL03030",
+            "tipo": "Boleta",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL03030",
+            "tipo": "Boleta",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "CARLITA (Derecho de imagen por 30 dias)",
+            "orden": "CL03030",
+            "tipo": "Boleta",
+            "monto_clp": 1450000,
+            "monto_orig": 1450000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL03030",
+            "tipo": "Boleta",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02994",
+            "tipo": "Factura",
+            "monto_clp": 1450000,
+            "monto_orig": 1450000,
+            "moneda": "CLP",
+            "fecha": "2026-06-16"
+          },
+          {
+            "nombre": "CARLITA (Travel Expenses)",
+            "orden": "CL02994",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-06-16"
+          },
+          {
+            "nombre": "CARLITA (IG Reel Collab)",
+            "orden": "CL02936",
+            "tipo": "Factura",
+            "monto_clp": 2300000,
+            "monto_orig": 2300000,
+            "moneda": "CLP",
+            "fecha": "2026-06-03"
+          },
+          {
+            "nombre": "CARLITA (Attendance )",
+            "orden": "CL02936",
+            "tipo": "Factura",
+            "monto_clp": 1200000,
+            "monto_orig": 1200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-03"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02931",
+            "tipo": "Factura",
+            "monto_clp": 600000,
+            "monto_orig": 600000,
+            "moneda": "CLP",
+            "fecha": "2026-06-02"
+          }
+        ]
+      },
+      "2026-05": {
+        "f": 7600000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL02905",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-05-27"
+          },
+          {
+            "nombre": "CARLITA (Contenido video para pauta dark)",
+            "orden": "CL02905",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-05-27"
+          },
+          {
+            "nombre": "CARLITA (Contenido para pauta)",
+            "orden": "CL02905",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-05-27"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL02875",
+            "tipo": "Factura",
+            "monto_clp": 1800000,
+            "monto_orig": 1800000,
+            "moneda": "CLP",
+            "fecha": "2026-05-20"
+          },
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02847",
+            "tipo": "Factura",
+            "monto_clp": 1600000,
+            "monto_orig": 1600000,
+            "moneda": "CLP",
+            "fecha": "2026-05-13"
+          },
+          {
+            "nombre": "CARLITA (Attendance )",
+            "orden": "CL02847",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2026-05-13"
+          },
+          {
+            "nombre": "CARLITA (Travel Expenses)",
+            "orden": "CL02847",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-05-13"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02815",
+            "tipo": "Factura",
+            "monto_clp": 600000,
+            "monto_orig": 600000,
+            "moneda": "CLP",
+            "fecha": "2026-05-07"
+          }
+        ]
+      },
+      "2026-04": {
+        "f": 9300000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL02772",
+            "tipo": "Factura",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2026-04-23"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02772",
+            "tipo": "Factura",
+            "monto_clp": 800000,
+            "monto_orig": 800000,
+            "moneda": "CLP",
+            "fecha": "2026-04-23"
+          },
+          {
+            "nombre": "CARLITA (Pauta por 30 días)",
+            "orden": "CL02772",
+            "tipo": "Factura",
+            "monto_clp": 800000,
+            "monto_orig": 800000,
+            "moneda": "CLP",
+            "fecha": "2026-04-23"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02772",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-04-23"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL02768",
+            "tipo": "Factura",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2026-04-23"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02768",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-04-23"
+          },
+          {
+            "nombre": "CARLITA (IG Reel Collab)",
+            "orden": "CL02714",
+            "tipo": "Factura",
+            "monto_clp": 1200000,
+            "monto_orig": 1200000,
+            "moneda": "CLP",
+            "fecha": "2026-04-13"
+          },
+          {
+            "nombre": "CARLITA (Use of image (ads) x 30 days)",
+            "orden": "CL02714",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-04-13"
+          },
+          {
+            "nombre": "CARLITA (Jornada de grabación)",
+            "orden": "CL02714",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-04-13"
+          },
+          {
+            "nombre": "CARLITA (Travel Expenses)",
+            "orden": "CL02714",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-04-13"
+          },
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02713",
+            "tipo": "Factura",
+            "monto_clp": 1100000,
+            "monto_orig": 1100000,
+            "moneda": "CLP",
+            "fecha": "2026-04-13"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02713",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-04-13"
+          }
+        ]
+      },
+      "2026-03": {
+        "f": 3700000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02666",
+            "tipo": "Factura",
+            "monto_clp": 600000,
+            "monto_orig": 600000,
+            "moneda": "CLP",
+            "fecha": "2026-03-26"
+          },
+          {
+            "nombre": "CARLITA (IG Story )",
+            "orden": "CL02645",
+            "tipo": "Factura",
+            "monto_clp": 550000,
+            "monto_orig": 550000,
+            "moneda": "CLP",
+            "fecha": "2026-03-20"
+          },
+          {
+            "nombre": "CARLITA (Travel Expenses)",
+            "orden": "CL02645",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-03-20"
+          },
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02640",
+            "tipo": "Factura",
+            "monto_clp": 1900000,
+            "monto_orig": 1900000,
+            "moneda": "CLP",
+            "fecha": "2026-03-20"
+          },
+          {
+            "nombre": "CARLITA (IG Story )",
+            "orden": "CL02640",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2026-03-20"
+          },
+          {
+            "nombre": "CARLITA (Travel Expenses)",
+            "orden": "CL02640",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-03-20"
+          }
+        ]
+      },
+      "2026-02": {
+        "f": 13650000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02495",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-02-23"
+          },
+          {
+            "nombre": "CARLITA (Presencia)",
+            "orden": "CL02495",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-02-23"
+          },
+          {
+            "nombre": "CARLITA (Derecho de imagen por 30 dias)",
+            "orden": "CL02495",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2026-02-23"
+          },
+          {
+            "nombre": "CARLITA (Cambios en el contenido)",
+            "orden": "CL02495",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2026-02-23"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02495",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-02-23"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL02493",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-02-23"
+          },
+          {
+            "nombre": "CARLITA (Replica Tik Tok)",
+            "orden": "CL02493",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-02-23"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02493",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-02-23"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02493",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-02-23"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL02482",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-02-21"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02482",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2026-02-21"
+          },
+          {
+            "nombre": "CARLITA (Presencia)",
+            "orden": "CL02482",
+            "tipo": "Factura",
+            "monto_clp": 450000,
+            "monto_orig": 450000,
+            "moneda": "CLP",
+            "fecha": "2026-02-21"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02482",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-02-21"
+          },
+          {
+            "nombre": "CARLITA (IG Reel)",
+            "orden": "CL02478",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-02-21"
+          },
+          {
+            "nombre": "CARLITA (IG Story )",
+            "orden": "CL02478",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2026-02-21"
+          },
+          {
+            "nombre": "CARLITA (Travel Expenses)",
+            "orden": "CL02478",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-02-21"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02467",
+            "tipo": "Factura",
+            "monto_clp": 425000,
+            "monto_orig": 425000,
+            "moneda": "CLP",
+            "fecha": "2026-02-19"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02467",
+            "tipo": "Factura",
+            "monto_clp": 25000,
+            "monto_orig": 25000,
+            "moneda": "CLP",
+            "fecha": "2026-02-19"
+          },
+          {
+            "nombre": "CARLITA (Reel en Collab)",
+            "orden": "CL02459",
+            "tipo": "Factura",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2026-02-07"
+          },
+          {
+            "nombre": "CARLITA (Jornada de grabación)",
+            "orden": "CL02459",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-02-07"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02459",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-02-07"
+          },
+          {
+            "nombre": "CARLITA (Reel en Collab)",
+            "orden": "CL02458",
+            "tipo": "Factura",
+            "monto_clp": 1200000,
+            "monto_orig": 1200000,
+            "moneda": "CLP",
+            "fecha": "2026-02-06"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02458",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2026-02-06"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02458",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-02-06"
+          }
+        ]
+      },
+      "2026-01": {
+        "f": 5750000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02395",
+            "tipo": "Factura",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2026-01-16"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02395",
+            "tipo": "Factura",
+            "monto_clp": 550000,
+            "monto_orig": 550000,
+            "moneda": "CLP",
+            "fecha": "2026-01-16"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02395",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-01-16"
+          },
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02380",
+            "tipo": "Factura",
+            "monto_clp": 2000000,
+            "monto_orig": 2000000,
+            "moneda": "CLP",
+            "fecha": "2026-01-12"
+          },
+          {
+            "nombre": "CARLITA (Pauta por 30 días)",
+            "orden": "CL02380",
+            "tipo": "Factura",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2026-01-12"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02380",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2026-01-12"
+          }
+        ]
+      },
+      "2025-12": {
+        "f": 8100000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL02307",
+            "tipo": "Factura",
+            "monto_clp": 1900000,
+            "monto_orig": 1900000,
+            "moneda": "CLP",
+            "fecha": "2025-12-22"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02307",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-12-22"
+          },
+          {
+            "nombre": "CARLITA (Reel en Collab)",
+            "orden": "CL02268",
+            "tipo": "Factura",
+            "monto_clp": 3000000,
+            "monto_orig": 3000000,
+            "moneda": "CLP",
+            "fecha": "2025-12-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02268",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2025-12-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02268",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-12-15"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL02231",
+            "tipo": "Factura",
+            "monto_clp": 850000,
+            "monto_orig": 850000,
+            "moneda": "CLP",
+            "fecha": "2025-12-03"
+          },
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02231",
+            "tipo": "Factura",
+            "monto_clp": 1200000,
+            "monto_orig": 1200000,
+            "moneda": "CLP",
+            "fecha": "2025-12-03"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02231",
+            "tipo": "Factura",
+            "monto_clp": 350000,
+            "monto_orig": 350000,
+            "moneda": "CLP",
+            "fecha": "2025-12-03"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02231",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-12-03"
+          }
+        ]
+      },
+      "2025-11": {
+        "f": 9650000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02176",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-11-28"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02151",
+            "tipo": "Factura",
+            "monto_clp": 1100000,
+            "monto_orig": 1100000,
+            "moneda": "CLP",
+            "fecha": "2025-11-19"
+          },
+          {
+            "nombre": "CARLITA (Conduccion)",
+            "orden": "CL02151",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-11-19"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02151",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-11-19"
+          },
+          {
+            "nombre": "CARLITA (Pauta por 30 días)",
+            "orden": "CL02147",
+            "tipo": "Factura",
+            "monto_clp": 250000,
+            "monto_orig": 250000,
+            "moneda": "CLP",
+            "fecha": "2025-11-18"
+          },
+          {
+            "nombre": "CARLITA (Presencia)",
+            "orden": "CL02145",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2025-11-18"
+          },
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02141",
+            "tipo": "Factura",
+            "monto_clp": 1400000,
+            "monto_orig": 1400000,
+            "moneda": "CLP",
+            "fecha": "2025-11-18"
+          },
+          {
+            "nombre": "CARLITA (Pauta por 30 días)",
+            "orden": "CL02141",
+            "tipo": "Factura",
+            "monto_clp": 0,
+            "monto_orig": 0,
+            "moneda": "CLP",
+            "fecha": "2025-11-18"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02141",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-11-18"
+          },
+          {
+            "nombre": "CARLITA (Presencia)",
+            "orden": "CL02115",
+            "tipo": "Factura",
+            "monto_clp": 1200000,
+            "monto_orig": 1200000,
+            "moneda": "CLP",
+            "fecha": "2025-11-13"
+          },
+          {
+            "nombre": "CARLITA (Tiktok)",
+            "orden": "CL02115",
+            "tipo": "Factura",
+            "monto_clp": 700000,
+            "monto_orig": 700000,
+            "moneda": "CLP",
+            "fecha": "2025-11-13"
+          },
+          {
+            "nombre": "CARLITA (Pauta por 30 días)",
+            "orden": "CL02115",
+            "tipo": "Factura",
+            "monto_clp": 300000,
+            "monto_orig": 300000,
+            "moneda": "CLP",
+            "fecha": "2025-11-13"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02115",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-11-13"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL02048",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-11-01"
+          },
+          {
+            "nombre": "CARLITA (Jornada de grabación)",
+            "orden": "CL02048",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2025-11-01"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL02048",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-11-01"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL02048",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-11-01"
+          },
+          {
+            "nombre": "CARLITA (Pauta por 30 días)",
+            "orden": "CL02048",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2025-11-01"
+          }
+        ]
+      },
+      "2025-10": {
+        "f": 9450000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01940",
+            "tipo": "Factura",
+            "monto_clp": 2000000,
+            "monto_orig": 2000000,
+            "moneda": "CLP",
+            "fecha": "2025-10-22"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01940",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-10-22"
+          },
+          {
+            "nombre": "CARLITA (Pauta)",
+            "orden": "CL01940",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-10-22"
+          },
+          {
+            "nombre": "CARLITA (Exclusividad)",
+            "orden": "CL01940",
+            "tipo": "Factura",
+            "monto_clp": 1150000,
+            "monto_orig": 1150000,
+            "moneda": "CLP",
+            "fecha": "2025-10-22"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01940",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-10-22"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01939",
+            "tipo": "Factura",
+            "monto_clp": 1100000,
+            "monto_orig": 1100000,
+            "moneda": "CLP",
+            "fecha": "2025-10-21"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01939",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-10-21"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01887",
+            "tipo": "Factura",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2025-10-07"
+          },
+          {
+            "nombre": "CARLITA (Replica Tik Tok)",
+            "orden": "CL01887",
+            "tipo": "Factura",
+            "monto_clp": 1400000,
+            "monto_orig": 1400000,
+            "moneda": "CLP",
+            "fecha": "2025-10-07"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01887",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-10-07"
+          }
+        ]
+      },
+      "2025-09": {
+        "f": 15750000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01807",
+            "tipo": "Factura",
+            "monto_clp": 2000000,
+            "monto_orig": 2000000,
+            "moneda": "CLP",
+            "fecha": "2025-09-22"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01807",
+            "tipo": "Factura",
+            "monto_clp": 900000,
+            "monto_orig": 900000,
+            "moneda": "CLP",
+            "fecha": "2025-09-22"
+          },
+          {
+            "nombre": "CARLITA (Jornada de grabación)",
+            "orden": "CL01807",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-09-22"
+          },
+          {
+            "nombre": "CARLITA (Uso de imagen)",
+            "orden": "CL01807",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-09-22"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01807",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2025-09-22"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01785",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-09-16"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01785",
+            "tipo": "Factura",
+            "monto_clp": 950000,
+            "monto_orig": 950000,
+            "moneda": "CLP",
+            "fecha": "2025-09-16"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01785",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2025-09-16"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01783",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-09-16"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01776",
+            "tipo": "Factura",
+            "monto_clp": 950000,
+            "monto_orig": 950000,
+            "moneda": "CLP",
+            "fecha": "2025-09-12"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01776",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2025-09-12"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01770",
+            "tipo": "Factura",
+            "monto_clp": 1300000,
+            "monto_orig": 1300000,
+            "moneda": "CLP",
+            "fecha": "2025-09-10"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01770",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2025-09-10"
+          },
+          {
+            "nombre": "CARLITA (Video Tik Tok)",
+            "orden": "CL01764",
+            "tipo": "Factura",
+            "monto_clp": 1400000,
+            "monto_orig": 1400000,
+            "moneda": "CLP",
+            "fecha": "2025-09-10"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01764",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-09-10"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab Pauta)",
+            "orden": "CL01758",
+            "tipo": "Factura",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2025-09-10"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01758",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2025-09-10"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01758",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-09-10"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01731",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-09-04"
+          },
+          {
+            "nombre": "CARLITA (Replica Tik Tok)",
+            "orden": "CL01731",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-09-04"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01731",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-09-04"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01731",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2025-09-04"
+          }
+        ]
+      },
+      "2025-08": {
+        "f": 13600000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Replica Tik Tok)",
+            "orden": "CL01668",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-08-25"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01668",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-08-25"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01668",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-08-25"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01668",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-08-25"
+          },
+          {
+            "nombre": "CARLITA (Tik Tok con pauta)",
+            "orden": "CL01666",
+            "tipo": "Factura",
+            "monto_clp": 1400000,
+            "monto_orig": 1400000,
+            "moneda": "CLP",
+            "fecha": "2025-08-25"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01666",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-08-25"
+          },
+          {
+            "nombre": "CARLITA (Video Tik Tok)",
+            "orden": "CL01616",
+            "tipo": "Factura",
+            "monto_clp": 950000,
+            "monto_orig": 950000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01616",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01616",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Collab)",
+            "orden": "CL01616",
+            "tipo": "Factura",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01615",
+            "tipo": "Factura",
+            "monto_clp": 975000,
+            "monto_orig": 975000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01615",
+            "tipo": "Factura",
+            "monto_clp": 25000,
+            "monto_orig": 25000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Foto)",
+            "orden": "CL01613",
+            "tipo": "Factura",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Derecho de imagen)",
+            "orden": "CL01613",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01613",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Presencia)",
+            "orden": "CL01613",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01613",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01613",
+            "tipo": "Factura",
+            "monto_clp": 250000,
+            "monto_orig": 250000,
+            "moneda": "CLP",
+            "fecha": "2025-08-21"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01667",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-08-01"
+          },
+          {
+            "nombre": "CARLITA (Video Tik Tok)",
+            "orden": "CL01667",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-08-01"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01667",
+            "tipo": "Factura",
+            "monto_clp": 900000,
+            "monto_orig": 900000,
+            "moneda": "CLP",
+            "fecha": "2025-08-01"
+          }
+        ]
+      },
+      "2025-07": {
+        "f": 4977800.0,
+        "b": 1400000.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01520",
+            "tipo": "Boleta",
+            "monto_clp": 800000,
+            "monto_orig": 800000,
+            "moneda": "CLP",
+            "fecha": "2025-07-30"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01520",
+            "tipo": "Boleta",
+            "monto_clp": 600000,
+            "monto_orig": 600000,
+            "moneda": "CLP",
+            "fecha": "2025-07-30"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01509",
+            "tipo": "Factura",
+            "monto_clp": 1400000,
+            "monto_orig": 1400000,
+            "moneda": "CLP",
+            "fecha": "2025-07-30"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01509",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-07-30"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01499",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-07-30"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01463",
+            "tipo": "Factura",
+            "monto_clp": 953000,
+            "monto_orig": 1000,
+            "moneda": "USD",
+            "fecha": "2025-07-28"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01463",
+            "tipo": "Factura",
+            "monto_clp": 1429500,
+            "monto_orig": 1500,
+            "moneda": "USD",
+            "fecha": "2025-07-28"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01463",
+            "tipo": "Factura",
+            "monto_clp": 95300,
+            "monto_orig": 100,
+            "moneda": "USD",
+            "fecha": "2025-07-28"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01546",
+            "tipo": "Factura",
+            "monto_clp": 600000,
+            "monto_orig": 600000,
+            "moneda": "CLP",
+            "fecha": "2025-07-22"
+          }
+        ]
+      },
+      "2025-06": {
+        "f": 26198360.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01107",
+            "tipo": "Factura",
+            "monto_clp": 1600000,
+            "monto_orig": 1600000,
+            "moneda": "CLP",
+            "fecha": "2025-06-30"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01107",
+            "tipo": "Factura",
+            "monto_clp": 800000,
+            "monto_orig": 800000,
+            "moneda": "CLP",
+            "fecha": "2025-06-30"
+          },
+          {
+            "nombre": "CARLITA (Jornada de grabación)",
+            "orden": "CL01107",
+            "tipo": "Factura",
+            "monto_clp": 900000,
+            "monto_orig": 900000,
+            "moneda": "CLP",
+            "fecha": "2025-06-30"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01107",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-06-30"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01447",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01447",
+            "tipo": "Factura",
+            "monto_clp": 900000,
+            "monto_orig": 900000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01447",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (tiktok con pauta)",
+            "orden": "CL01364",
+            "tipo": "Factura",
+            "monto_clp": 1400000,
+            "monto_orig": 1400000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01364",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (tiktok con pauta)",
+            "orden": "CL01112",
+            "tipo": "Factura",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Exclusividad)",
+            "orden": "CL01112",
+            "tipo": "Factura",
+            "monto_clp": 700000,
+            "monto_orig": 700000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01112",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Jornada de grabación)",
+            "orden": "CL01436",
+            "tipo": "Factura",
+            "monto_clp": 1902000,
+            "monto_orig": 2000,
+            "moneda": "USD",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01436",
+            "tipo": "Factura",
+            "monto_clp": 817860,
+            "monto_orig": 860,
+            "moneda": "USD",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01436",
+            "tipo": "Factura",
+            "monto_clp": 2282400,
+            "monto_orig": 2400,
+            "moneda": "USD",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Uso de imagen)",
+            "orden": "CL01436",
+            "tipo": "Factura",
+            "monto_clp": 951000,
+            "monto_orig": 1000,
+            "moneda": "USD",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01436",
+            "tipo": "Factura",
+            "monto_clp": 95100,
+            "monto_orig": 100,
+            "moneda": "USD",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01434",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01434",
+            "tipo": "Factura",
+            "monto_clp": 900000,
+            "monto_orig": 900000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01434",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-06-15"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01121",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-06-06"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01121",
+            "tipo": "Factura",
+            "monto_clp": 450000,
+            "monto_orig": 450000,
+            "moneda": "CLP",
+            "fecha": "2025-06-06"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01121",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-06-06"
+          },
+          {
+            "nombre": "CARLITA (Tik Tok con pauta)",
+            "orden": "CL01561",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-06-04"
+          },
+          {
+            "nombre": "CARLITA (Exclusividad)",
+            "orden": "CL01561",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-06-04"
+          },
+          {
+            "nombre": "CARLITA (Derecho de imagen)",
+            "orden": "CL01561",
+            "tipo": "Factura",
+            "monto_clp": 950000,
+            "monto_orig": 950000,
+            "moneda": "CLP",
+            "fecha": "2025-06-04"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01561",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2025-06-04"
+          },
+          {
+            "nombre": "CARLITA (Jornada de grabación)",
+            "orden": "CL01490",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-06-03"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01490",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2025-06-03"
+          },
+          {
+            "nombre": "CARLITA (Replica Tik Tok)",
+            "orden": "CL01490",
+            "tipo": "Factura",
+            "monto_clp": 300000,
+            "monto_orig": 300000,
+            "moneda": "CLP",
+            "fecha": "2025-06-03"
+          },
+          {
+            "nombre": "CARLITA (Pauta)",
+            "orden": "CL01490",
+            "tipo": "Factura",
+            "monto_clp": 300000,
+            "monto_orig": 300000,
+            "moneda": "CLP",
+            "fecha": "2025-06-03"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01490",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-06-03"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab Pauta)",
+            "orden": "CL01459",
+            "tipo": "Factura",
+            "monto_clp": 1600000,
+            "monto_orig": 1600000,
+            "moneda": "CLP",
+            "fecha": "2025-06-03"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01459",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-06-03"
+          }
+        ]
+      },
+      "2025-05": {
+        "f": 2400000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01353",
+            "tipo": "Factura",
+            "monto_clp": 1100000,
+            "monto_orig": 1100000,
+            "moneda": "CLP",
+            "fecha": "2025-05-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01353",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-05-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01316",
+            "tipo": "Factura",
+            "monto_clp": 800000,
+            "monto_orig": 800000,
+            "moneda": "CLP",
+            "fecha": "2025-05-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01127",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-05-15"
+          }
+        ]
+      },
+      "2025-04": {
+        "f": 12700000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01199",
+            "tipo": "Factura",
+            "monto_clp": 450000,
+            "monto_orig": 450000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01199",
+            "tipo": "Factura",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01199",
+            "tipo": "Factura",
+            "monto_clp": 0,
+            "monto_orig": 0,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Video Tik Tok)",
+            "orden": "CL01029",
+            "tipo": "Factura",
+            "monto_clp": 3000000,
+            "monto_orig": 3000000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Pauta)",
+            "orden": "CL01029",
+            "tipo": "Factura",
+            "monto_clp": 300000,
+            "monto_orig": 300000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Presencia)",
+            "orden": "CL01029",
+            "tipo": "Factura",
+            "monto_clp": 600000,
+            "monto_orig": 600000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01029",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01084",
+            "tipo": "Factura",
+            "monto_clp": 4200000,
+            "monto_orig": 4200000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01084",
+            "tipo": "Factura",
+            "monto_clp": 1400000,
+            "monto_orig": 1400000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01084",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01141",
+            "tipo": "Factura",
+            "monto_clp": 900000,
+            "monto_orig": 900000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01141",
+            "tipo": "Factura",
+            "monto_clp": 1200000,
+            "monto_orig": 1200000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          },
+          {
+            "nombre": "CARLITA (Viaticos)",
+            "orden": "CL01141",
+            "tipo": "Factura",
+            "monto_clp": 100000,
+            "monto_orig": 100000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          }
+        ]
+      },
+      "2025-03": {
+        "f": 5000000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Video Tik Tok)",
+            "orden": "CL00994",
+            "tipo": "Factura",
+            "monto_clp": 1600000,
+            "monto_orig": 1600000,
+            "moneda": "CLP",
+            "fecha": "2025-03-15"
+          },
+          {
+            "nombre": "CARLITA (Video Tik Tok)",
+            "orden": "CL01302",
+            "tipo": "Factura",
+            "monto_clp": 1250000,
+            "monto_orig": 1250000,
+            "moneda": "CLP",
+            "fecha": "2025-03-15"
+          },
+          {
+            "nombre": "CARLITA (Video Tik Tok)",
+            "orden": "CL01102",
+            "tipo": "Factura",
+            "monto_clp": 900000,
+            "monto_orig": 900000,
+            "moneda": "CLP",
+            "fecha": "2025-03-15"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL01182",
+            "tipo": "Factura",
+            "monto_clp": 800000,
+            "monto_orig": 800000,
+            "moneda": "CLP",
+            "fecha": "2025-03-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL01304",
+            "tipo": "Factura",
+            "monto_clp": 450000,
+            "monto_orig": 450000,
+            "moneda": "CLP",
+            "fecha": "2025-03-15"
+          }
+        ]
+      },
+      "2025-02": {
+        "f": 5850000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Video Tik Tok)",
+            "orden": "CL00965",
+            "tipo": "Factura",
+            "monto_clp": 1200000,
+            "monto_orig": 1200000,
+            "moneda": "CLP",
+            "fecha": "2025-02-15"
+          },
+          {
+            "nombre": "CARLITA (Presencia)",
+            "orden": "CL00965",
+            "tipo": "Factura",
+            "monto_clp": 300000,
+            "monto_orig": 300000,
+            "moneda": "CLP",
+            "fecha": "2025-02-15"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL00960",
+            "tipo": "Factura",
+            "monto_clp": 350000,
+            "monto_orig": 350000,
+            "moneda": "CLP",
+            "fecha": "2025-02-15"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL00753",
+            "tipo": "Factura",
+            "monto_clp": 1200000,
+            "monto_orig": 1200000,
+            "moneda": "CLP",
+            "fecha": "2025-02-03"
+          },
+          {
+            "nombre": "CARLITA (Reel Collab)",
+            "orden": "CL01135",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-02-01"
+          },
+          {
+            "nombre": "CARLITA (Pauta)",
+            "orden": "CL01135",
+            "tipo": "Factura",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2025-02-01"
+          },
+          {
+            "nombre": "CARLITA (Video Tik Tok)",
+            "orden": "CL01135",
+            "tipo": "Factura",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2025-02-01"
+          },
+          {
+            "nombre": "CARLITA (Reel con pauta)",
+            "orden": "CL01134",
+            "tipo": "Factura",
+            "monto_clp": 2000000,
+            "monto_orig": 2000000,
+            "moneda": "CLP",
+            "fecha": "2025-02-01"
+          }
+        ]
+      },
+      "2025-01": {
+        "f": 2100000.0,
+        "b": 1100000.0,
+        "ordenes": [
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL00922",
+            "tipo": "Factura",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2025-01-31"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL00299",
+            "tipo": "Boleta",
+            "monto_clp": 1100000,
+            "monto_orig": 1100000,
+            "moneda": "CLP",
+            "fecha": "2025-01-27"
+          },
+          {
+            "nombre": "CARLITA (Historia Instagram)",
+            "orden": "CL00415",
+            "tipo": "Factura",
+            "monto_clp": 1133333,
+            "monto_orig": 1133333,
+            "moneda": "CLP",
+            "fecha": "2025-01-27"
+          },
+          {
+            "nombre": "CARLITA (Reel Instagram)",
+            "orden": "CL00415",
+            "tipo": "Factura",
+            "monto_clp": 566667,
+            "monto_orig": 566667,
+            "moneda": "CLP",
+            "fecha": "2025-01-27"
+          }
+        ]
+      }
+    },
+    "ITAY": {
+      "2026-06": {
+        "f": 14400000.0,
+        "b": 7300000.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Participación por capítulo)",
+            "orden": "CL03046",
+            "tipo": "Factura",
+            "monto_clp": 7200000,
+            "monto_orig": 7200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26"
+          },
+          {
+            "nombre": "ITAY (Reel Collab)",
+            "orden": "CL03031",
+            "tipo": "Boleta",
+            "monto_clp": 2000000,
+            "monto_orig": 2000000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ITAY (Tiktok)",
+            "orden": "CL03031",
+            "tipo": "Boleta",
+            "monto_clp": 1500000,
+            "monto_orig": 1500000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ITAY (Derecho de imagen por 30 dias)",
+            "orden": "CL03031",
+            "tipo": "Boleta",
+            "monto_clp": 550000,
+            "monto_orig": 550000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ITAY (Viaticos)",
+            "orden": "CL03031",
+            "tipo": "Boleta",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ITAY (Reel Collab)",
+            "orden": "CL03028",
+            "tipo": "Boleta",
+            "monto_clp": 2000000,
+            "monto_orig": 2000000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ITAY (Presencia)",
+            "orden": "CL03028",
+            "tipo": "Boleta",
+            "monto_clp": 250000,
+            "monto_orig": 250000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ITAY (Viaticos)",
+            "orden": "CL03028",
+            "tipo": "Boleta",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ITAY (IG Story )",
+            "orden": "CL02982",
+            "tipo": "Boleta",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ITAY (Attendance )",
+            "orden": "CL02982",
+            "tipo": "Boleta",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ITAY (Participación por capítulo)",
+            "orden": "CL02985",
+            "tipo": "Factura",
+            "monto_clp": 7200000,
+            "monto_orig": 7200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-12"
+          }
+        ]
+      },
+      "2026-05": {
+        "f": 700000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Music Tiktok)",
+            "orden": "CL02891",
+            "tipo": "Factura",
+            "monto_clp": 700000,
+            "monto_orig": 700000,
+            "moneda": "CLP",
+            "fecha": "2026-05-25"
+          }
+        ]
+      },
+      "2026-04": {
+        "f": 13400000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Attendance )",
+            "orden": "CL02797",
+            "tipo": "Factura",
+            "monto_clp": 7200000,
+            "monto_orig": 7200000,
+            "moneda": "CLP",
+            "fecha": "2026-04-29"
+          },
+          {
+            "nombre": "ITAY (Attendance )",
+            "orden": "CL02762",
+            "tipo": "Factura",
+            "monto_clp": 1800000,
+            "monto_orig": 1800000,
+            "moneda": "CLP",
+            "fecha": "2026-04-22"
+          },
+          {
+            "nombre": "ITAY (Music Tiktok)",
+            "orden": "CL02751",
+            "tipo": "Factura",
+            "monto_clp": 800000,
+            "monto_orig": 800000,
+            "moneda": "CLP",
+            "fecha": "2026-04-17"
+          },
+          {
+            "nombre": "ITAY (Attendance )",
+            "orden": "CL02729",
+            "tipo": "Factura",
+            "monto_clp": 1800000,
+            "monto_orig": 1800000,
+            "moneda": "CLP",
+            "fecha": "2026-04-15"
+          },
+          {
+            "nombre": "ITAY (Attendance )",
+            "orden": "CL02688",
+            "tipo": "Factura",
+            "monto_clp": 1800000,
+            "monto_orig": 1800000,
+            "moneda": "CLP",
+            "fecha": "2026-04-02"
+          }
+        ]
+      },
+      "2026-03": {
+        "f": 500000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Attendance )",
+            "orden": "CL02626",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2026-03-18"
+          }
+        ]
+      },
+      "2025-09": {
+        "f": 3842500.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Cápsula de video)",
+            "orden": "CL01790",
+            "tipo": "Factura",
+            "monto_clp": 3247000,
+            "monto_orig": 3400,
+            "moneda": "USD",
+            "fecha": "2025-09-16"
+          },
+          {
+            "nombre": "ITAY (Viaticos)",
+            "orden": "CL01790",
+            "tipo": "Factura",
+            "monto_clp": 95500,
+            "monto_orig": 100,
+            "moneda": "USD",
+            "fecha": "2025-09-16"
+          },
+          {
+            "nombre": "ITAY (Video Tik Tok)",
+            "orden": "CL01779",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2025-09-15"
+          }
+        ]
+      },
+      "2025-07": {
+        "f": 2573100.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Reel Instagram)",
+            "orden": "CL01570",
+            "tipo": "Factura",
+            "monto_clp": 1906000,
+            "monto_orig": 2000,
+            "moneda": "USD",
+            "fecha": "2025-07-24"
+          },
+          {
+            "nombre": "ITAY (Video Tik Tok)",
+            "orden": "CL01570",
+            "tipo": "Factura",
+            "monto_clp": 619450,
+            "monto_orig": 650,
+            "moneda": "USD",
+            "fecha": "2025-07-24"
+          },
+          {
+            "nombre": "ITAY (Viaticos)",
+            "orden": "CL01570",
+            "tipo": "Factura",
+            "monto_clp": 47650,
+            "monto_orig": 50,
+            "moneda": "USD",
+            "fecha": "2025-07-24"
+          }
+        ]
+      },
+      "2025-04": {
+        "f": 500000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Video Tik Tok)",
+            "orden": "CL01005",
+            "tipo": "Factura",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2025-04-15"
+          }
+        ]
+      },
+      "2025-03": {
+        "f": 700000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Video Tik Tok)",
+            "orden": "CL01193",
+            "tipo": "Factura",
+            "monto_clp": 700000,
+            "monto_orig": 700000,
+            "moneda": "CLP",
+            "fecha": "2025-03-15"
+          }
+        ]
+      },
+      "2025-02": {
+        "f": 0.0,
+        "b": 10200000.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Reel Collab)",
+            "orden": "CL01148",
+            "tipo": "Boleta",
+            "monto_clp": 1200000,
+            "monto_orig": 1200000,
+            "moneda": "CLP",
+            "fecha": "2025-02-15"
+          },
+          {
+            "nombre": "ITAY (Reel Instagram)",
+            "orden": "CL01339",
+            "tipo": "Boleta",
+            "monto_clp": 2500000,
+            "monto_orig": 2500000,
+            "moneda": "CLP",
+            "fecha": "2025-02-15"
+          },
+          {
+            "nombre": "ITAY (Historia Instagram)",
+            "orden": "CL01339",
+            "tipo": "Boleta",
+            "monto_clp": 6000000,
+            "monto_orig": 6000000,
+            "moneda": "CLP",
+            "fecha": "2025-02-15"
+          },
+          {
+            "nombre": "ITAY (Pauta)",
+            "orden": "CL01339",
+            "tipo": "Boleta",
+            "monto_clp": 500000,
+            "monto_orig": 500000,
+            "moneda": "CLP",
+            "fecha": "2025-02-15"
+          }
+        ]
+      },
+      "2025-01": {
+        "f": 300000.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ITAY (Historia Instagram)",
+            "orden": "CL00909",
+            "tipo": "Factura",
+            "monto_clp": 300000,
+            "monto_orig": 300000,
+            "moneda": "CLP",
+            "fecha": "2025-01-31"
+          }
+        ]
+      }
+    },
+    "ISIORTRIP": {
+      "2026-06": {
+        "f": 329700.0,
+        "b": 1050000.0,
+        "ordenes": [
+          {
+            "nombre": "ISIORTRIP (IG Reel)",
+            "orden": "CL03045",
+            "tipo": "Boleta",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26"
+          },
+          {
+            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
+            "orden": "CL03045",
+            "tipo": "Boleta",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26"
+          },
+          {
+            "nombre": "ISIORTRIP (Exclusivity)",
+            "orden": "CL03045",
+            "tipo": "Boleta",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26"
+          },
+          {
+            "nombre": "ISIORTRIP (IG Story )",
+            "orden": "CL03027",
+            "tipo": "Boleta",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
+            "orden": "CL03027",
+            "tipo": "Boleta",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22"
+          },
+          {
+            "nombre": "ISIORTRIP (Tik Tok de musica)",
+            "orden": "CL02991",
+            "tipo": "Factura",
+            "monto_clp": 329700,
+            "monto_orig": 350,
+            "moneda": "USD",
+            "fecha": "2026-06-15"
+          }
+        ]
+      }
+    },
     "AGUSTINA MARTINEZ": {
       "2026-06": {
         "f": 4512739.8,
@@ -3431,7 +5969,7 @@
     },
     "CATA CAZU": {
       "2026-06": {
-        "f": 5127000.0,
+        "f": 5178572.0,
         "b": 2000000.0,
         "ordenes": [
           {
@@ -3528,8 +6066,8 @@
             "nombre": "CATA CAZU (Use of image (ads) x 30 days)",
             "orden": "CL02939",
             "tipo": "Factura",
-            "monto_clp": 627000,
-            "monto_orig": 627000,
+            "monto_clp": 678572,
+            "monto_orig": 678572,
             "moneda": "CLP",
             "fecha": "2026-06-03"
           },
@@ -4964,2446 +7502,6 @@
         ]
       }
     },
-    "ITAY": {
-      "2026-06": {
-        "f": 7200000.0,
-        "b": 7300000.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Reel Collab)",
-            "orden": "CL03031",
-            "tipo": "Boleta",
-            "monto_clp": 2000000,
-            "monto_orig": 2000000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ITAY (Tiktok)",
-            "orden": "CL03031",
-            "tipo": "Boleta",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ITAY (Derecho de imagen por 30 dias)",
-            "orden": "CL03031",
-            "tipo": "Boleta",
-            "monto_clp": 550000,
-            "monto_orig": 550000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ITAY (Viaticos)",
-            "orden": "CL03031",
-            "tipo": "Boleta",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ITAY (Reel Collab)",
-            "orden": "CL03028",
-            "tipo": "Boleta",
-            "monto_clp": 2000000,
-            "monto_orig": 2000000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ITAY (Presencia)",
-            "orden": "CL03028",
-            "tipo": "Boleta",
-            "monto_clp": 250000,
-            "monto_orig": 250000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ITAY (Viaticos)",
-            "orden": "CL03028",
-            "tipo": "Boleta",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ITAY (IG Story )",
-            "orden": "CL02982",
-            "tipo": "Boleta",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ITAY (Attendance )",
-            "orden": "CL02982",
-            "tipo": "Boleta",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ITAY (Participación por capítulo)",
-            "orden": "CL02985",
-            "tipo": "Factura",
-            "monto_clp": 7200000,
-            "monto_orig": 7200000,
-            "moneda": "CLP",
-            "fecha": "2026-06-12"
-          }
-        ]
-      },
-      "2026-05": {
-        "f": 700000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Music Tiktok)",
-            "orden": "CL02891",
-            "tipo": "Factura",
-            "monto_clp": 700000,
-            "monto_orig": 700000,
-            "moneda": "CLP",
-            "fecha": "2026-05-25"
-          }
-        ]
-      },
-      "2026-04": {
-        "f": 13400000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Attendance )",
-            "orden": "CL02797",
-            "tipo": "Factura",
-            "monto_clp": 7200000,
-            "monto_orig": 7200000,
-            "moneda": "CLP",
-            "fecha": "2026-04-29"
-          },
-          {
-            "nombre": "ITAY (Attendance )",
-            "orden": "CL02762",
-            "tipo": "Factura",
-            "monto_clp": 1800000,
-            "monto_orig": 1800000,
-            "moneda": "CLP",
-            "fecha": "2026-04-22"
-          },
-          {
-            "nombre": "ITAY (Music Tiktok)",
-            "orden": "CL02751",
-            "tipo": "Factura",
-            "monto_clp": 800000,
-            "monto_orig": 800000,
-            "moneda": "CLP",
-            "fecha": "2026-04-17"
-          },
-          {
-            "nombre": "ITAY (Attendance )",
-            "orden": "CL02729",
-            "tipo": "Factura",
-            "monto_clp": 1800000,
-            "monto_orig": 1800000,
-            "moneda": "CLP",
-            "fecha": "2026-04-15"
-          },
-          {
-            "nombre": "ITAY (Attendance )",
-            "orden": "CL02688",
-            "tipo": "Factura",
-            "monto_clp": 1800000,
-            "monto_orig": 1800000,
-            "moneda": "CLP",
-            "fecha": "2026-04-02"
-          }
-        ]
-      },
-      "2026-03": {
-        "f": 500000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Attendance )",
-            "orden": "CL02626",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2026-03-18"
-          }
-        ]
-      },
-      "2025-09": {
-        "f": 3842500.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Cápsula de video)",
-            "orden": "CL01790",
-            "tipo": "Factura",
-            "monto_clp": 3247000,
-            "monto_orig": 3400,
-            "moneda": "USD",
-            "fecha": "2025-09-16"
-          },
-          {
-            "nombre": "ITAY (Viaticos)",
-            "orden": "CL01790",
-            "tipo": "Factura",
-            "monto_clp": 95500,
-            "monto_orig": 100,
-            "moneda": "USD",
-            "fecha": "2025-09-16"
-          },
-          {
-            "nombre": "ITAY (Video Tik Tok)",
-            "orden": "CL01779",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2025-09-15"
-          }
-        ]
-      },
-      "2025-07": {
-        "f": 2573100.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Reel Instagram)",
-            "orden": "CL01570",
-            "tipo": "Factura",
-            "monto_clp": 1906000,
-            "monto_orig": 2000,
-            "moneda": "USD",
-            "fecha": "2025-07-24"
-          },
-          {
-            "nombre": "ITAY (Video Tik Tok)",
-            "orden": "CL01570",
-            "tipo": "Factura",
-            "monto_clp": 619450,
-            "monto_orig": 650,
-            "moneda": "USD",
-            "fecha": "2025-07-24"
-          },
-          {
-            "nombre": "ITAY (Viaticos)",
-            "orden": "CL01570",
-            "tipo": "Factura",
-            "monto_clp": 47650,
-            "monto_orig": 50,
-            "moneda": "USD",
-            "fecha": "2025-07-24"
-          }
-        ]
-      },
-      "2025-04": {
-        "f": 500000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Video Tik Tok)",
-            "orden": "CL01005",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          }
-        ]
-      },
-      "2025-03": {
-        "f": 700000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Video Tik Tok)",
-            "orden": "CL01193",
-            "tipo": "Factura",
-            "monto_clp": 700000,
-            "monto_orig": 700000,
-            "moneda": "CLP",
-            "fecha": "2025-03-15"
-          }
-        ]
-      },
-      "2025-02": {
-        "f": 0.0,
-        "b": 10200000.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Reel Collab)",
-            "orden": "CL01148",
-            "tipo": "Boleta",
-            "monto_clp": 1200000,
-            "monto_orig": 1200000,
-            "moneda": "CLP",
-            "fecha": "2025-02-15"
-          },
-          {
-            "nombre": "ITAY (Reel Instagram)",
-            "orden": "CL01339",
-            "tipo": "Boleta",
-            "monto_clp": 2500000,
-            "monto_orig": 2500000,
-            "moneda": "CLP",
-            "fecha": "2025-02-15"
-          },
-          {
-            "nombre": "ITAY (Historia Instagram)",
-            "orden": "CL01339",
-            "tipo": "Boleta",
-            "monto_clp": 6000000,
-            "monto_orig": 6000000,
-            "moneda": "CLP",
-            "fecha": "2025-02-15"
-          },
-          {
-            "nombre": "ITAY (Pauta)",
-            "orden": "CL01339",
-            "tipo": "Boleta",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2025-02-15"
-          }
-        ]
-      },
-      "2025-01": {
-        "f": 300000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "ITAY (Historia Instagram)",
-            "orden": "CL00909",
-            "tipo": "Factura",
-            "monto_clp": 300000,
-            "monto_orig": 300000,
-            "moneda": "CLP",
-            "fecha": "2025-01-31"
-          }
-        ]
-      }
-    },
-    "CARLITA": {
-      "2026-06": {
-        "f": 5600000.0,
-        "b": 4500000.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL03030",
-            "tipo": "Boleta",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL03030",
-            "tipo": "Boleta",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "CARLITA (Derecho de imagen por 30 dias)",
-            "orden": "CL03030",
-            "tipo": "Boleta",
-            "monto_clp": 1450000,
-            "monto_orig": 1450000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL03030",
-            "tipo": "Boleta",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02994",
-            "tipo": "Factura",
-            "monto_clp": 1450000,
-            "monto_orig": 1450000,
-            "moneda": "CLP",
-            "fecha": "2026-06-16"
-          },
-          {
-            "nombre": "CARLITA (Travel Expenses)",
-            "orden": "CL02994",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-06-16"
-          },
-          {
-            "nombre": "CARLITA (IG Reel Collab)",
-            "orden": "CL02936",
-            "tipo": "Factura",
-            "monto_clp": 2300000,
-            "monto_orig": 2300000,
-            "moneda": "CLP",
-            "fecha": "2026-06-03"
-          },
-          {
-            "nombre": "CARLITA (Attendance )",
-            "orden": "CL02936",
-            "tipo": "Factura",
-            "monto_clp": 1200000,
-            "monto_orig": 1200000,
-            "moneda": "CLP",
-            "fecha": "2026-06-03"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02931",
-            "tipo": "Factura",
-            "monto_clp": 600000,
-            "monto_orig": 600000,
-            "moneda": "CLP",
-            "fecha": "2026-06-02"
-          }
-        ]
-      },
-      "2026-05": {
-        "f": 7600000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL02905",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-05-27"
-          },
-          {
-            "nombre": "CARLITA (Contenido video para pauta dark)",
-            "orden": "CL02905",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-05-27"
-          },
-          {
-            "nombre": "CARLITA (Contenido para pauta)",
-            "orden": "CL02905",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-05-27"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL02875",
-            "tipo": "Factura",
-            "monto_clp": 1800000,
-            "monto_orig": 1800000,
-            "moneda": "CLP",
-            "fecha": "2026-05-20"
-          },
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02847",
-            "tipo": "Factura",
-            "monto_clp": 1600000,
-            "monto_orig": 1600000,
-            "moneda": "CLP",
-            "fecha": "2026-05-13"
-          },
-          {
-            "nombre": "CARLITA (Attendance )",
-            "orden": "CL02847",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2026-05-13"
-          },
-          {
-            "nombre": "CARLITA (Travel Expenses)",
-            "orden": "CL02847",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-05-13"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02815",
-            "tipo": "Factura",
-            "monto_clp": 600000,
-            "monto_orig": 600000,
-            "moneda": "CLP",
-            "fecha": "2026-05-07"
-          }
-        ]
-      },
-      "2026-04": {
-        "f": 9300000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL02772",
-            "tipo": "Factura",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2026-04-23"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02772",
-            "tipo": "Factura",
-            "monto_clp": 800000,
-            "monto_orig": 800000,
-            "moneda": "CLP",
-            "fecha": "2026-04-23"
-          },
-          {
-            "nombre": "CARLITA (Pauta por 30 días)",
-            "orden": "CL02772",
-            "tipo": "Factura",
-            "monto_clp": 800000,
-            "monto_orig": 800000,
-            "moneda": "CLP",
-            "fecha": "2026-04-23"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02772",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-04-23"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL02768",
-            "tipo": "Factura",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2026-04-23"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02768",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-04-23"
-          },
-          {
-            "nombre": "CARLITA (IG Reel Collab)",
-            "orden": "CL02714",
-            "tipo": "Factura",
-            "monto_clp": 1200000,
-            "monto_orig": 1200000,
-            "moneda": "CLP",
-            "fecha": "2026-04-13"
-          },
-          {
-            "nombre": "CARLITA (Use of image (ads) x 30 days)",
-            "orden": "CL02714",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-04-13"
-          },
-          {
-            "nombre": "CARLITA (Jornada de grabación)",
-            "orden": "CL02714",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-04-13"
-          },
-          {
-            "nombre": "CARLITA (Travel Expenses)",
-            "orden": "CL02714",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-04-13"
-          },
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02713",
-            "tipo": "Factura",
-            "monto_clp": 1100000,
-            "monto_orig": 1100000,
-            "moneda": "CLP",
-            "fecha": "2026-04-13"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02713",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-04-13"
-          }
-        ]
-      },
-      "2026-03": {
-        "f": 3700000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02666",
-            "tipo": "Factura",
-            "monto_clp": 600000,
-            "monto_orig": 600000,
-            "moneda": "CLP",
-            "fecha": "2026-03-26"
-          },
-          {
-            "nombre": "CARLITA (IG Story )",
-            "orden": "CL02645",
-            "tipo": "Factura",
-            "monto_clp": 550000,
-            "monto_orig": 550000,
-            "moneda": "CLP",
-            "fecha": "2026-03-20"
-          },
-          {
-            "nombre": "CARLITA (Travel Expenses)",
-            "orden": "CL02645",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-03-20"
-          },
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02640",
-            "tipo": "Factura",
-            "monto_clp": 1900000,
-            "monto_orig": 1900000,
-            "moneda": "CLP",
-            "fecha": "2026-03-20"
-          },
-          {
-            "nombre": "CARLITA (IG Story )",
-            "orden": "CL02640",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2026-03-20"
-          },
-          {
-            "nombre": "CARLITA (Travel Expenses)",
-            "orden": "CL02640",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-03-20"
-          }
-        ]
-      },
-      "2026-02": {
-        "f": 13650000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02495",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-02-23"
-          },
-          {
-            "nombre": "CARLITA (Presencia)",
-            "orden": "CL02495",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-02-23"
-          },
-          {
-            "nombre": "CARLITA (Derecho de imagen por 30 dias)",
-            "orden": "CL02495",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2026-02-23"
-          },
-          {
-            "nombre": "CARLITA (Cambios en el contenido)",
-            "orden": "CL02495",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2026-02-23"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02495",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-02-23"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL02493",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-02-23"
-          },
-          {
-            "nombre": "CARLITA (Replica Tik Tok)",
-            "orden": "CL02493",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-02-23"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02493",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-02-23"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02493",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-02-23"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL02482",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-02-21"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02482",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2026-02-21"
-          },
-          {
-            "nombre": "CARLITA (Presencia)",
-            "orden": "CL02482",
-            "tipo": "Factura",
-            "monto_clp": 450000,
-            "monto_orig": 450000,
-            "moneda": "CLP",
-            "fecha": "2026-02-21"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02482",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-02-21"
-          },
-          {
-            "nombre": "CARLITA (IG Reel)",
-            "orden": "CL02478",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-02-21"
-          },
-          {
-            "nombre": "CARLITA (IG Story )",
-            "orden": "CL02478",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2026-02-21"
-          },
-          {
-            "nombre": "CARLITA (Travel Expenses)",
-            "orden": "CL02478",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-02-21"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02467",
-            "tipo": "Factura",
-            "monto_clp": 425000,
-            "monto_orig": 425000,
-            "moneda": "CLP",
-            "fecha": "2026-02-19"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02467",
-            "tipo": "Factura",
-            "monto_clp": 25000,
-            "monto_orig": 25000,
-            "moneda": "CLP",
-            "fecha": "2026-02-19"
-          },
-          {
-            "nombre": "CARLITA (Reel en Collab)",
-            "orden": "CL02459",
-            "tipo": "Factura",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2026-02-07"
-          },
-          {
-            "nombre": "CARLITA (Jornada de grabación)",
-            "orden": "CL02459",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2026-02-07"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02459",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-02-07"
-          },
-          {
-            "nombre": "CARLITA (Reel en Collab)",
-            "orden": "CL02458",
-            "tipo": "Factura",
-            "monto_clp": 1200000,
-            "monto_orig": 1200000,
-            "moneda": "CLP",
-            "fecha": "2026-02-06"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02458",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2026-02-06"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02458",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-02-06"
-          }
-        ]
-      },
-      "2026-01": {
-        "f": 5750000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02395",
-            "tipo": "Factura",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2026-01-16"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02395",
-            "tipo": "Factura",
-            "monto_clp": 550000,
-            "monto_orig": 550000,
-            "moneda": "CLP",
-            "fecha": "2026-01-16"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02395",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-01-16"
-          },
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02380",
-            "tipo": "Factura",
-            "monto_clp": 2000000,
-            "monto_orig": 2000000,
-            "moneda": "CLP",
-            "fecha": "2026-01-12"
-          },
-          {
-            "nombre": "CARLITA (Pauta por 30 días)",
-            "orden": "CL02380",
-            "tipo": "Factura",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2026-01-12"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02380",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-01-12"
-          }
-        ]
-      },
-      "2025-12": {
-        "f": 8100000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL02307",
-            "tipo": "Factura",
-            "monto_clp": 1900000,
-            "monto_orig": 1900000,
-            "moneda": "CLP",
-            "fecha": "2025-12-22"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02307",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-12-22"
-          },
-          {
-            "nombre": "CARLITA (Reel en Collab)",
-            "orden": "CL02268",
-            "tipo": "Factura",
-            "monto_clp": 3000000,
-            "monto_orig": 3000000,
-            "moneda": "CLP",
-            "fecha": "2025-12-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02268",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2025-12-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02268",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-12-15"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL02231",
-            "tipo": "Factura",
-            "monto_clp": 850000,
-            "monto_orig": 850000,
-            "moneda": "CLP",
-            "fecha": "2025-12-03"
-          },
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02231",
-            "tipo": "Factura",
-            "monto_clp": 1200000,
-            "monto_orig": 1200000,
-            "moneda": "CLP",
-            "fecha": "2025-12-03"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02231",
-            "tipo": "Factura",
-            "monto_clp": 350000,
-            "monto_orig": 350000,
-            "moneda": "CLP",
-            "fecha": "2025-12-03"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02231",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-12-03"
-          }
-        ]
-      },
-      "2025-11": {
-        "f": 9650000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02176",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-11-28"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02151",
-            "tipo": "Factura",
-            "monto_clp": 1100000,
-            "monto_orig": 1100000,
-            "moneda": "CLP",
-            "fecha": "2025-11-19"
-          },
-          {
-            "nombre": "CARLITA (Conduccion)",
-            "orden": "CL02151",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-11-19"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02151",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-11-19"
-          },
-          {
-            "nombre": "CARLITA (Pauta por 30 días)",
-            "orden": "CL02147",
-            "tipo": "Factura",
-            "monto_clp": 250000,
-            "monto_orig": 250000,
-            "moneda": "CLP",
-            "fecha": "2025-11-18"
-          },
-          {
-            "nombre": "CARLITA (Presencia)",
-            "orden": "CL02145",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2025-11-18"
-          },
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02141",
-            "tipo": "Factura",
-            "monto_clp": 1400000,
-            "monto_orig": 1400000,
-            "moneda": "CLP",
-            "fecha": "2025-11-18"
-          },
-          {
-            "nombre": "CARLITA (Pauta por 30 días)",
-            "orden": "CL02141",
-            "tipo": "Factura",
-            "monto_clp": 0,
-            "monto_orig": 0,
-            "moneda": "CLP",
-            "fecha": "2025-11-18"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02141",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-11-18"
-          },
-          {
-            "nombre": "CARLITA (Presencia)",
-            "orden": "CL02115",
-            "tipo": "Factura",
-            "monto_clp": 1200000,
-            "monto_orig": 1200000,
-            "moneda": "CLP",
-            "fecha": "2025-11-13"
-          },
-          {
-            "nombre": "CARLITA (Tiktok)",
-            "orden": "CL02115",
-            "tipo": "Factura",
-            "monto_clp": 700000,
-            "monto_orig": 700000,
-            "moneda": "CLP",
-            "fecha": "2025-11-13"
-          },
-          {
-            "nombre": "CARLITA (Pauta por 30 días)",
-            "orden": "CL02115",
-            "tipo": "Factura",
-            "monto_clp": 300000,
-            "monto_orig": 300000,
-            "moneda": "CLP",
-            "fecha": "2025-11-13"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02115",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-11-13"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL02048",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-11-01"
-          },
-          {
-            "nombre": "CARLITA (Jornada de grabación)",
-            "orden": "CL02048",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2025-11-01"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL02048",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-11-01"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL02048",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-11-01"
-          },
-          {
-            "nombre": "CARLITA (Pauta por 30 días)",
-            "orden": "CL02048",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2025-11-01"
-          }
-        ]
-      },
-      "2025-10": {
-        "f": 9450000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01940",
-            "tipo": "Factura",
-            "monto_clp": 2000000,
-            "monto_orig": 2000000,
-            "moneda": "CLP",
-            "fecha": "2025-10-22"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01940",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-10-22"
-          },
-          {
-            "nombre": "CARLITA (Pauta)",
-            "orden": "CL01940",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-10-22"
-          },
-          {
-            "nombre": "CARLITA (Exclusividad)",
-            "orden": "CL01940",
-            "tipo": "Factura",
-            "monto_clp": 1150000,
-            "monto_orig": 1150000,
-            "moneda": "CLP",
-            "fecha": "2025-10-22"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01940",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-10-22"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01939",
-            "tipo": "Factura",
-            "monto_clp": 1100000,
-            "monto_orig": 1100000,
-            "moneda": "CLP",
-            "fecha": "2025-10-21"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01939",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-10-21"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01887",
-            "tipo": "Factura",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2025-10-07"
-          },
-          {
-            "nombre": "CARLITA (Replica Tik Tok)",
-            "orden": "CL01887",
-            "tipo": "Factura",
-            "monto_clp": 1400000,
-            "monto_orig": 1400000,
-            "moneda": "CLP",
-            "fecha": "2025-10-07"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01887",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-10-07"
-          }
-        ]
-      },
-      "2025-09": {
-        "f": 15750000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01807",
-            "tipo": "Factura",
-            "monto_clp": 2000000,
-            "monto_orig": 2000000,
-            "moneda": "CLP",
-            "fecha": "2025-09-22"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01807",
-            "tipo": "Factura",
-            "monto_clp": 900000,
-            "monto_orig": 900000,
-            "moneda": "CLP",
-            "fecha": "2025-09-22"
-          },
-          {
-            "nombre": "CARLITA (Jornada de grabación)",
-            "orden": "CL01807",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-09-22"
-          },
-          {
-            "nombre": "CARLITA (Uso de imagen)",
-            "orden": "CL01807",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-09-22"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01807",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2025-09-22"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01785",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-09-16"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01785",
-            "tipo": "Factura",
-            "monto_clp": 950000,
-            "monto_orig": 950000,
-            "moneda": "CLP",
-            "fecha": "2025-09-16"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01785",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2025-09-16"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01783",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-09-16"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01776",
-            "tipo": "Factura",
-            "monto_clp": 950000,
-            "monto_orig": 950000,
-            "moneda": "CLP",
-            "fecha": "2025-09-12"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01776",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2025-09-12"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01770",
-            "tipo": "Factura",
-            "monto_clp": 1300000,
-            "monto_orig": 1300000,
-            "moneda": "CLP",
-            "fecha": "2025-09-10"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01770",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2025-09-10"
-          },
-          {
-            "nombre": "CARLITA (Video Tik Tok)",
-            "orden": "CL01764",
-            "tipo": "Factura",
-            "monto_clp": 1400000,
-            "monto_orig": 1400000,
-            "moneda": "CLP",
-            "fecha": "2025-09-10"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01764",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-09-10"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab Pauta)",
-            "orden": "CL01758",
-            "tipo": "Factura",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2025-09-10"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01758",
-            "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
-            "moneda": "CLP",
-            "fecha": "2025-09-10"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01758",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-09-10"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01731",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-09-04"
-          },
-          {
-            "nombre": "CARLITA (Replica Tik Tok)",
-            "orden": "CL01731",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-09-04"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01731",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-09-04"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01731",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2025-09-04"
-          }
-        ]
-      },
-      "2025-08": {
-        "f": 13600000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Replica Tik Tok)",
-            "orden": "CL01668",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-08-25"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01668",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-08-25"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01668",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-08-25"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01668",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-08-25"
-          },
-          {
-            "nombre": "CARLITA (Tik Tok con pauta)",
-            "orden": "CL01666",
-            "tipo": "Factura",
-            "monto_clp": 1400000,
-            "monto_orig": 1400000,
-            "moneda": "CLP",
-            "fecha": "2025-08-25"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01666",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-08-25"
-          },
-          {
-            "nombre": "CARLITA (Video Tik Tok)",
-            "orden": "CL01616",
-            "tipo": "Factura",
-            "monto_clp": 950000,
-            "monto_orig": 950000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01616",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01616",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Collab)",
-            "orden": "CL01616",
-            "tipo": "Factura",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01615",
-            "tipo": "Factura",
-            "monto_clp": 975000,
-            "monto_orig": 975000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01615",
-            "tipo": "Factura",
-            "monto_clp": 25000,
-            "monto_orig": 25000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Foto)",
-            "orden": "CL01613",
-            "tipo": "Factura",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Derecho de imagen)",
-            "orden": "CL01613",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01613",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Presencia)",
-            "orden": "CL01613",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01613",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01613",
-            "tipo": "Factura",
-            "monto_clp": 250000,
-            "monto_orig": 250000,
-            "moneda": "CLP",
-            "fecha": "2025-08-21"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01667",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-08-01"
-          },
-          {
-            "nombre": "CARLITA (Video Tik Tok)",
-            "orden": "CL01667",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-08-01"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01667",
-            "tipo": "Factura",
-            "monto_clp": 900000,
-            "monto_orig": 900000,
-            "moneda": "CLP",
-            "fecha": "2025-08-01"
-          }
-        ]
-      },
-      "2025-07": {
-        "f": 4977800.0,
-        "b": 1400000.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01520",
-            "tipo": "Boleta",
-            "monto_clp": 800000,
-            "monto_orig": 800000,
-            "moneda": "CLP",
-            "fecha": "2025-07-30"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01520",
-            "tipo": "Boleta",
-            "monto_clp": 600000,
-            "monto_orig": 600000,
-            "moneda": "CLP",
-            "fecha": "2025-07-30"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01509",
-            "tipo": "Factura",
-            "monto_clp": 1400000,
-            "monto_orig": 1400000,
-            "moneda": "CLP",
-            "fecha": "2025-07-30"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01509",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-07-30"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01499",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-07-30"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01463",
-            "tipo": "Factura",
-            "monto_clp": 953000,
-            "monto_orig": 1000,
-            "moneda": "USD",
-            "fecha": "2025-07-28"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01463",
-            "tipo": "Factura",
-            "monto_clp": 1429500,
-            "monto_orig": 1500,
-            "moneda": "USD",
-            "fecha": "2025-07-28"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01463",
-            "tipo": "Factura",
-            "monto_clp": 95300,
-            "monto_orig": 100,
-            "moneda": "USD",
-            "fecha": "2025-07-28"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01546",
-            "tipo": "Factura",
-            "monto_clp": 600000,
-            "monto_orig": 600000,
-            "moneda": "CLP",
-            "fecha": "2025-07-22"
-          }
-        ]
-      },
-      "2025-06": {
-        "f": 26198360.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01107",
-            "tipo": "Factura",
-            "monto_clp": 1600000,
-            "monto_orig": 1600000,
-            "moneda": "CLP",
-            "fecha": "2025-06-30"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01107",
-            "tipo": "Factura",
-            "monto_clp": 800000,
-            "monto_orig": 800000,
-            "moneda": "CLP",
-            "fecha": "2025-06-30"
-          },
-          {
-            "nombre": "CARLITA (Jornada de grabación)",
-            "orden": "CL01107",
-            "tipo": "Factura",
-            "monto_clp": 900000,
-            "monto_orig": 900000,
-            "moneda": "CLP",
-            "fecha": "2025-06-30"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01107",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-06-30"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01447",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01447",
-            "tipo": "Factura",
-            "monto_clp": 900000,
-            "monto_orig": 900000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01447",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (tiktok con pauta)",
-            "orden": "CL01364",
-            "tipo": "Factura",
-            "monto_clp": 1400000,
-            "monto_orig": 1400000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01364",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (tiktok con pauta)",
-            "orden": "CL01112",
-            "tipo": "Factura",
-            "monto_clp": 1500000,
-            "monto_orig": 1500000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Exclusividad)",
-            "orden": "CL01112",
-            "tipo": "Factura",
-            "monto_clp": 700000,
-            "monto_orig": 700000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01112",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Jornada de grabación)",
-            "orden": "CL01436",
-            "tipo": "Factura",
-            "monto_clp": 1902000,
-            "monto_orig": 2000,
-            "moneda": "USD",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01436",
-            "tipo": "Factura",
-            "monto_clp": 817860,
-            "monto_orig": 860,
-            "moneda": "USD",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01436",
-            "tipo": "Factura",
-            "monto_clp": 2282400,
-            "monto_orig": 2400,
-            "moneda": "USD",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Uso de imagen)",
-            "orden": "CL01436",
-            "tipo": "Factura",
-            "monto_clp": 951000,
-            "monto_orig": 1000,
-            "moneda": "USD",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01436",
-            "tipo": "Factura",
-            "monto_clp": 95100,
-            "monto_orig": 100,
-            "moneda": "USD",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01434",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01434",
-            "tipo": "Factura",
-            "monto_clp": 900000,
-            "monto_orig": 900000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01434",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-06-15"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01121",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-06-06"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01121",
-            "tipo": "Factura",
-            "monto_clp": 450000,
-            "monto_orig": 450000,
-            "moneda": "CLP",
-            "fecha": "2025-06-06"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01121",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-06-06"
-          },
-          {
-            "nombre": "CARLITA (Tik Tok con pauta)",
-            "orden": "CL01561",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-06-04"
-          },
-          {
-            "nombre": "CARLITA (Exclusividad)",
-            "orden": "CL01561",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-06-04"
-          },
-          {
-            "nombre": "CARLITA (Derecho de imagen)",
-            "orden": "CL01561",
-            "tipo": "Factura",
-            "monto_clp": 950000,
-            "monto_orig": 950000,
-            "moneda": "CLP",
-            "fecha": "2025-06-04"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01561",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2025-06-04"
-          },
-          {
-            "nombre": "CARLITA (Jornada de grabación)",
-            "orden": "CL01490",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-06-03"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01490",
-            "tipo": "Factura",
-            "monto_clp": 1000000,
-            "monto_orig": 1000000,
-            "moneda": "CLP",
-            "fecha": "2025-06-03"
-          },
-          {
-            "nombre": "CARLITA (Replica Tik Tok)",
-            "orden": "CL01490",
-            "tipo": "Factura",
-            "monto_clp": 300000,
-            "monto_orig": 300000,
-            "moneda": "CLP",
-            "fecha": "2025-06-03"
-          },
-          {
-            "nombre": "CARLITA (Pauta)",
-            "orden": "CL01490",
-            "tipo": "Factura",
-            "monto_clp": 300000,
-            "monto_orig": 300000,
-            "moneda": "CLP",
-            "fecha": "2025-06-03"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01490",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-06-03"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab Pauta)",
-            "orden": "CL01459",
-            "tipo": "Factura",
-            "monto_clp": 1600000,
-            "monto_orig": 1600000,
-            "moneda": "CLP",
-            "fecha": "2025-06-03"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01459",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-06-03"
-          }
-        ]
-      },
-      "2025-05": {
-        "f": 2400000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01353",
-            "tipo": "Factura",
-            "monto_clp": 1100000,
-            "monto_orig": 1100000,
-            "moneda": "CLP",
-            "fecha": "2025-05-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01353",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-05-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01316",
-            "tipo": "Factura",
-            "monto_clp": 800000,
-            "monto_orig": 800000,
-            "moneda": "CLP",
-            "fecha": "2025-05-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01127",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-05-15"
-          }
-        ]
-      },
-      "2025-04": {
-        "f": 12700000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01199",
-            "tipo": "Factura",
-            "monto_clp": 450000,
-            "monto_orig": 450000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01199",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01199",
-            "tipo": "Factura",
-            "monto_clp": 0,
-            "monto_orig": 0,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Video Tik Tok)",
-            "orden": "CL01029",
-            "tipo": "Factura",
-            "monto_clp": 3000000,
-            "monto_orig": 3000000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Pauta)",
-            "orden": "CL01029",
-            "tipo": "Factura",
-            "monto_clp": 300000,
-            "monto_orig": 300000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Presencia)",
-            "orden": "CL01029",
-            "tipo": "Factura",
-            "monto_clp": 600000,
-            "monto_orig": 600000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01029",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01084",
-            "tipo": "Factura",
-            "monto_clp": 4200000,
-            "monto_orig": 4200000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01084",
-            "tipo": "Factura",
-            "monto_clp": 1400000,
-            "monto_orig": 1400000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01084",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01141",
-            "tipo": "Factura",
-            "monto_clp": 900000,
-            "monto_orig": 900000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01141",
-            "tipo": "Factura",
-            "monto_clp": 1200000,
-            "monto_orig": 1200000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          },
-          {
-            "nombre": "CARLITA (Viaticos)",
-            "orden": "CL01141",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2025-04-15"
-          }
-        ]
-      },
-      "2025-03": {
-        "f": 5000000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Video Tik Tok)",
-            "orden": "CL00994",
-            "tipo": "Factura",
-            "monto_clp": 1600000,
-            "monto_orig": 1600000,
-            "moneda": "CLP",
-            "fecha": "2025-03-15"
-          },
-          {
-            "nombre": "CARLITA (Video Tik Tok)",
-            "orden": "CL01302",
-            "tipo": "Factura",
-            "monto_clp": 1250000,
-            "monto_orig": 1250000,
-            "moneda": "CLP",
-            "fecha": "2025-03-15"
-          },
-          {
-            "nombre": "CARLITA (Video Tik Tok)",
-            "orden": "CL01102",
-            "tipo": "Factura",
-            "monto_clp": 900000,
-            "monto_orig": 900000,
-            "moneda": "CLP",
-            "fecha": "2025-03-15"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL01182",
-            "tipo": "Factura",
-            "monto_clp": 800000,
-            "monto_orig": 800000,
-            "moneda": "CLP",
-            "fecha": "2025-03-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL01304",
-            "tipo": "Factura",
-            "monto_clp": 450000,
-            "monto_orig": 450000,
-            "moneda": "CLP",
-            "fecha": "2025-03-15"
-          }
-        ]
-      },
-      "2025-02": {
-        "f": 5850000.0,
-        "b": 0.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Video Tik Tok)",
-            "orden": "CL00965",
-            "tipo": "Factura",
-            "monto_clp": 1200000,
-            "monto_orig": 1200000,
-            "moneda": "CLP",
-            "fecha": "2025-02-15"
-          },
-          {
-            "nombre": "CARLITA (Presencia)",
-            "orden": "CL00965",
-            "tipo": "Factura",
-            "monto_clp": 300000,
-            "monto_orig": 300000,
-            "moneda": "CLP",
-            "fecha": "2025-02-15"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL00960",
-            "tipo": "Factura",
-            "monto_clp": 350000,
-            "monto_orig": 350000,
-            "moneda": "CLP",
-            "fecha": "2025-02-15"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL00753",
-            "tipo": "Factura",
-            "monto_clp": 1200000,
-            "monto_orig": 1200000,
-            "moneda": "CLP",
-            "fecha": "2025-02-03"
-          },
-          {
-            "nombre": "CARLITA (Reel Collab)",
-            "orden": "CL01135",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-02-01"
-          },
-          {
-            "nombre": "CARLITA (Pauta)",
-            "orden": "CL01135",
-            "tipo": "Factura",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2025-02-01"
-          },
-          {
-            "nombre": "CARLITA (Video Tik Tok)",
-            "orden": "CL01135",
-            "tipo": "Factura",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2025-02-01"
-          },
-          {
-            "nombre": "CARLITA (Reel con pauta)",
-            "orden": "CL01134",
-            "tipo": "Factura",
-            "monto_clp": 2000000,
-            "monto_orig": 2000000,
-            "moneda": "CLP",
-            "fecha": "2025-02-01"
-          }
-        ]
-      },
-      "2025-01": {
-        "f": 2100000.0,
-        "b": 1100000.0,
-        "ordenes": [
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL00922",
-            "tipo": "Factura",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2025-01-31"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL00299",
-            "tipo": "Boleta",
-            "monto_clp": 1100000,
-            "monto_orig": 1100000,
-            "moneda": "CLP",
-            "fecha": "2025-01-27"
-          },
-          {
-            "nombre": "CARLITA (Historia Instagram)",
-            "orden": "CL00415",
-            "tipo": "Factura",
-            "monto_clp": 1133333,
-            "monto_orig": 1133333,
-            "moneda": "CLP",
-            "fecha": "2025-01-27"
-          },
-          {
-            "nombre": "CARLITA (Reel Instagram)",
-            "orden": "CL00415",
-            "tipo": "Factura",
-            "monto_clp": 566667,
-            "monto_orig": 566667,
-            "moneda": "CLP",
-            "fecha": "2025-01-27"
-          }
-        ]
-      }
-    },
     "JOSA PRADO": {
       "2026-06": {
         "f": 1701000.0,
@@ -8590,41 +8688,6 @@
             "monto_orig": 358334,
             "moneda": "CLP",
             "fecha": "2025-01-15"
-          }
-        ]
-      }
-    },
-    "ISIORTRIP": {
-      "2026-06": {
-        "f": 329700.0,
-        "b": 250000.0,
-        "ordenes": [
-          {
-            "nombre": "ISIORTRIP (IG Story )",
-            "orden": "CL03027",
-            "tipo": "Boleta",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
-            "orden": "CL03027",
-            "tipo": "Boleta",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22"
-          },
-          {
-            "nombre": "ISIORTRIP (Tik Tok de musica)",
-            "orden": "CL02991",
-            "tipo": "Factura",
-            "monto_clp": 329700,
-            "monto_orig": 350,
-            "moneda": "USD",
-            "fecha": "2026-06-15"
           }
         ]
       }
@@ -12514,7 +12577,7 @@
         ]
       },
       "2026-05": {
-        "f": 900000.0,
+        "f": 750000.0,
         "b": 0.0,
         "ordenes": [
           {
@@ -12543,24 +12606,6 @@
             "monto_orig": 100000,
             "moneda": "CLP",
             "fecha": "2026-05-29"
-          },
-          {
-            "nombre": "FER FIGUEROA (Reel Collab)",
-            "orden": "CL02839",
-            "tipo": "Factura",
-            "monto_clp": 100000,
-            "monto_orig": 100000,
-            "moneda": "CLP",
-            "fecha": "2026-05-12"
-          },
-          {
-            "nombre": "FER FIGUEROA (Historia Instagram)",
-            "orden": "CL02839",
-            "tipo": "Factura",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-05-12"
           }
         ]
       },
@@ -14596,15 +14641,6 @@
           {
             "nombre": "CAMPAÑA",
             "orden": "CL02840",
-            "tipo": "Factura",
-            "monto_clp": 0,
-            "monto_orig": 0,
-            "moneda": "CLP",
-            "fecha": "2026-05-12"
-          },
-          {
-            "nombre": "CAMPAÑA",
-            "orden": "CL02839",
             "tipo": "Factura",
             "monto_clp": 0,
             "monto_orig": 0,
@@ -25187,7 +25223,7 @@
     },
     "SEKKID": {
       "2026-06": {
-        "f": 3082000.0,
+        "f": 3148740.0,
         "b": 0.0,
         "ordenes": [
           {
@@ -25239,8 +25275,8 @@
             "nombre": "SEKKID (IG Story )",
             "orden": "CL02938",
             "tipo": "Factura",
-            "monto_clp": 482000,
-            "monto_orig": 482000,
+            "monto_clp": 500000,
+            "monto_orig": 500000,
             "moneda": "CLP",
             "fecha": "2026-06-03"
           },
@@ -25248,8 +25284,8 @@
             "nombre": "SEKKID (Use of image (ads) x 30 days)",
             "orden": "CL02938",
             "tipo": "Factura",
-            "monto_clp": 450000,
-            "monto_orig": 450000,
+            "monto_clp": 498740,
+            "monto_orig": 498740,
             "moneda": "CLP",
             "fecha": "2026-06-03"
           },
@@ -37527,832 +37563,6 @@
           }
         ]
       }
-    }
-  },
-  "deudas": {
-    "AGUSTINA MARTINEZ": {
-      "total_ventas": 48187740,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 33731418,
-      "pagos_realizados": 0,
-      "deuda": 33731418
-    },
-    "ICATA": {
-      "total_ventas": 518942061,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 363259443,
-      "pagos_realizados": 0,
-      "deuda": 363259443
-    },
-    "CATA CAZU": {
-      "total_ventas": 70963450,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 49674415,
-      "pagos_realizados": 0,
-      "deuda": 49674415
-    },
-    "ITAY": {
-      "total_ventas": 47215600,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 33050920,
-      "pagos_realizados": 0,
-      "deuda": 33050920
-    },
-    "CARLITA": {
-      "total_ventas": 168376160,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 117863312,
-      "pagos_realizados": 0,
-      "deuda": 117863312
-    },
-    "JOSA PRADO": {
-      "total_ventas": 62743918,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 43920743,
-      "pagos_realizados": 0,
-      "deuda": 43920743
-    },
-    "ISIORTRIP": {
-      "total_ventas": 579700,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 405790,
-      "pagos_realizados": 0,
-      "deuda": 405790
-    },
-    "PABLO NOMAH": {
-      "total_ventas": 900000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 630000,
-      "pagos_realizados": 0,
-      "deuda": 630000
-    },
-    "COCINA DE CLAUDIA ROJAS": {
-      "total_ventas": 2800000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1960000,
-      "pagos_realizados": 0,
-      "deuda": 1960000
-    },
-    "LUCAS PIRAINO": {
-      "total_ventas": 101445000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 71011500,
-      "pagos_realizados": 0,
-      "deuda": 71011500
-    },
-    "MATT HUNTER": {
-      "total_ventas": 44030000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 30821000,
-      "pagos_realizados": 0,
-      "deuda": 30821000
-    },
-    "BRUNO NERVI": {
-      "total_ventas": 67399997,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 47179998,
-      "pagos_realizados": 0,
-      "deuda": 47179998
-    },
-    "FER FIGUEROA": {
-      "total_ventas": 69548714,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 48684100,
-      "pagos_realizados": 0,
-      "deuda": 48684100
-    },
-    "CESAR SEKKID": {
-      "total_ventas": 11273200,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 7891240,
-      "pagos_realizados": 0,
-      "deuda": 7891240
-    },
-    "JANO JEY": {
-      "total_ventas": 29931000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 20951700,
-      "pagos_realizados": 0,
-      "deuda": 20951700
-    },
-    "CAMPAÑA": {
-      "total_ventas": 500007,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 350005,
-      "pagos_realizados": 0,
-      "deuda": 350005
-    },
-    "LOS REGINATO": {
-      "total_ventas": 34616665,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 24231666,
-      "pagos_realizados": 0,
-      "deuda": 24231666
-    },
-    "IGNACIA ANTONIA CL": {
-      "total_ventas": 19685670,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 13779969,
-      "pagos_realizados": 0,
-      "deuda": 13779969
-    },
-    "DIEGO URRUTIA": {
-      "total_ventas": 3000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 2100000,
-      "pagos_realizados": 0,
-      "deuda": 2100000
-    },
-    "JACOB RIQUELME": {
-      "total_ventas": 104041250,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 72828875,
-      "pagos_realizados": 0,
-      "deuda": 72828875
-    },
-    "SEKKID": {
-      "total_ventas": 34292000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 24004400,
-      "pagos_realizados": 0,
-      "deuda": 24004400
-    },
-    "CRISTIAN GHOST": {
-      "total_ventas": 2899364,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 2029555,
-      "pagos_realizados": 0,
-      "deuda": 2029555
-    },
-    "INNA MOLL": {
-      "total_ventas": 287278669,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 201095068,
-      "pagos_realizados": 0,
-      "deuda": 201095068
-    },
-    "RO CROCE": {
-      "total_ventas": 68690000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 48083000,
-      "pagos_realizados": 0,
-      "deuda": 48083000
-    },
-    "REBATE": {
-      "total_ventas": 110000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 77000,
-      "pagos_realizados": 0,
-      "deuda": 77000
-    },
-    "BLU DUMAY": {
-      "total_ventas": 32208998,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 22546299,
-      "pagos_realizados": 0,
-      "deuda": 22546299
-    },
-    "EL HUASO Y EL HUASITO": {
-      "total_ventas": 2000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1400000,
-      "pagos_realizados": 0,
-      "deuda": 1400000
-    },
-    "MANUEL DE TEZANOS": {
-      "total_ventas": 16698500,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 11688950,
-      "pagos_realizados": 0,
-      "deuda": 11688950
-    },
-    "VICENTE PR": {
-      "total_ventas": 600000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 420000,
-      "pagos_realizados": 0,
-      "deuda": 420000
-    },
-    "DOMINGA GUZMAN": {
-      "total_ventas": 3450000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 2415000,
-      "pagos_realizados": 0,
-      "deuda": 2415000
-    },
-    "CHRIS MOLL": {
-      "total_ventas": 3914500,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 2740150,
-      "pagos_realizados": 0,
-      "deuda": 2740150
-    },
-    "CRITICAS QLS": {
-      "total_ventas": 10230000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 7161000,
-      "pagos_realizados": 0,
-      "deuda": 7161000
-    },
-    "FEE AGENCIA REBATE": {
-      "total_ventas": 3577500,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 2504250,
-      "pagos_realizados": 0,
-      "deuda": 2504250
-    },
-    "SHELAO": {
-      "total_ventas": 21919000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 15343300,
-      "pagos_realizados": 0,
-      "deuda": 15343300
-    },
-    "LUCAS CRESPO": {
-      "total_ventas": 28400000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 19880000,
-      "pagos_realizados": 0,
-      "deuda": 19880000
-    },
-    "LUMY": {
-      "total_ventas": 280000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 196000,
-      "pagos_realizados": 0,
-      "deuda": 196000
-    },
-    "ANTO SEGOVIA": {
-      "total_ventas": 13638250,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 9546775,
-      "pagos_realizados": 0,
-      "deuda": 9546775
-    },
-    "MANDY": {
-      "total_ventas": 12690000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 8883000,
-      "pagos_realizados": 0,
-      "deuda": 8883000
-    },
-    "POLLO CASTILLO": {
-      "total_ventas": 4301000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 3010700,
-      "pagos_realizados": 0,
-      "deuda": 3010700
-    },
-    "LOS KBROS.": {
-      "total_ventas": 2805000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1963500,
-      "pagos_realizados": 0,
-      "deuda": 1963500
-    },
-    "CONY PINO": {
-      "total_ventas": 1000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 700000,
-      "pagos_realizados": 0,
-      "deuda": 700000
-    },
-    "SOFIA MALUK": {
-      "total_ventas": 43551248,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 30485874,
-      "pagos_realizados": 0,
-      "deuda": 30485874
-    },
-    "DANDY": {
-      "total_ventas": 1168750,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 818125,
-      "pagos_realizados": 0,
-      "deuda": 818125
-    },
-    "CAZAS": {
-      "total_ventas": 1400000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 980000,
-      "pagos_realizados": 0,
-      "deuda": 980000
-    },
-    "MADDISON": {
-      "total_ventas": 6757000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 4729900,
-      "pagos_realizados": 0,
-      "deuda": 4729900
-    },
-    "EL MONTO ES SEMANAL, SI AVANZA EN LA COMPETENCIA VA SUMANDO SEMANAS, EL PAGO ES A FIN DE CADA MES": {
-      "total_ventas": 0,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 0,
-      "pagos_realizados": 0,
-      "deuda": 0
-    },
-    "LORENA SALINAS": {
-      "total_ventas": 13000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 9100000,
-      "pagos_realizados": 0,
-      "deuda": 9100000
-    },
-    "JAVIERA CORREA MEDINA EXT": {
-      "total_ventas": 4950000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 3465000,
-      "pagos_realizados": 0,
-      "deuda": 3465000
-    },
-    "PELAO DE TIKTOK": {
-      "total_ventas": 1500000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1050000,
-      "pagos_realizados": 0,
-      "deuda": 1050000
-    },
-    "DIEGO JEREZ": {
-      "total_ventas": 25527999,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 17869599,
-      "pagos_realizados": 0,
-      "deuda": 17869599
-    },
-    "MEMI": {
-      "total_ventas": 16110875,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 11277612,
-      "pagos_realizados": 0,
-      "deuda": 11277612
-    },
-    "IGNACIA ANTONIA": {
-      "total_ventas": 6500000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 4550000,
-      "pagos_realizados": 0,
-      "deuda": 4550000
-    },
-    "PP072- MISH! FEBRERO- LIDER": {
-      "total_ventas": 0,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 0,
-      "pagos_realizados": 0,
-      "deuda": 0
-    },
-    "JULI BIANCO": {
-      "total_ventas": 950000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 665000,
-      "pagos_realizados": 0,
-      "deuda": 665000
-    },
-    "NICO BASUALDO": {
-      "total_ventas": 300000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 210000,
-      "pagos_realizados": 0,
-      "deuda": 210000
-    },
-    "LAURA URRUTICOECHEA EXT": {
-      "total_ventas": 31849999,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 22294999,
-      "pagos_realizados": 0,
-      "deuda": 22294999
-    },
-    "JOSÉ TOMAS SALAS": {
-      "total_ventas": 1100000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 770000,
-      "pagos_realizados": 0,
-      "deuda": 770000
-    },
-    "NATALIA MANDIOLA": {
-      "total_ventas": 22400000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 15680000,
-      "pagos_realizados": 0,
-      "deuda": 15680000
-    },
-    "JOSE TOMAS": {
-      "total_ventas": 11472500,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 8030750,
-      "pagos_realizados": 0,
-      "deuda": 8030750
-    },
-    "CATA RIOJAS UMATU EXT": {
-      "total_ventas": 1800000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1260000,
-      "pagos_realizados": 0,
-      "deuda": 1260000
-    },
-    "TENGO PLAN EXT": {
-      "total_ventas": 2500000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1750000,
-      "pagos_realizados": 0,
-      "deuda": 1750000
-    },
-    "MANDI": {
-      "total_ventas": 80000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 56000,
-      "pagos_realizados": 0,
-      "deuda": 56000
-    },
-    "MATIAS KOSZNIK CL": {
-      "total_ventas": 5500000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 3850000,
-      "pagos_realizados": 0,
-      "deuda": 3850000
-    },
-    "CARMEN CABEZAS": {
-      "total_ventas": 2800000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1960000,
-      "pagos_realizados": 0,
-      "deuda": 1960000
-    },
-    "CLAUDIA ROJAS": {
-      "total_ventas": 3800000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 2660000,
-      "pagos_realizados": 0,
-      "deuda": 2660000
-    },
-    "CLAUDIPIA": {
-      "total_ventas": 36989500,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 25892650,
-      "pagos_realizados": 0,
-      "deuda": 25892650
-    },
-    "MARCELO ALCAZAR": {
-      "total_ventas": 28996000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 20297200,
-      "pagos_realizados": 0,
-      "deuda": 20297200
-    },
-    "MONSE GÓNGORA": {
-      "total_ventas": 300000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 210000,
-      "pagos_realizados": 0,
-      "deuda": 210000
-    },
-    "FELIPE CARVAJAL EXT": {
-      "total_ventas": 2000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1400000,
-      "pagos_realizados": 0,
-      "deuda": 1400000
-    },
-    "TOMAS EL AMIGO": {
-      "total_ventas": 14880000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 10416000,
-      "pagos_realizados": 0,
-      "deuda": 10416000
-    },
-    "YOGA WOMAN": {
-      "total_ventas": 4000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 2800000,
-      "pagos_realizados": 0,
-      "deuda": 2800000
-    },
-    "AYLEN MILLA": {
-      "total_ventas": 2500000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1750000,
-      "pagos_realizados": 0,
-      "deuda": 1750000
-    },
-    "CAMILO": {
-      "total_ventas": 6100000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 4270000,
-      "pagos_realizados": 0,
-      "deuda": 4270000
-    },
-    "ALONDRA BRAVO": {
-      "total_ventas": 800000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 560000,
-      "pagos_realizados": 0,
-      "deuda": 560000
-    },
-    "CONTULIANO": {
-      "total_ventas": 1000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 700000,
-      "pagos_realizados": 0,
-      "deuda": 700000
-    },
-    "SIMPLY JESU": {
-      "total_ventas": 1600000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1120000,
-      "pagos_realizados": 0,
-      "deuda": 1120000
-    },
-    "FEE POR IMPLEMENTACION": {
-      "total_ventas": 400000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 280000,
-      "pagos_realizados": 0,
-      "deuda": 280000
-    },
-    "CAMILO GOLIV": {
-      "total_ventas": 1000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 700000,
-      "pagos_realizados": 0,
-      "deuda": 700000
-    },
-    "EXTERNOS WE VIBE": {
-      "total_ventas": 233918,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 163743,
-      "pagos_realizados": 0,
-      "deuda": 163743
-    },
-    "BENJAMIN ARISMENDI": {
-      "total_ventas": 1400000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 980000,
-      "pagos_realizados": 0,
-      "deuda": 980000
-    },
-    "BLUME": {
-      "total_ventas": 3000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 2100000,
-      "pagos_realizados": 0,
-      "deuda": 2100000
-    },
-    "SIMPLY JESU CL": {
-      "total_ventas": 950000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 665000,
-      "pagos_realizados": 0,
-      "deuda": 665000
-    },
-    "CARMEN CABEZAS CL": {
-      "total_ventas": 5600000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 3920000,
-      "pagos_realizados": 0,
-      "deuda": 3920000
-    },
-    "PEDRO CANALES": {
-      "total_ventas": 1320000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 924000,
-      "pagos_realizados": 0,
-      "deuda": 924000
-    },
-    "VICENTE PEARCE": {
-      "total_ventas": 1000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 700000,
-      "pagos_realizados": 0,
-      "deuda": 700000
-    },
-    "NICOMAD": {
-      "total_ventas": 1500000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1050000,
-      "pagos_realizados": 0,
-      "deuda": 1050000
-    },
-    "VICTORIA VIAJANDO CL": {
-      "total_ventas": 2700000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1890000,
-      "pagos_realizados": 0,
-      "deuda": 1890000
-    },
-    "BENJAMIN MIRANDA": {
-      "total_ventas": 200000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 140000,
-      "pagos_realizados": 0,
-      "deuda": 140000
-    },
-    "MILO GONZALEZ": {
-      "total_ventas": 11914286,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 8340000,
-      "pagos_realizados": 0,
-      "deuda": 8340000
-    },
-    "CARLA TORRES: ACTIVACIÓN NOVOTEL LA PARVA": {
-      "total_ventas": 0,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 0,
-      "pagos_realizados": 0,
-      "deuda": 0
-    },
-    "YUHUI": {
-      "total_ventas": 3000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 2100000,
-      "pagos_realizados": 0,
-      "deuda": 2100000
-    },
-    "FEE AGENCIA": {
-      "total_ventas": 2063450,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1444415,
-      "pagos_realizados": 0,
-      "deuda": 1444415
-    },
-    "CAMILISIMA": {
-      "total_ventas": 1850000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1295000,
-      "pagos_realizados": 0,
-      "deuda": 1295000
-    },
-    "RODRIGO OTAKIN CL": {
-      "total_ventas": 2000000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1400000,
-      "pagos_realizados": 0,
-      "deuda": 1400000
-    },
-    "ANTICIPOS": {
-      "total_ventas": 0,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 0,
-      "pagos_realizados": 0,
-      "deuda": 0
-    },
-    "ANTICIPO": {
-      "total_ventas": 0,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 0,
-      "pagos_realizados": 0,
-      "deuda": 0
-    },
-    "LAURA DE LA FUENTE": {
-      "total_ventas": 1083334,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 758334,
-      "pagos_realizados": 0,
-      "deuda": 758334
-    },
-    "VAI MONROE": {
-      "total_ventas": 750000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 525000,
-      "pagos_realizados": 0,
-      "deuda": 525000
-    },
-    "MACARENA LEICHTE": {
-      "total_ventas": 2700000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 1890000,
-      "pagos_realizados": 0,
-      "deuda": 1890000
-    },
-    "DELTA": {
-      "total_ventas": 100000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 70000,
-      "pagos_realizados": 0,
-      "deuda": 70000
-    },
-    "CHRISTELL RODRIGUEZ": {
-      "total_ventas": 200000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 140000,
-      "pagos_realizados": 0,
-      "deuda": 140000
-    },
-    "BARBARA SANOJA": {
-      "total_ventas": 250000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 175000,
-      "pagos_realizados": 0,
-      "deuda": 175000
-    },
-    "CATA AGUILAR": {
-      "total_ventas": 800000,
-      "pct_zas": 30.0,
-      "pct_talento": 70.0,
-      "le_corresponde": 560000,
-      "pagos_realizados": 0,
-      "deuda": 560000
     }
   }
 }
