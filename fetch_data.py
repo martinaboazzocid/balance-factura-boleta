@@ -1,7 +1,7 @@
 """
 fetch_data.py - ZAS Chile - Factura vs Boleta
-Filtra por x_studio_bu_1 = ZAS CHILE y x_studio_campaas_1 = Campanas Chile.
-Solo incluye ordenes con tipo Factura o Boleta (campo x_studio_factura_o_boleta).
+Filtra SOLO por x_studio_campaas_1 = "Campanas Chile"
+y x_studio_factura_o_boleta in Factura / Boleta.
 """
 
 import json, os, http.cookiejar, urllib.request
@@ -46,7 +46,6 @@ def odoo_auth():
     if not uid:
         raise Exception("Autenticacion fallida")
     print(f"  OK UID={uid}")
-    return uid
 
 def search_read(model, domain, fields, batch=500):
     all_recs, offset = [], 0
@@ -63,7 +62,7 @@ def search_read(model, domain, fields, batch=500):
         })
         recs = r.get("result")
         if recs is None:
-            raise Exception(f"Error {model}: {r.get(chr(101)+chr(114)+chr(114)+chr(111)+chr(114))}")
+            raise Exception(f"Error {model}: {r.get('error')}")
         all_recs.extend(recs)
         print(f"    {model}: {len(all_recs)}...", end="\r")
         if len(recs) < batch:
@@ -99,42 +98,30 @@ def main():
 
     odoo_auth()
 
-    print("\n  Descargando ordenes...")
-    # Doble filtro: BU Chile + campanas Chile + solo Factura o Boleta
-    orders = search_read(
-        "sale.order",
-        [
-            ["x_studio_bu_1",       "=", "ZAS CHILE"],
-            ["x_studio_campaas_1",  "=", "Campanas Chile"],
-            ["x_studio_factura_o_boleta", "in", ["Factura", "Boleta"]],
-            ["state", "in", ["sale", "done"]]
-        ],
-        ["id","name","date_order","currency_id","amount_untaxed",
-         "x_studio_factura_o_boleta","x_studio_bu_1","x_studio_campaas_1","state"]
-    )
-
-    if not orders:
-        # Fallback: probar con tilde por si el valor tiene acento
-        print("  Sin resultados, probando con tilde...")
+    # Intentar primero con acento, luego sin acento
+    print("\n  Descargando ordenes Campanas Chile...")
+    for valor_campana in ["Campa\u00f1as Chile", "Campanas Chile"]:
         orders = search_read(
             "sale.order",
             [
-                ["x_studio_bu_1",       "=", "ZAS CHILE"],
-                ["x_studio_campaas_1",  "=", "Campa\u00f1as Chile"],
+                ["x_studio_campaas_1", "=", valor_campana],
                 ["x_studio_factura_o_boleta", "in", ["Factura", "Boleta"]],
                 ["state", "in", ["sale", "done"]]
             ],
             ["id","name","date_order","currency_id","amount_untaxed",
-             "x_studio_factura_o_boleta","x_studio_bu_1","x_studio_campaas_1","state"]
+             "x_studio_factura_o_boleta","x_studio_campaas_1","state"]
         )
+        if orders:
+            print(f"  Encontradas con valor: '{valor_campana}'")
+            break
 
     print(f"  {len(orders)} ordenes encontradas")
 
     order_ids = [o["id"] for o in orders]
 
-    print(f"\n  Descargando lineas...")
     lines = []
     if order_ids:
+        print("\n  Descargando lineas...")
         lines = search_read(
             "sale.order.line",
             [
@@ -144,7 +131,6 @@ def main():
             ["id","order_id","name","price_subtotal","currency_id"]
         )
 
-    # Index ordenes
     ord_idx = {o["id"]: o for o in orders}
 
     # Resumen general por mes
