@@ -1,26 +1,18 @@
 """
-fetch_data.py — ZAS Chile · Factura vs Boleta
-Conecta directo a Odoo via JSON-RPC (igual que generar_dashboards.py).
-Genera data.json con resumen mensual y por talento.
-
-Requiere variables de entorno:
-  ODOO_URL      (default: https://zas-talent.odoo.com)
-  ODOO_DB       (default: zas-talent)
-  ODOO_USER     (default: martina.boazzo@zastalents.com)
-  ODOO_PASSWORD
+fetch_data.py - ZAS Chile - Factura vs Boleta
+Filtra por x_studio_bu_1 = ZAS CHILE y x_studio_campaas_1 = Campanas Chile.
+Solo incluye ordenes con tipo Factura o Boleta (campo x_studio_factura_o_boleta).
 """
 
 import json, os, http.cookiejar, urllib.request
 from datetime import datetime, timezone
 from collections import defaultdict
 
-# ─── CONFIG ────────────────────────────────────────────────────────────────────
 ODOO_URL  = "https://zas-talent.odoo.com"
 ODOO_DB   = "zas-talent"
 ODOO_USER = "martina.boazzo@zastalents.com"
 ODOO_PASS = os.environ.get("ODOO_PASSWORD", "")
 
-# Dólar observado promedio mensual BCCH (serie F073)
 FX_CLP = {
     "2024-01":969,"2024-02":981,"2024-03":988,"2024-04":960,"2024-05":897,
     "2024-06":931,"2024-07":943,"2024-08":938,"2024-09":942,"2024-10":952,
@@ -32,50 +24,46 @@ FX_CLP = {
     "2026-12":965,
 }
 
-# ─── ODOO JSON-RPC ─────────────────────────────────────────────────────────────
 _cj     = http.cookiejar.CookieJar()
 _opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(_cj))
 
 def odoo_call(endpoint, payload):
     data = json.dumps(payload).encode()
     req  = urllib.request.Request(
-        f"{ODOO_URL}{endpoint}", data=data,
+        ODOO_URL + endpoint, data=data,
         headers={"Content-Type": "application/json"}, method="POST"
     )
     with _opener.open(req, timeout=120) as r:
         return json.loads(r.read())
 
 def odoo_auth():
-    print("  Autenticando en Odoo...")
+    print("  Autenticando...")
     r = odoo_call("/web/session/authenticate", {
-        "jsonrpc": "2.0", "method": "call", "id": 1,
-        "params": {"db": ODOO_DB, "login": ODOO_USER, "password": ODOO_PASS}
+        "jsonrpc":"2.0","method":"call","id":1,
+        "params":{"db":ODOO_DB,"login":ODOO_USER,"password":ODOO_PASS}
     })
     uid = r["result"]["uid"]
     if not uid:
-        raise Exception(f"Autenticación fallida: {r}")
-    print(f"  ✓ UID={uid}")
+        raise Exception("Autenticacion fallida")
+    print(f"  OK UID={uid}")
     return uid
 
 def search_read(model, domain, fields, batch=500):
     all_recs, offset = [], 0
     while True:
         r = odoo_call("/web/dataset/call_kw", {
-            "jsonrpc": "2.0", "method": "call", "id": 2,
-            "params": {
-                "model": model, "method": "search_read",
-                "args": [domain],
-                "kwargs": {
-                    "fields": fields,
-                    "limit": batch,
-                    "offset": offset,
-                    "context": {"allowed_company_ids": [1,2,3,4,5,6]}
+            "jsonrpc":"2.0","method":"call","id":2,
+            "params":{
+                "model":model,"method":"search_read","args":[domain],
+                "kwargs":{
+                    "fields":fields,"limit":batch,"offset":offset,
+                    "context":{"allowed_company_ids":[1,2,3,4,5,6]}
                 }
             }
         })
         recs = r.get("result")
         if recs is None:
-            raise Exception(f"Error en {model}: {r.get('error')}")
+            raise Exception(f"Error {model}: {r.get(chr(101)+chr(114)+chr(114)+chr(111)+chr(114))}")
         all_recs.extend(recs)
         print(f"    {model}: {len(all_recs)}...", end="\r")
         if len(recs) < batch:
@@ -84,133 +72,126 @@ def search_read(model, domain, fields, batch=500):
     print(f"    {model}: {len(all_recs)} registros        ")
     return all_recs
 
-# ─── UTILS ─────────────────────────────────────────────────────────────────────
-def mes_key(fecha_str):
-    return fecha_str[:7] if fecha_str else "0000-00"
+def mes_key(fecha):
+    return fecha[:7] if fecha else "0000-00"
 
-def to_clp(monto, moneda, fecha_str):
+def to_clp(monto, moneda, fecha):
     if not moneda or moneda == "CLP":
         return float(monto or 0)
     if moneda == "USD":
-        rate = FX_CLP.get(mes_key(fecha_str), 950)
+        rate = FX_CLP.get(mes_key(fecha), 950)
         return float(monto or 0) * rate
     return float(monto or 0)
 
 def parse_talento(nombre):
-    """'AGUSTINA MARTINEZ (IG Reel)' → 'AGUSTINA MARTINEZ'"""
     if not nombre:
         return None
     idx = nombre.find("(")
     raw = nombre[:idx].strip() if idx > 0 else nombre.strip()
     return raw.upper()
 
-# ─── DESCARGA ──────────────────────────────────────────────────────────────────
-def download():
-    print("\n  Descargando órdenes ZAS CHILE...")
-    orders = search_read(
-        "sale.order",
-        [
-            ["x_studio_bu_1", "=", "ZAS CHILE"],
-            ["state", "in", ["sale", "done"]]
-        ],
-        ["id", "name", "date_order", "currency_id", "amount_untaxed",
-         "x_studio_factura_o_boleta", "x_studio_bu_1", "state"]
-    )
-
-    if not orders:
-        print("  ⚠ No se encontraron órdenes de ZAS CHILE")
-        return [], []
-
-    order_ids = [o["id"] for o in orders]
-
-    print(f"\n  Descargando líneas de {len(order_ids)} órdenes...")
-    lines = search_read(
-        "sale.order.line",
-        [
-            ["order_id", "in", order_ids],
-            ["state", "in", ["sale", "done"]]
-        ],
-        ["id", "order_id", "name", "price_subtotal", "currency_id"]
-    )
-
-    return orders, lines
-
-# ─── PROCESAMIENTO ─────────────────────────────────────────────────────────────
-def procesar(orders, lines):
-    # Index de órdenes
-    ord_idx = {o["id"]: o for o in orders}
-
-    # ── Resumen general mes a mes ──
-    general = defaultdict(lambda: {"f": 0.0, "b": 0.0, "n": 0.0, "usd": False})
-
-    for o in orders:
-        moneda   = (o.get("currency_id") or [None, "CLP"])[1] or "CLP"
-        fecha    = (o.get("date_order") or "")[:10]
-        mes      = mes_key(fecha)
-        net_clp  = to_clp(o.get("amount_untaxed", 0), moneda, fecha)
-        tipo_raw = o.get("x_studio_factura_o_boleta") or ""
-
-        if moneda == "USD":
-            general[mes]["usd"] = True
-
-        if   tipo_raw == "Factura": general[mes]["f"] += net_clp
-        elif tipo_raw == "Boleta":  general[mes]["b"] += net_clp
-        else:                       general[mes]["n"] += net_clp
-
-    # ── Resumen por talento mes a mes ──
-    talentos = defaultdict(lambda: defaultdict(lambda: {"f": 0.0, "b": 0.0, "n": 0.0}))
-
-    for l in lines:
-        nombre  = l.get("name") or ""
-        talento = parse_talento(nombre)
-        if not talento or len(talento) < 2:
-            continue
-
-        oid    = (l.get("order_id") or [None])[0]
-        orden  = ord_idx.get(oid)
-        if not orden:
-            continue
-
-        moneda   = (orden.get("currency_id") or [None, "CLP"])[1] or "CLP"
-        fecha    = (orden.get("date_order") or "")[:10]
-        mes      = mes_key(fecha)
-        sub_clp  = to_clp(l.get("price_subtotal", 0), moneda, fecha)
-        tipo_raw = orden.get("x_studio_factura_o_boleta") or ""
-
-        if   tipo_raw == "Factura": talentos[talento][mes]["f"] += sub_clp
-        elif tipo_raw == "Boleta":  talentos[talento][mes]["b"] += sub_clp
-        else:                       talentos[talento][mes]["n"] += sub_clp
-
-    return dict(general), {t: dict(m) for t, m in talentos.items()}
-
-# ─── MAIN ──────────────────────────────────────────────────────────────────────
 def main():
-    print("=== fetch_data.py — ZAS Chile ===")
+    print("=== fetch_data.py - ZAS Chile ===")
     print(f"Inicio: {datetime.now(timezone.utc).isoformat()}")
 
     if not ODOO_PASS:
         raise RuntimeError("Falta ODOO_PASSWORD")
 
     odoo_auth()
-    orders, lines = download()
 
-    print(f"\n  Procesando {len(orders)} órdenes y {len(lines)} líneas...")
-    general, talentos = procesar(orders, lines)
+    print("\n  Descargando ordenes...")
+    # Doble filtro: BU Chile + campanas Chile + solo Factura o Boleta
+    orders = search_read(
+        "sale.order",
+        [
+            ["x_studio_bu_1",       "=", "ZAS CHILE"],
+            ["x_studio_campaas_1",  "=", "Campanas Chile"],
+            ["x_studio_factura_o_boleta", "in", ["Factura", "Boleta"]],
+            ["state", "in", ["sale", "done"]]
+        ],
+        ["id","name","date_order","currency_id","amount_untaxed",
+         "x_studio_factura_o_boleta","x_studio_bu_1","x_studio_campaas_1","state"]
+    )
+
+    if not orders:
+        # Fallback: probar con tilde por si el valor tiene acento
+        print("  Sin resultados, probando con tilde...")
+        orders = search_read(
+            "sale.order",
+            [
+                ["x_studio_bu_1",       "=", "ZAS CHILE"],
+                ["x_studio_campaas_1",  "=", "Campa\u00f1as Chile"],
+                ["x_studio_factura_o_boleta", "in", ["Factura", "Boleta"]],
+                ["state", "in", ["sale", "done"]]
+            ],
+            ["id","name","date_order","currency_id","amount_untaxed",
+             "x_studio_factura_o_boleta","x_studio_bu_1","x_studio_campaas_1","state"]
+        )
+
+    print(f"  {len(orders)} ordenes encontradas")
+
+    order_ids = [o["id"] for o in orders]
+
+    print(f"\n  Descargando lineas...")
+    lines = []
+    if order_ids:
+        lines = search_read(
+            "sale.order.line",
+            [
+                ["order_id", "in", order_ids],
+                ["state", "in", ["sale", "done"]]
+            ],
+            ["id","order_id","name","price_subtotal","currency_id"]
+        )
+
+    # Index ordenes
+    ord_idx = {o["id"]: o for o in orders}
+
+    # Resumen general por mes
+    general = defaultdict(lambda: {"f":0.0,"b":0.0,"usd":False})
+    for o in orders:
+        moneda  = (o.get("currency_id") or [None,"CLP"])[1] or "CLP"
+        fecha   = (o.get("date_order") or "")[:10]
+        mes     = mes_key(fecha)
+        net_clp = to_clp(o.get("amount_untaxed",0), moneda, fecha)
+        tipo    = o.get("x_studio_factura_o_boleta","")
+        if moneda == "USD":
+            general[mes]["usd"] = True
+        if   tipo == "Factura": general[mes]["f"] += net_clp
+        elif tipo == "Boleta":  general[mes]["b"] += net_clp
+
+    # Resumen por talento y mes
+    talentos = defaultdict(lambda: defaultdict(lambda: {"f":0.0,"b":0.0}))
+    for l in lines:
+        nombre  = l.get("name") or ""
+        talento = parse_talento(nombre)
+        if not talento or len(talento) < 2:
+            continue
+        oid   = (l.get("order_id") or [None])[0]
+        orden = ord_idx.get(oid)
+        if not orden:
+            continue
+        moneda  = (orden.get("currency_id") or [None,"CLP"])[1] or "CLP"
+        fecha   = (orden.get("date_order") or "")[:10]
+        mes     = mes_key(fecha)
+        sub_clp = to_clp(l.get("price_subtotal",0), moneda, fecha)
+        tipo    = orden.get("x_studio_factura_o_boleta","")
+        if   tipo == "Factura": talentos[talento][mes]["f"] += sub_clp
+        elif tipo == "Boleta":  talentos[talento][mes]["b"] += sub_clp
 
     output = {
         "updated_at":    datetime.now(timezone.utc).isoformat(),
         "total_ordenes": len(orders),
-        "general":       general,
-        "talentos":      talentos,
+        "general":       dict(general),
+        "talentos":      {t: dict(m) for t,m in talentos.items()},
     }
 
-    with open("data.json", "w", encoding="utf-8") as f:
+    with open("data.json","w",encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"\n  ✓ data.json generado")
-    print(f"    Meses:    {sorted(general.keys())}")
-    print(f"    Talentos: {len(talentos)}")
-    print(f"    Fin: {datetime.now(timezone.utc).isoformat()}")
+    print(f"\n  data.json generado")
+    print(f"  Meses: {sorted(general.keys())}")
+    print(f"  Talentos: {len(talentos)}")
 
 if __name__ == "__main__":
     main()
