@@ -4,7 +4,7 @@ on:
   schedule:
     # 8:30 AM Argentina (ART = UTC-3) → 11:30 UTC
     - cron: '30 11 * * *'
-  workflow_dispatch:  # permite correrlo manualmente desde GitHub
+  workflow_dispatch:
 
 jobs:
   fetch:
@@ -23,7 +23,10 @@ jobs:
 
       - name: Correr fetch_data.py
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ODOO_URL:      ${{ secrets.ODOO_URL }}
+          ODOO_DB:       ${{ secrets.ODOO_DB }}
+          ODOO_USER:     ${{ secrets.ODOO_USER }}
+          ODOO_PASSWORD: ${{ secrets.ODOO_PASSWORD }}
         run: python fetch_data.py
 
       - name: Commit y push data.json
@@ -31,5 +34,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json
-          git diff --cached --quiet || git commit -m "data: actualización automática $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git diff --cached --quiet || git commit -m "data: actualización $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
