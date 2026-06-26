@@ -304,8 +304,8 @@ def procesar(orders, lines, fees, pagos):
         if   tipo == "Factura": general[mes]["f"] += net_clp
         elif tipo == "Boleta":  general[mes]["b"] += net_clp
 
-    # Resumen por talento por mes + acumulado para deuda
-    talentos_mes   = defaultdict(lambda: defaultdict(lambda: {"f":0.0,"b":0.0}))
+    # Resumen por talento por mes + acumulado para deuda + detalle de ordenes
+    talentos_mes   = defaultdict(lambda: defaultdict(lambda: {"f":0.0,"b":0.0,"ordenes":[]}))
     talentos_total = defaultdict(float)  # total ventas por talento en CLP
 
     for l in lines:
@@ -321,11 +321,25 @@ def procesar(orders, lines, fees, pagos):
         fecha   = (orden.get("date_order") or "")[:10]
         mes     = mes_key(fecha)
         sub_clp = to_clp(l.get("price_subtotal",0), moneda, fecha)
+        sub_orig = float(l.get("price_subtotal",0) or 0)
         tipo    = orden.get("x_studio_factura_o_boleta","")
+        ord_name = orden.get("name","")
 
         if   tipo == "Factura": talentos_mes[talento][mes]["f"] += sub_clp
         elif tipo == "Boleta":  talentos_mes[talento][mes]["b"] += sub_clp
         talentos_total[talento] += sub_clp
+
+        # Guardar detalle de la orden (linea) para el drilldown
+        if tipo in ("Factura", "Boleta"):
+            talentos_mes[talento][mes]["ordenes"].append({
+                "nombre": nombre,        # descripcion de la linea (ej: "Chris Moll (Reel Instagram)")
+                "orden":  ord_name,      # numero de orden (ej: "S00123")
+                "tipo":   tipo,
+                "monto_clp":  round(sub_clp),
+                "monto_orig": round(sub_orig),
+                "moneda": moneda,
+                "fecha":  fecha,
+            })
 
     # Calcular deuda por talento
     deudas = {}
@@ -365,7 +379,17 @@ def procesar(orders, lines, fees, pagos):
             "deuda":           round(deuda),
         }
 
-    return dict(general), {t: dict(m) for t,m in talentos_mes.items()}, deudas
+    # Convertir a dicts planos (mantener ordenes como lista)
+    talentos_out = {}
+    for t, meses in talentos_mes.items():
+        talentos_out[t] = {}
+        for m, vals in meses.items():
+            talentos_out[t][m] = {
+                "f": vals["f"],
+                "b": vals["b"],
+                "ordenes": vals["ordenes"],
+            }
+    return dict(general), talentos_out, deudas
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
