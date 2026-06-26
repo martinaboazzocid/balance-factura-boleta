@@ -70,6 +70,19 @@
   .usd-tag{font-size:10px;background:#EEEDEA;color:var(--hint);padding:1px 5px;border-radius:3px}
   .note{background:#FEF9E7;border:1px solid #F5E07A;border-radius:var(--r);padding:10px 14px;font-size:12px;color:#856400;margin-bottom:16px}
   .err{background:#FDEAEA;border:1px solid #F5C0C0;border-radius:var(--r);padding:14px 16px;font-size:13px;color:#9B1C1C;line-height:1.6}
+  .mes-row{cursor:pointer;user-select:none}
+  .mes-row:hover td{background:#EEF4FC!important}
+  .mes-row.abierto td{background:#EEF4FC!important}
+  .mes-toggle{display:inline-flex;align-items:center;gap:6px}
+  .mes-toggle svg{width:13px;height:13px;stroke:var(--hint);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s;flex-shrink:0}
+  .mes-row.abierto .mes-toggle svg{transform:rotate(90deg);stroke:var(--blue)}
+  .detalle-row td{padding:0!important;border-bottom:1px solid var(--border)}
+  .detalle-inner{padding:12px 14px 14px;background:#F7F9FD;border-top:1px solid #D4E2F5}
+  .detalle-inner table{font-size:12px;margin-top:0}
+  .detalle-inner thead th{background:#EDF2FB;font-size:10px}
+  .pill{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;font-weight:600}
+  .pill-f{background:#DBEAFE;color:#1059A8}
+  .pill-b{background:#FEF3E3;color:#9A5200}
   .deuda-box{border-radius:var(--r);padding:16px 18px;margin-bottom:18px}
   .deuda-box.positiva{background:#FEF3E3;border:1px solid #F5C59A}
   .deuda-box.negativa{background:#E3F5EC;border:1px solid #8DDDB0}
@@ -246,6 +259,61 @@ function filtrarChips(){
   ).join('');
 }
 
+/* ── DETALLE ÓRDENES POR MES ── */
+function buildDetalleHTML(talento, mes){
+  // Para "(Todos)" no hay ordenes individuales
+  if(talento === '(Todos)') return '<em style="font-size:12px;color:var(--hint)">Seleccioná un talento para ver el detalle de órdenes.</em>';
+  const mesData = (DATA.talentos[talento] || {})[mes];
+  const ords = (mesData && mesData.ordenes) ? mesData.ordenes : [];
+  if(!ords.length) return '<em style="font-size:12px;color:var(--hint)">Sin órdenes registradas para este mes.</em>';
+
+  // Separar por tipo
+  const facturas = ords.filter(o=>o.tipo==='Factura').sort((a,b)=>b.monto_clp-a.monto_clp);
+  const boletas  = ords.filter(o=>o.tipo==='Boleta').sort((a,b)=>b.monto_clp-a.monto_clp);
+
+  function filaOrden(o){
+    const esUSD = o.moneda === 'USD';
+    const montoOrig = esUSD ? `USD ${o.monto_orig.toLocaleString('es-CL')}` : '';
+    return `<tr>
+      <td style="color:var(--muted)">${o.orden}</td>
+      <td>${o.nombre}</td>
+      <td>${o.fecha||'—'}</td>
+      <td><span class="pill ${o.tipo==='Factura'?'pill-f':'pill-b'}">${o.tipo}</span></td>
+      <td class="r">${esUSD?`<span style="font-size:11px;color:var(--hint)">${montoOrig} →</span> `:''}${clp(o.monto_clp)}</td>
+    </tr>`;
+  }
+
+  let html = '';
+  if(facturas.length){
+    const totF = facturas.reduce((s,o)=>s+o.monto_clp,0);
+    html += `<div style="margin-bottom:12px">
+      <div style="font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Factura · ${clp(totF)}</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>N° Orden</th><th>Descripción</th><th>Fecha</th><th>Tipo</th><th class="r">Monto CLP</th></tr></thead>
+        <tbody>${facturas.map(filaOrden).join('')}</tbody>
+      </table></div>
+    </div>`;
+  }
+  if(boletas.length){
+    const totB = boletas.reduce((s,o)=>s+o.monto_clp,0);
+    html += `<div>
+      <div style="font-size:11px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Boleta · ${clp(totB)}</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>N° Orden</th><th>Descripción</th><th>Fecha</th><th>Tipo</th><th class="r">Monto CLP</th></tr></thead>
+        <tbody>${boletas.map(filaOrden).join('')}</tbody>
+      </table></div>
+    </div>`;
+  }
+  return html;
+}
+
+function toggleDetalle(row, talento, mes){
+  const dr = document.getElementById('dr-'+mes);
+  if(!dr) return;
+  const abierto = row.classList.toggle('abierto');
+  dr.style.display = abierto ? '' : 'none';
+}
+
 function mostrarTalento(nombre){
   talSel=nombre;
   document.querySelectorAll('.talent-chip').forEach(c=>c.classList.toggle('active',c.textContent===nombre));
@@ -267,15 +335,21 @@ function mostrarTalento(nombre){
   const tot=tF+tB;
   const pFt=tot?Math.round(tF/tot*100):0;
 
+  const talentoData = nombre==='(Todos)' ? null : DATA.talentos[nombre];
+
   const filas=mesesDesc.map(m=>{
     const{f,b}=dataMes[m];
     const t=f+b, pF=t?Math.round(f/t*100):0;
-    return `<tr>
-      <td><strong>${ml(m)}</strong></td>
+    const esActual = m === '2026-06';
+    return `<tr class="mes-row${esActual?' abierto':''}" onclick="toggleDetalle(this,'${nombre}','${m}')">
+      <td><span class="mes-toggle"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg><strong>${ml(m)}</strong></span></td>
       <td class="r" style="color:var(--blue)">${clp(f)}</td>
       <td class="r" style="color:var(--amber)">${clp(b)}</td>
       <td class="r"><strong>${clp(t)}</strong></td>
       <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div><span class="prg-lbl">${pF}% F</span></div></td>
+    </tr>
+    <tr class="detalle-row" id="dr-${m}" style="${esActual?'':'display:none'}">
+      <td colspan="5"><div class="detalle-inner">${buildDetalleHTML(nombre,m)}</div></td>
     </tr>`;
   }).join('');
 
