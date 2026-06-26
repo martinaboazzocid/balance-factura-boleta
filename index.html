@@ -7,180 +7,149 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #F5F4EF; --card: #FFFFFF; --border: #E4E3DC;
-    --text: #16161A; --muted: #6B6966; --hint: #A09D97;
-    --blue: #1059A8; --blue-bg: #EAF1FB;
-    --amber: #9A5200; --amber-bg: #FEF3E3;
-    --green: #1A6E45; --r: 10px;
+    --bg:#F5F4EF;--card:#FFFFFF;--border:#E4E3DC;
+    --text:#16161A;--muted:#6B6966;--hint:#A09D97;
+    --blue:#1059A8;--blue-bg:#EAF1FB;
+    --amber:#9A5200;--amber-bg:#FEF3E3;
+    --r:10px;
   }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
-  .shell { max-width: 1080px; margin: 0 auto; padding: 30px 20px 60px; }
-  .hdr { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
-  .hdr h1 { font-size: 20px; font-weight: 700; letter-spacing: -.3px; }
-  .hdr p  { font-size: 13px; color: var(--muted); margin-top: 3px; }
-  .tabs-nav { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 22px; }
-  .tab-btn { padding: 10px 20px; font-size: 14px; font-weight: 600; border: none; background: none; cursor: pointer; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .12s; }
-  .tab-btn.active { color: var(--text); border-bottom-color: var(--text); }
-  .tab-btn:hover { color: var(--text); }
-  .tab-pane { display: none; }
-  .tab-pane.active { display: block; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); margin-bottom: 18px; overflow: hidden; }
-  .card-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 16px 18px 0; }
-  .card-title { font-size: 14px; font-weight: 700; }
-  .card-body { padding: 16px 18px 18px; }
-  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 18px; }
-  .kpi { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 18px; }
-  .kpi-lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin-bottom: 6px; }
-  .kpi-val { font-size: 23px; font-weight: 700; letter-spacing: -.5px; line-height: 1; }
-  .kpi-sub { font-size: 12px; color: var(--hint); margin-top: 4px; }
-  .kpi-val.blue  { color: var(--blue); }
-  .kpi-val.amber { color: var(--amber); }
-  .legend { display: flex; gap: 14px; flex-wrap: wrap; }
-  .leg { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
-  .leg-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
-  .chart-wrap { position: relative; width: 100%; }
-  .tbl-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  thead th { text-align: left; padding: 8px 11px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); border-bottom: 1px solid var(--border); background: var(--bg); white-space: nowrap; }
-  th.r, td.r { text-align: right; }
-  td { padding: 9px 11px; border-bottom: 1px solid var(--border); vertical-align: middle; }
-  tr:last-child td { border-bottom: none; }
-  tbody tr:hover td { background: #FAFAF7; }
-  tr.total-row td { background: #F3F2EE; font-weight: 700; border-top: 1px solid #D0CFC8; border-bottom: none; }
-  .prg { display: flex; align-items: center; gap: 6px; }
-  .prg-bar { flex: 1; min-width: 60px; height: 5px; background: #EDECEA; border-radius: 3px; overflow: hidden; }
-  .prg-fill { height: 100%; background: var(--blue); border-radius: 3px; }
-  .prg-lbl { font-size: 11px; color: var(--hint); min-width: 34px; text-align: right; }
-
-  /* ── Buscador de talento ── */
-  .search-wrap { position: relative; margin-bottom: 18px; }
-  .search-wrap input {
-    width: 100%; padding: 10px 14px 10px 38px;
-    border: 1px solid var(--border); border-radius: var(--r);
-    font-size: 14px; background: var(--card); color: var(--text);
-    outline: none; transition: border-color .12s;
-  }
-  .search-wrap input:focus { border-color: var(--blue); }
-  .search-wrap svg {
-    position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
-    width: 16px; height: 16px; stroke: var(--hint); fill: none;
-    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; pointer-events: none;
-  }
-  .talent-list {
-    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
-  }
-  .talent-chip {
-    padding: 6px 14px; border: 1px solid var(--border); border-radius: 20px;
-    font-size: 13px; cursor: pointer; background: var(--card); color: var(--muted);
-    transition: all .12s; white-space: nowrap;
-  }
-  .talent-chip:hover { border-color: var(--blue); color: var(--blue); }
-  .talent-chip.active { background: var(--blue); color: #fff; border-color: var(--blue); font-weight: 600; }
-  .talent-chip.todos { font-weight: 600; }
-  .no-results { font-size: 13px; color: var(--hint); padding: 8px 0; }
-
-  .state-box { text-align: center; padding: 50px 20px; }
-  .spinner { width: 24px; height: 24px; border: 2px solid var(--border); border-top-color: var(--text); border-radius: 50%; animation: spin .65s linear infinite; margin: 0 auto 14px; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .state-box h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-  .state-box p  { font-size: 13px; color: var(--muted); max-width: 360px; margin: 0 auto; }
-  .usd-tag { font-size: 10px; background: #EEEDEA; color: var(--hint); padding: 1px 5px; border-radius: 3px; }
-  .note { background: #FEF9E7; border: 1px solid #F5E07A; border-radius: var(--r); padding: 10px 14px; font-size: 12px; color: #856400; margin-bottom: 16px; }
-  .err { background: #FDEAEA; border: 1px solid #F5C0C0; border-radius: var(--r); padding: 14px 16px; font-size: 13px; color: #9B1C1C; line-height: 1.6; }
-  @media (max-width: 580px) { .shell { padding: 18px 14px 50px; } .kpi-val { font-size: 19px; } }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+  .shell{max-width:1080px;margin:0 auto;padding:30px 20px 60px}
+  .hdr{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+  .hdr h1{font-size:20px;font-weight:700;letter-spacing:-.3px}
+  .hdr p{font-size:13px;color:var(--muted);margin-top:3px}
+  .tabs-nav{display:flex;border-bottom:2px solid var(--border);margin-bottom:22px}
+  .tab-btn{padding:10px 20px;font-size:14px;font-weight:600;border:none;background:none;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .12s}
+  .tab-btn.active{color:var(--text);border-bottom-color:var(--text)}
+  .tab-btn:hover{color:var(--text)}
+  .tab-pane{display:none}
+  .tab-pane.active{display:block}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-bottom:18px;overflow:hidden}
+  .card-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:16px 18px 0}
+  .card-title{font-size:14px;font-weight:700}
+  .card-body{padding:16px 18px 18px}
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:18px}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px}
+  .kpi-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px}
+  .kpi-val{font-size:23px;font-weight:700;letter-spacing:-.5px;line-height:1}
+  .kpi-sub{font-size:12px;color:var(--hint);margin-top:4px}
+  .kpi-val.blue{color:var(--blue)}
+  .kpi-val.amber{color:var(--amber)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap}
+  .leg{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
+  .leg-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0}
+  .chart-wrap{position:relative;width:100%}
+  .tbl-wrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  thead th{text-align:left;padding:8px 11px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);border-bottom:1px solid var(--border);background:var(--bg);white-space:nowrap}
+  th.r,td.r{text-align:right}
+  td{padding:9px 11px;border-bottom:1px solid var(--border);vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  tbody tr:hover td{background:#FAFAF7}
+  tr.total-row td{background:#F3F2EE;font-weight:700;border-top:1px solid #D0CFC8;border-bottom:none}
+  .prg{display:flex;align-items:center;gap:6px}
+  .prg-bar{flex:1;min-width:60px;height:5px;background:#EDECEA;border-radius:3px;overflow:hidden}
+  .prg-fill{height:100%;background:var(--blue);border-radius:3px}
+  .prg-lbl{font-size:11px;color:var(--hint);min-width:34px;text-align:right}
+  .search-wrap{position:relative;margin-bottom:18px}
+  .search-wrap input{width:100%;padding:10px 14px 10px 38px;border:1px solid var(--border);border-radius:var(--r);font-size:14px;background:var(--card);color:var(--text);outline:none;transition:border-color .12s}
+  .search-wrap input:focus{border-color:var(--blue)}
+  .search-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--hint);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+  .talent-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .talent-chip{padding:6px 14px;border:1px solid var(--border);border-radius:20px;font-size:13px;cursor:pointer;background:var(--card);color:var(--muted);transition:all .12s;white-space:nowrap}
+  .talent-chip:hover{border-color:var(--blue);color:var(--blue)}
+  .talent-chip.active{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:600}
+  .talent-chip.todos{font-weight:600}
+  .no-results{font-size:13px;color:var(--hint);padding:8px 0}
+  .state-box{text-align:center;padding:50px 20px}
+  .spinner{width:24px;height:24px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%;animation:spin .65s linear infinite;margin:0 auto 14px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .state-box h3{font-size:15px;font-weight:700;margin-bottom:6px}
+  .state-box p{font-size:13px;color:var(--muted);max-width:360px;margin:0 auto}
+  .usd-tag{font-size:10px;background:#EEEDEA;color:var(--hint);padding:1px 5px;border-radius:3px}
+  .note{background:#FEF9E7;border:1px solid #F5E07A;border-radius:var(--r);padding:10px 14px;font-size:12px;color:#856400;margin-bottom:16px}
+  .err{background:#FDEAEA;border:1px solid #F5C0C0;border-radius:var(--r);padding:14px 16px;font-size:13px;color:#9B1C1C;line-height:1.6}
+  @media(max-width:580px){.shell{padding:18px 14px 50px}.kpi-val{font-size:19px}}
 </style>
 </head>
 <body>
 <div class="shell">
-
   <div class="hdr">
     <div>
       <h1>ZAS Chile · Factura vs Boleta</h1>
       <p id="subtitle">Cargando…</p>
     </div>
   </div>
-
   <div class="tabs-nav">
-    <button class="tab-btn active" onclick="tab('general',this)">Venta general</button>
-    <button class="tab-btn"        onclick="tab('talento',this)">Por talento</button>
+    <button class="tab-btn active" onclick="switchTab('general',this)">Venta general</button>
+    <button class="tab-btn"        onclick="switchTab('talento',this)">Por talento</button>
   </div>
-
   <div id="tab-general" class="tab-pane active">
     <div class="card"><div class="card-body">
       <div class="state-box"><div class="spinner"></div><h3>Cargando datos…</h3></div>
     </div></div>
   </div>
-
   <div id="tab-talento" class="tab-pane">
     <div class="card"><div class="card-body">
       <div class="state-box"><h3>Cargando…</h3></div>
     </div></div>
   </div>
-
 </div>
 
 <script>
 const MESES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-let c1 = null, c2 = null, DATA = null;
-let talSeleccionado = '(Todos)';
+let c1=null, c2=null, DATA=null, talSel='(Todos)';
 
-function clp(n) { return '$\u202F' + Math.round(n).toLocaleString('es-CL'); }
-function ml(k)  { const [y,m] = k.split('-'); return MESES[+m-1] + ' ' + y.slice(2); }
-function pct(a,t){ return t ? Math.round(a/t*100) + '%' : '—'; }
+function clp(n){ return '$\u202F'+Math.round(n).toLocaleString('es-CL'); }
+function ml(k){ const[y,m]=k.split('-'); return MESES[+m-1]+' '+y.slice(2); }
+function pct(a,t){ return t?Math.round(a/t*100)+'%':'—'; }
 
-function tab(id, btn) {
-  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
 }
 
 /* ── GENERAL ── */
-function renderGeneral(general) {
-  // Más reciente primero
-  const keys = Object.keys(general).sort().reverse();
+function renderGeneral(general){
+  const keys=Object.keys(general).sort().reverse(); // más reciente primero
+  const keysAsc=[...keys].reverse();
+  let tF=0,tB=0;
+  keys.forEach(k=>{tF+=general[k].f;tB+=general[k].b;});
+  const tot=tF+tB;
+  const tieneUSD=keys.some(k=>general[k].usd);
 
-  let tF=0, tB=0, tN=0;
-  keys.forEach(k => { tF+=general[k].f; tB+=general[k].b; tN+=general[k].n; });
-  const tot = tF+tB+tN;
-  const tieneUSD = keys.some(k => general[k].usd);
-
-  // Tabla (más reciente arriba)
-  const filas = keys.map(k => {
-    const {f,b,n,usd} = general[k];
-    const t = f+b+n, pF = t ? Math.round(f/t*100) : 0;
+  const filas=keys.map(k=>{
+    const{f,b,usd}=general[k];
+    const t=f+b, pF=t?Math.round(f/t*100):0;
     return `<tr>
       <td><strong>${ml(k)}</strong></td>
       <td class="r" style="color:var(--blue)">${clp(f)}</td>
       <td class="r" style="color:var(--amber)">${clp(b)}</td>
       <td class="r"><strong>${clp(t)}</strong></td>
       <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div><span class="prg-lbl">${pF}% F</span></div></td>
-      <td>${usd ? '<span class="usd-tag">USD→CLP</span>' : ''}</td>
+      <td>${usd?'<span class="usd-tag">USD→CLP</span>':''}</td>
     </tr>`;
   }).join('');
 
-  const pFt = tot ? Math.round(tF/tot*100) : 0;
+  const pFt=tot?Math.round(tF/tot*100):0;
 
-  // Gráfico usa orden cronológico (más viejo a la izquierda)
-  const keysAsc = [...keys].reverse();
-
-  document.getElementById('tab-general').innerHTML = `
-    ${tieneUSD ? `<div class="note">Ventas en USD convertidas a CLP con el dólar observado promedio mensual del Banco Central de Chile.</div>` : ''}
+  document.getElementById('tab-general').innerHTML=`
+    ${tieneUSD?'<div class="note">Ventas en USD convertidas a CLP con el dólar observado promedio mensual del Banco Central de Chile.</div>':''}
     <div class="kpi-row">
-      <div class="kpi"><div class="kpi-lbl">Total neto</div><div class="kpi-val">${clp(tot)}</div><div class="kpi-sub">${DATA.total_ordenes} órdenes</div></div>
+      <div class="kpi"><div class="kpi-lbl">Total neto</div><div class="kpi-val">${clp(tot)}</div><div class="kpi-sub">${DATA.total_ordenes} órdenes · Campañas Chile</div></div>
       <div class="kpi"><div class="kpi-lbl">Factura · entra a ZAS</div><div class="kpi-val blue">${clp(tF)}</div><div class="kpi-sub">${pct(tF,tot)} del total</div></div>
       <div class="kpi"><div class="kpi-lbl">Boleta · entra a tercero</div><div class="kpi-val amber">${clp(tB)}</div><div class="kpi-sub">${pct(tB,tot)} del total</div></div>
     </div>
-
     <div class="card">
       <div class="card-head"><span class="card-title">Detalle mes a mes</span></div>
       <div class="card-body">
         <div class="tbl-wrap"><table>
           <thead><tr>
             <th>Mes</th><th class="r">Factura</th><th class="r">Boleta</th>
-            <th class="r">Sin tipo</th><th class="r">Total neto</th>
-            <th>Proporción F/B</th><th>FX</th>
+            <th class="r">Total neto</th><th>Proporción F/B</th><th>FX</th>
           </tr></thead>
           <tbody>${filas}</tbody>
           <tfoot><tr class="total-row">
@@ -194,7 +163,6 @@ function renderGeneral(general) {
         </table></div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-head">
         <span class="card-title">Evolución mensual</span>
@@ -204,29 +172,25 @@ function renderGeneral(general) {
         </div>
       </div>
       <div class="card-body">
-        <div class="chart-wrap" style="height:${Math.max(180, keysAsc.length*46+60)}px">
+        <div class="chart-wrap" style="height:${Math.max(180,keysAsc.length*46+60)}px">
           <canvas id="cG" role="img" aria-label="Gráfico mensual ZAS Chile"></canvas>
         </div>
       </div>
     </div>`;
 
-  requestAnimationFrame(() => {
-    if (c1) { c1.destroy(); c1 = null; }
-    c1 = new Chart(document.getElementById('cG'), {
-      type: 'bar',
-      data: {
-        labels: keysAsc.map(ml),
-        datasets: [
-          { label:'Factura', data: keysAsc.map(k => Math.round(general[k].f)), backgroundColor:'#1059A8', borderRadius:3 },
-          { label:'Boleta',  data: keysAsc.map(k => Math.round(general[k].b)), backgroundColor:'#E8920A', borderRadius:3 },
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend:{display:false}, tooltip:{callbacks:{label: c => ' '+clp(c.raw)}} },
-        scales: {
-          x: { ticks:{autoSkip:false, maxRotation:45, font:{size:11}}, grid:{display:false} },
-          y: { ticks:{ callback: v => v>=1e6?'$'+(v/1e6).toFixed(1)+'M':v>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+v, font:{size:11} }, grid:{color:'rgba(0,0,0,.05)'} }
+  requestAnimationFrame(()=>{
+    if(c1){c1.destroy();c1=null;}
+    c1=new Chart(document.getElementById('cG'),{
+      type:'bar',
+      data:{labels:keysAsc.map(ml),datasets:[
+        {label:'Factura',data:keysAsc.map(k=>Math.round(general[k].f)),backgroundColor:'#1059A8',borderRadius:3},
+        {label:'Boleta', data:keysAsc.map(k=>Math.round(general[k].b)),backgroundColor:'#E8920A',borderRadius:3},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+clp(c.raw)}}},
+        scales:{
+          x:{ticks:{autoSkip:false,maxRotation:45,font:{size:11}},grid:{display:false}},
+          y:{ticks:{callback:v=>v>=1e6?'$'+(v/1e6).toFixed(1)+'M':v>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+v,font:{size:11}},grid:{color:'rgba(0,0,0,.05)'}}
         }
       }
     });
@@ -234,85 +198,64 @@ function renderGeneral(general) {
 }
 
 /* ── TALENTO ── */
-function renderTalento(talentos) {
-  const lista = Object.keys(talentos).sort();
-
-  document.getElementById('tab-talento').innerHTML = `
+function renderTalento(talentos){
+  const lista=Object.keys(talentos).sort();
+  document.getElementById('tab-talento').innerHTML=`
     <div class="card">
       <div class="card-head"><span class="card-title">Buscar talento</span></div>
       <div class="card-body">
         <div class="search-wrap">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" id="searchInput" placeholder="Escribí el nombre del talento…" oninput="filtrarTalentos()" autocomplete="off" />
+          <input type="text" id="searchInput" placeholder="Escribí el nombre del talento…" oninput="filtrarChips()" autocomplete="off"/>
         </div>
         <div class="talent-list" id="talentList"></div>
       </div>
     </div>
     <div id="talDetalle"></div>`;
-
-  renderChips(lista, '');
-  seleccionarTalento('(Todos)', lista);
+  renderChips(lista,'');
+  mostrarTalento('(Todos)');
 }
 
-function renderChips(lista, query) {
-  const container = document.getElementById('talentList');
-  if (!container) return;
-
-  const filtrados = query
-    ? lista.filter(t => t.toLowerCase().includes(query.toLowerCase()))
-    : lista;
-
-  if (!filtrados.length) {
-    container.innerHTML = '<span class="no-results">No se encontraron talentos.</span>';
-    return;
-  }
-
-  const todos = query ? '' : `<span class="talent-chip todos ${talSeleccionado==='(Todos)'?'active':''}" onclick="seleccionarTalento('(Todos)', ${JSON.stringify(lista)})">(Todos los talentos)</span>`;
-  const chips = filtrados.map(t =>
-    `<span class="talent-chip ${talSeleccionado===t?'active':''}" onclick="seleccionarTalento('${t.replace(/'/g,"\\'")}', ${JSON.stringify(lista)})">${t}</span>`
+function renderChips(lista,query){
+  const cont=document.getElementById('talentList');
+  if(!cont)return;
+  const filtrados=query?lista.filter(t=>t.toLowerCase().includes(query.toLowerCase())):lista;
+  if(!filtrados.length){cont.innerHTML='<span class="no-results">Sin resultados.</span>';return;}
+  const todos=query?'':
+    `<span class="talent-chip todos${talSel==='(Todos)'?' active':''}" onclick="mostrarTalento('(Todos)')">(Todos los talentos)</span>`;
+  cont.innerHTML=todos+filtrados.map(t=>
+    `<span class="talent-chip${talSel===t?' active':''}" onclick="mostrarTalento('${t.replace(/'/g,"\\'")}')">${t}</span>`
   ).join('');
-  container.innerHTML = todos + chips;
 }
 
-function filtrarTalentos() {
-  const query = document.getElementById('searchInput').value;
-  const lista = Object.keys(DATA.talentos).sort();
-  renderChips(lista, query);
+function filtrarChips(){
+  const q=document.getElementById('searchInput').value;
+  renderChips(Object.keys(DATA.talentos).sort(),q);
 }
 
-function seleccionarTalento(nombre, lista) {
-  talSeleccionado = nombre;
-
-  // Actualizar chips activos
-  document.querySelectorAll('.talent-chip').forEach(c => {
-    c.classList.toggle('active', c.textContent === nombre);
-  });
-
-  const talentos = DATA.talentos;
-  const selList  = nombre === '(Todos)' ? Object.keys(talentos) : [nombre];
-
-  // Acumular por mes
-  const dataMes = {};
-  selList.forEach(t => {
-    if (!talentos[t]) return;
-    Object.entries(talentos[t]).forEach(([m, d]) => {
-      if (!dataMes[m]) dataMes[m] = {f:0, b:0, n:0};
-      dataMes[m].f += d.f; dataMes[m].b += d.b; dataMes[m].n += d.n;
+function mostrarTalento(nombre){
+  talSel=nombre;
+  document.querySelectorAll('.talent-chip').forEach(c=>c.classList.toggle('active',c.textContent===nombre));
+  const talentos=DATA.talentos;
+  const lista=nombre==='(Todos)'?Object.keys(talentos):[nombre];
+  const dataMes={};
+  lista.forEach(t=>{
+    if(!talentos[t])return;
+    Object.entries(talentos[t]).forEach(([m,d])=>{
+      if(!dataMes[m])dataMes[m]={f:0,b:0};
+      dataMes[m].f+=d.f; dataMes[m].b+=d.b;
     });
   });
+  const mesesDesc=Object.keys(dataMes).sort().reverse();
+  const mesesAsc=[...mesesDesc].reverse();
+  let tF=0,tB=0;
+  mesesDesc.forEach(m=>{tF+=dataMes[m].f;tB+=dataMes[m].b;});
+  const tot=tF+tB;
+  const pFt=tot?Math.round(tF/tot*100):0;
 
-  // Más reciente primero
-  const mesesDesc = Object.keys(dataMes).sort().reverse();
-  const mesesAsc  = [...mesesDesc].reverse();
-
-  let tF=0, tB=0, tN=0;
-  mesesDesc.forEach(m => { tF+=dataMes[m].f; tB+=dataMes[m].b; tN+=dataMes[m].n; });
-  const tot = tF+tB+tN;
-  const pFt = tot ? Math.round(tF/tot*100) : 0;
-
-  const filas = mesesDesc.map(m => {
-    const {f,b,n} = dataMes[m];
-    const t = f+b+n, pF = t ? Math.round(f/t*100) : 0;
+  const filas=mesesDesc.map(m=>{
+    const{f,b}=dataMes[m];
+    const t=f+b, pF=t?Math.round(f/t*100):0;
     return `<tr>
       <td><strong>${ml(m)}</strong></td>
       <td class="r" style="color:var(--blue)">${clp(f)}</td>
@@ -322,66 +265,59 @@ function seleccionarTalento(nombre, lista) {
     </tr>`;
   }).join('');
 
-  document.getElementById('talDetalle').innerHTML = `
+  document.getElementById('talDetalle').innerHTML=`
     <div class="kpi-row">
       <div class="kpi"><div class="kpi-lbl">Total neto</div><div class="kpi-val">${clp(tot)}</div></div>
       <div class="kpi"><div class="kpi-lbl">Factura</div><div class="kpi-val blue">${clp(tF)}</div><div class="kpi-sub">${pct(tF,tot)}</div></div>
       <div class="kpi"><div class="kpi-lbl">Boleta</div><div class="kpi-val amber">${clp(tB)}</div><div class="kpi-sub">${pct(tB,tot)}</div></div>
     </div>
-
     <div class="card">
-      <div class="card-head"><span class="card-title">Detalle mes a mes — ${nombre}</span></div>
+      <div class="card-head"><span class="card-title">Detalle mes a mes · ${nombre}</span></div>
       <div class="card-body">
         <div class="tbl-wrap"><table>
           <thead><tr>
             <th>Mes</th><th class="r">Factura</th><th class="r">Boleta</th>
-            <th class="r">Sin tipo</th><th class="r">Total neto</th><th>Proporción F/B</th>
+            <th class="r">Total neto</th><th>Proporción F/B</th>
           </tr></thead>
           <tbody>${filas}</tbody>
           <tfoot><tr class="total-row">
             <td>TOTAL</td>
             <td class="r" style="color:var(--blue)">${clp(tF)}</td>
             <td class="r" style="color:var(--amber)">${clp(tB)}</td>
-            <td class="r">${tN>0?clp(tN):'—'}</td>
             <td class="r">${clp(tot)}</td>
             <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pFt}%"></div></div><span class="prg-lbl">${pFt}% F</span></div></td>
           </tr></tfoot>
         </table></div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-head">
-        <span class="card-title">Evolución mensual — ${nombre}</span>
+        <span class="card-title">Evolución mensual · ${nombre}</span>
         <div class="legend">
           <div class="leg"><div class="leg-dot" style="background:#1059A8"></div>Factura</div>
           <div class="leg"><div class="leg-dot" style="background:#E8920A"></div>Boleta</div>
         </div>
       </div>
       <div class="card-body">
-        <div class="chart-wrap" style="height:${Math.max(180, mesesAsc.length*46+60)}px">
+        <div class="chart-wrap" style="height:${Math.max(180,mesesAsc.length*46+60)}px">
           <canvas id="cT" role="img" aria-label="Gráfico talento ${nombre}"></canvas>
         </div>
       </div>
     </div>`;
 
-  requestAnimationFrame(() => {
-    if (c2) { c2.destroy(); c2 = null; }
-    c2 = new Chart(document.getElementById('cT'), {
-      type: 'bar',
-      data: {
-        labels: mesesAsc.map(ml),
-        datasets: [
-          { label:'Factura', data: mesesAsc.map(m => Math.round(dataMes[m].f)), backgroundColor:'#1059A8', borderRadius:3 },
-          { label:'Boleta',  data: mesesAsc.map(m => Math.round(dataMes[m].b)), backgroundColor:'#E8920A', borderRadius:3 },
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend:{display:false}, tooltip:{callbacks:{label: c => ' '+clp(c.raw)}} },
-        scales: {
-          x: { ticks:{autoSkip:false, maxRotation:45, font:{size:11}}, grid:{display:false} },
-          y: { ticks:{ callback: v => v>=1e6?'$'+(v/1e6).toFixed(1)+'M':v>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+v, font:{size:11} }, grid:{color:'rgba(0,0,0,.05)'} }
+  requestAnimationFrame(()=>{
+    if(c2){c2.destroy();c2=null;}
+    c2=new Chart(document.getElementById('cT'),{
+      type:'bar',
+      data:{labels:mesesAsc.map(ml),datasets:[
+        {label:'Factura',data:mesesAsc.map(m=>Math.round(dataMes[m].f)),backgroundColor:'#1059A8',borderRadius:3},
+        {label:'Boleta', data:mesesAsc.map(m=>Math.round(dataMes[m].b)),backgroundColor:'#E8920A',borderRadius:3},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+clp(c.raw)}}},
+        scales:{
+          x:{ticks:{autoSkip:false,maxRotation:45,font:{size:11}},grid:{display:false}},
+          y:{ticks:{callback:v=>v>=1e6?'$'+(v/1e6).toFixed(1)+'M':v>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+v,font:{size:11}},grid:{color:'rgba(0,0,0,.05)'}}
         }
       }
     });
@@ -389,26 +325,19 @@ function seleccionarTalento(nombre, lista) {
 }
 
 /* ── INIT ── */
-fetch('./data.json?t=' + Date.now())
-  .then(r => {
-    if (!r.ok) throw new Error('data.json no encontrado (HTTP ' + r.status + ')');
-    return r.json();
-  })
-  .then(d => {
-    DATA = d;
-    const upd = new Date(d.updated_at).toLocaleString('es-AR', {
-      day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit'
-    });
-    document.getElementById('subtitle').textContent =
-      `Datos al ${upd} · ${d.total_ordenes} órdenes · Campañas Chile · se actualiza todos los días a las 8:30 hs`;
+fetch('./data.json?t='+Date.now())
+  .then(r=>{if(!r.ok)throw new Error('data.json no encontrado (HTTP '+r.status+')');return r.json();})
+  .then(d=>{
+    DATA=d;
+    const upd=new Date(d.updated_at).toLocaleString('es-AR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    document.getElementById('subtitle').textContent=`Datos al ${upd} · ${d.total_ordenes} órdenes · Campañas Chile · se actualiza todos los días a las 8:30 hs`;
     renderGeneral(d.general);
     renderTalento(d.talentos);
   })
-  .catch(e => {
-    document.getElementById('tab-general').innerHTML =
-      `<div class="err"><strong>No se pudo cargar data.json</strong><br>${e.message}<br><br>
-       El archivo se genera automáticamente cada mañana a las 8:30 hs. Si es la primera vez, ejecutá el workflow manualmente desde GitHub Actions.</div>`;
-    document.getElementById('subtitle').textContent = 'Sin datos disponibles aún';
+  .catch(e=>{
+    document.getElementById('tab-general').innerHTML=
+      `<div class="err"><strong>No se pudo cargar data.json</strong><br>${e.message}<br><br>El archivo se genera automáticamente cada mañana a las 8:30 hs. Si es la primera vez, ejecutá el workflow manualmente desde GitHub Actions.</div>`;
+    document.getElementById('subtitle').textContent='Sin datos disponibles aún';
   });
 </script>
 </body>
