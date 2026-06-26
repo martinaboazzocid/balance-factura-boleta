@@ -154,7 +154,6 @@ function renderGeneral(general) {
       <td><strong>${ml(k)}</strong></td>
       <td class="r" style="color:var(--blue)">${clp(f)}</td>
       <td class="r" style="color:var(--amber)">${clp(b)}</td>
-      <td class="r">${n>0?clp(n):'—'}</td>
       <td class="r"><strong>${clp(t)}</strong></td>
       <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div><span class="prg-lbl">${pF}% F</span></div></td>
       <td>${usd ? '<span class="usd-tag">USD→CLP</span>' : ''}</td>
@@ -188,7 +187,6 @@ function renderGeneral(general) {
             <td>TOTAL</td>
             <td class="r" style="color:var(--blue)">${clp(tF)}</td>
             <td class="r" style="color:var(--amber)">${clp(tB)}</td>
-            <td class="r">${tN>0?clp(tN):'—'}</td>
             <td class="r">${clp(tot)}</td>
             <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pFt}%"></div></div><span class="prg-lbl">${pFt}% F</span></div></td>
             <td></td>
@@ -319,7 +317,6 @@ function seleccionarTalento(nombre, lista) {
       <td><strong>${ml(m)}</strong></td>
       <td class="r" style="color:var(--blue)">${clp(f)}</td>
       <td class="r" style="color:var(--amber)">${clp(b)}</td>
-      <td class="r">${n>0?clp(n):'—'}</td>
       <td class="r"><strong>${clp(t)}</strong></td>
       <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div><span class="prg-lbl">${pF}% F</span></div></td>
     </tr>`;
@@ -403,7 +400,7 @@ fetch('./data.json?t=' + Date.now())
       day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit'
     });
     document.getElementById('subtitle').textContent =
-      `Datos al ${upd} · ${d.total_ordenes} órdenes · se actualiza todos los días a las 8:30 hs`;
+      `Datos al ${upd} · ${d.total_ordenes} órdenes · Campañas Chile · se actualiza todos los días a las 8:30 hs`;
     renderGeneral(d.general);
     renderTalento(d.talentos);
   })
