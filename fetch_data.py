@@ -1,9 +1,12 @@
 """
 fetch_data.py
-Lee todas las órdenes y líneas de ZAS CHILE desde Odoo vía Claude MCP
+Lee órdenes y líneas de ZAS CHILE desde Odoo vía Claude MCP
 y genera data.json en la raíz del repo.
 
-Requiere variable de entorno: ANTHROPIC_API_KEY
+Requiere variables de entorno:
+  ANTHROPIC_API_KEY
+  ODOO_EMAIL
+  ODOO_PASSWORD
 """
 
 import json
@@ -48,16 +51,26 @@ def parse_talento(nombre):
     return raw.upper()
 
 def llamar_claude(system, user):
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    api_key  = os.environ.get("ANTHROPIC_API_KEY", "")
+    email    = os.environ.get("ODOO_EMAIL", "")
+    password = os.environ.get("ODOO_PASSWORD", "")
+
     if not api_key:
-        raise RuntimeError("Variable ANTHROPIC_API_KEY no definida")
+        raise RuntimeError("Falta ANTHROPIC_API_KEY")
+    if not email or not password:
+        raise RuntimeError("Faltan ODOO_EMAIL o ODOO_PASSWORD")
 
     payload = json.dumps({
         "model": MODEL,
         "max_tokens": 8000,
         "system": system,
         "messages": [{"role": "user", "content": user}],
-        "mcp_servers": [{"type": "url", "url": MCP_URL, "name": "zas"}]
+        "mcp_servers": [{
+            "type": "url",
+            "url": MCP_URL,
+            "name": "zas",
+            "authorization_token": f"{email}:{password}"
+        }]
     }).encode()
 
     req = urllib.request.Request(
@@ -66,11 +79,16 @@ def llamar_claude(system, user):
         headers={
             "Content-Type": "application/json",
             "x-api-key": api_key,
-            "anthropic-version": "2023-06-01"
+            "anthropic-version": "2023-06-01",
+            "anthropic-beta": "mcp-client-2025-04-04"
         }
     )
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.loads(r.read())
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        body = e.read().decode()
+        raise RuntimeError(f"HTTP {e.code}: {body[:300]}")
 
 def extraer_rows(data):
     rows = []
@@ -87,7 +105,7 @@ def extraer_rows(data):
 def fetch_ordenes():
     print("→ Fetching órdenes ZAS CHILE...")
     data = llamar_claude(
-        "Eres un extractor de datos Odoo. Usá la herramienta MCP odoo_search_rows directamente.",
+        "Eres un extractor de datos Odoo. Usá la herramienta MCP odoo_search_rows directamente sin preguntar.",
         """Llamá odoo_search_rows con:
 - model: "sale.order"
 - filters: [{"field":"x_studio_bu_1","operator":"eq","value":"ZAS CHILE"}]
@@ -115,7 +133,6 @@ def fetch_lineas(ids):
     return rows
 
 def procesar(raw_ordenes, raw_lineas):
-    # Procesar órdenes
     ordenes = []
     for r in raw_ordenes:
         p = r.get("latestPayload", {})
@@ -123,49 +140,45 @@ def procesar(raw_ordenes, raw_lineas):
             continue
         if p.get("state") in ("cancel", "draft"):
             continue
-        moneda  = (p.get("currency_id") or [None, "CLP"])[1] or "CLP"
-        fecha   = (p.get("date_order") or "")[:10]
+        moneda   = (p.get("currency_id") or [None, "CLP"])[1] or "CLP"
+        fecha    = (p.get("date_order") or "")[:10]
         net_orig = float(p.get("amount_untaxed") or 0)
         net_clp  = to_clp(net_orig, moneda, fecha)
         tipo_raw = p.get("x_studio_factura_o_boleta") or ""
-        tipo = "Factura" if tipo_raw == "Factura" else "Boleta" if tipo_raw == "Boleta" else ""
+        tipo     = "Factura" if tipo_raw == "Factura" else "Boleta" if tipo_raw == "Boleta" else ""
         ordenes.append({
-            "id":      r.get("odooId"),
-            "name":    p.get("name", ""),
-            "fecha":   fecha,
-            "mes":     mes_key(fecha),
-            "moneda":  moneda,
+            "id":       r.get("odooId"),
+            "name":     p.get("name", ""),
+            "fecha":    fecha,
+            "mes":      mes_key(fecha),
+            "moneda":   moneda,
             "net_orig": net_orig,
-            "net_clp": net_clp,
-            "tipo":    tipo,
+            "net_clp":  net_clp,
+            "tipo":     tipo,
             "line_ids": p.get("order_line", []),
         })
 
-    # Index órdenes
     ord_idx = {o["id"]: o for o in ordenes}
 
-    # Procesar líneas
     lineas = []
     for r in raw_lineas:
-        p = r.get("latestPayload", {})
+        p       = r.get("latestPayload", {})
         if p.get("display_type"):
             continue
-        oid    = (p.get("order_id") or [None])[0]
-        ord    = ord_idx.get(oid)
-        moneda = ord["moneda"] if ord else (p.get("currency_id") or [None, "CLP"])[1] or "CLP"
-        fecha  = ord["fecha"]  if ord else ""
-        sub    = float(p.get("price_subtotal") or 0)
+        oid     = (p.get("order_id") or [None])[0]
+        ord     = ord_idx.get(oid)
+        moneda  = ord["moneda"] if ord else (p.get("currency_id") or [None, "CLP"])[1] or "CLP"
+        fecha   = ord["fecha"]  if ord else ""
+        sub     = float(p.get("price_subtotal") or 0)
         talento = parse_talento(p.get("name", ""))
         if not talento or len(talento) < 2:
             continue
         lineas.append({
             "order_id": oid,
-            "nombre":   p.get("name", ""),
             "talento":  talento,
             "sub_clp":  to_clp(sub, moneda, fecha),
             "mes":      ord["mes"] if ord else mes_key(fecha),
             "tipo":     ord["tipo"] if ord else "",
-            "moneda":   moneda,
         })
 
     return ordenes, lineas
@@ -184,11 +197,9 @@ def agregar_general(ordenes):
     return por_mes
 
 def agregar_talentos(lineas):
-    # { talento: { mes: { f, b, n } } }
     por_tal = {}
     for l in lineas:
-        t = l["talento"]
-        m = l["mes"]
+        t, m = l["talento"], l["mes"]
         if t not in por_tal:
             por_tal[t] = {}
         if m not in por_tal[t]:
@@ -202,8 +213,8 @@ def main():
     print("=== fetch_data.py ===")
     print(f"Inicio: {datetime.now(timezone.utc).isoformat()}")
 
-    # Fetch
-    raw_ord  = fetch_ordenes()
+    raw_ord = fetch_ordenes()
+
     ids_validos = [
         r.get("odooId") for r in raw_ord
         if r.get("latestPayload", {}).get("x_studio_bu_1") == "ZAS CHILE"
@@ -215,28 +226,25 @@ def main():
         batch = fetch_lineas(ids_validos[i:i+20])
         raw_lin.extend(batch)
 
-    # Procesar
     ordenes, lineas = procesar(raw_ord, raw_lin)
     print(f"   {len(ordenes)} órdenes válidas, {len(lineas)} líneas")
 
-    # Agregar
     general  = agregar_general(ordenes)
     talentos = agregar_talentos(lineas)
 
-    # Construir output
     output = {
-        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "updated_at":    datetime.now(timezone.utc).isoformat(),
         "total_ordenes": len(ordenes),
-        "general": general,
-        "talentos": talentos,
+        "general":       general,
+        "talentos":      talentos,
     }
 
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"✓ data.json generado ({len(json.dumps(output))} bytes)")
+    print(f"✓ data.json generado")
     print(f"  Meses: {sorted(general.keys())}")
-    print(f"  Talentos: {sorted(talentos.keys())[:10]}...")
+    print(f"  Talentos encontrados: {len(talentos)}")
 
 if __name__ == "__main__":
     main()
