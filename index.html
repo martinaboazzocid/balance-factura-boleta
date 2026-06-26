@@ -199,7 +199,6 @@ function renderGeneral(general){
 
 /* ── TALENTO ── */
 function renderTalento(talentos){
-  const lista=Object.keys(talentos).sort();
   document.getElementById('tab-talento').innerHTML=`
     <div class="card">
       <div class="card-head"><span class="card-title">Buscar talento</span></div>
@@ -208,29 +207,31 @@ function renderTalento(talentos){
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <input type="text" id="searchInput" placeholder="Escribí el nombre del talento…" oninput="filtrarChips()" autocomplete="off"/>
         </div>
-        <div class="talent-list" id="talentList"></div>
+        <div id="talentList"><span style="font-size:13px;color:var(--hint)">Escribí al menos 2 letras para buscar.</span></div>
       </div>
     </div>
     <div id="talDetalle"></div>`;
-  renderChips(lista,'');
-  mostrarTalento('(Todos)');
-}
-
-function renderChips(lista,query){
-  const cont=document.getElementById('talentList');
-  if(!cont)return;
-  const filtrados=query?lista.filter(t=>t.toLowerCase().includes(query.toLowerCase())):lista;
-  if(!filtrados.length){cont.innerHTML='<span class="no-results">Sin resultados.</span>';return;}
-  const todos=query?'':
-    `<span class="talent-chip todos${talSel==='(Todos)'?' active':''}" onclick="mostrarTalento('(Todos)')">(Todos los talentos)</span>`;
-  cont.innerHTML=todos+filtrados.map(t=>
-    `<span class="talent-chip${talSel===t?' active':''}" onclick="mostrarTalento('${t.replace(/'/g,"\\'")}')">${t}</span>`
-  ).join('');
 }
 
 function filtrarChips(){
-  const q=document.getElementById('searchInput').value;
-  renderChips(Object.keys(DATA.talentos).sort(),q);
+  const q=document.getElementById('searchInput').value.trim();
+  const cont=document.getElementById('talentList');
+  if(!cont)return;
+  if(q.length<2){
+    cont.innerHTML='<span style="font-size:13px;color:var(--hint)">Escribí al menos 2 letras para buscar.</span>';
+    return;
+  }
+  const lista=Object.keys(DATA.talentos).sort();
+  const filtrados=lista.filter(t=>t.toLowerCase().includes(q.toLowerCase()));
+  if(!filtrados.length){
+    cont.innerHTML='<span style="font-size:13px;color:var(--hint)">Sin resultados para "'+q+'".</span>';
+    return;
+  }
+  cont.innerHTML=filtrados.map(t=>
+    `<span class="talent-chip${talSel===t?' active':''}" onclick="mostrarTalento('${t.replace(/'/g,"\'")}')">
+      ${t}
+    </span>`
+  ).join('');
 }
 
 function mostrarTalento(nombre){
