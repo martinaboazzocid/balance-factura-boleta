@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-06-26T20:35:23.770202+00:00",
+  "updated_at": "2026-06-27T15:51:49.928819+00:00",
   "total_ordenes": 1130,
   "general": {
     "2026-06": {
-      "f": 107769652.8,
+      "f": 107960770.8,
       "b": 33820000.0,
       "usd": true
     },
@@ -7504,7 +7504,7 @@
     },
     "JOSA PRADO": {
       "2026-06": {
-        "f": 1701000.0,
+        "f": 1764706.0,
         "b": 2700000.0,
         "ordenes": [
           {
@@ -7565,8 +7565,8 @@
             "nombre": "JOSA PRADO (Use of image (ads) x 30 days)",
             "orden": "CL02925",
             "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
+            "monto_clp": 563706,
+            "monto_orig": 563706,
             "moneda": "CLP",
             "fecha": "2026-06-01"
           }
@@ -12517,7 +12517,7 @@
     },
     "FER FIGUEROA": {
       "2026-06": {
-        "f": 1863000.0,
+        "f": 1932773.0,
         "b": 1600000.0,
         "ordenes": [
           {
@@ -12569,8 +12569,8 @@
             "nombre": "FER FIGUEROA (Use of image (ads) x 30 days)",
             "orden": "CL02924",
             "tipo": "Factura",
-            "monto_clp": 500000,
-            "monto_orig": 500000,
+            "monto_clp": 569773,
+            "monto_orig": 569773,
             "moneda": "CLP",
             "fecha": "2026-06-01"
           }
@@ -28695,7 +28695,7 @@
     },
     "BLU DUMAY": {
       "2026-06": {
-        "f": 14388998.0,
+        "f": 14446637.0,
         "b": 0.0,
         "ordenes": [
           {
@@ -28963,8 +28963,8 @@
             "nombre": "BLU DUMAY (Use of image (ads) x 30 days)",
             "orden": "CL02926",
             "tipo": "Factura",
-            "monto_clp": 539000,
-            "monto_orig": 539000,
+            "monto_clp": 596639,
+            "monto_orig": 596639,
             "moneda": "CLP",
             "fecha": "2026-06-01"
           },
