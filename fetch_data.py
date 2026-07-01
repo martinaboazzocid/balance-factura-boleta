@@ -41,6 +41,15 @@ FX_CLP = {
 # Promedio anual BCCH (dolar observado) para ventas historicas
 FX_YEAR = {"2021":780,"2022":870,"2023":840,"2024":945}
 
+# Correcciones puntuales de ordenes mal cargadas en Odoo que no se pueden
+# editar alli por estar confirmadas. Clave = nombre de orden (campo 'name').
+# Valor = moneda real a forzar. El monto se toma tal cual (sin conversion).
+#   CL02396 (ICATA, ene-2026): cargada como USD 356.000; en realidad son
+#   356.000 CLP. Sin este override se convertia a ~351M CLP e inflaba el mes.
+MONEDA_OVERRIDE = {
+    "CL02396": "CLP",
+}
+
 # -- Odoo --
 _cj     = http.cookiejar.CookieJar()
 _opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(_cj))
@@ -156,6 +165,7 @@ def procesar_odoo(orders, lines):
     general = defaultdict(lambda: {"f":0.0,"b":0.0,"usd":False})
     for o in orders:
         moneda  = (o.get("currency_id") or [None,"CLP"])[1] or "CLP"
+        moneda  = MONEDA_OVERRIDE.get(o.get("name",""), moneda)
         fecha   = (o.get("date_order") or "")[:10]
         mes     = mes_key(fecha)
         net_clp = to_clp(o.get("amount_untaxed",0), moneda, fecha)
@@ -176,6 +186,7 @@ def procesar_odoo(orders, lines):
         if not orden:
             continue
         moneda  = (orden.get("currency_id") or [None,"CLP"])[1] or "CLP"
+        moneda  = MONEDA_OVERRIDE.get(orden.get("name",""), moneda)
         fecha   = (orden.get("date_order") or "")[:10]
         mes     = mes_key(fecha)
         sub_clp = to_clp(l.get("price_subtotal",0), moneda, fecha)
