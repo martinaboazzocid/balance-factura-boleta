@@ -26,6 +26,9 @@ ODOO_PASS = os.environ.get("ODOO_PASSWORD", "")
 # Nombres fijos de los Excel en el repo
 XLS_HISTORICO = "ventas_historicas.xlsx"   # se sube una vez
 XLS_PAGOS     = "pagos.xlsx"               # se reemplaza cada semana
+XLS_ROSTER    = "roster.xlsx"              # se reemplaza cada mes (% ZAS por talento/mes)
+
+PCT_REFERENCIA = 0.30   # % de referencia cuando el talento es EXTERNO / sin dato
 
 # Tipo de cambio USD->CLP: mensual (Odoo) + fallback anual (historico 2021-2023)
 FX_CLP = {
@@ -266,7 +269,59 @@ def cargar_historico(general, talentos_mes, odoo_keys):
     print(f"  Historico: {added} ventas agregadas, {dup} duplicados descartados")
     return added, dup
 
-# -- Pagos a talentos (Excel) --
+# -- Roster: % ZAS por talento y año --
+def cargar_roster():
+    """
+    Lee roster.xlsx (matriz talento x mes con el % ZAS de cada mes).
+    Devuelve por talento:
+      - pct_por_anio: {anio: % efectivo} = minimo % numerico de ese año,
+        aplicado a todo el año (regla: si baja dentro del año, aplica a todo el año).
+      - pct_pre: % del primer mes disponible (para ventas anteriores al roster).
+      - externo_desde: "YYYY-MM" del primer mes marcado EXTERNO, o None.
+    """
+    if openpyxl is None or not os.path.exists(XLS_ROSTER):
+        print(f"  (sin {XLS_ROSTER}, sin datos de % ZAS)")
+        return {}
+    print(f"\n  Cargando roster (% ZAS) desde {XLS_ROSTER}...")
+    wb = openpyxl.load_workbook(XLS_ROSTER, data_only=True)
+    ws = wb.worksheets[0]
+    hdr = list(next(ws.iter_rows(min_row=1, max_row=1, values_only=True)))
+    # columnas que son fechas -> (anio, mes)
+    colmap = {}
+    for i, h in enumerate(hdr):
+        if hasattr(h, "year"):
+            colmap[i] = (h.year, h.month)
+
+    roster = {}
+    for r in ws.iter_rows(min_row=2, values_only=True):
+        if not r[0]:
+            continue
+        tal = norm(r[0])
+        anios = defaultdict(list)     # anio -> [(mes, pct)]
+        externo_desde = None
+        for i, (y, m) in colmap.items():
+            v = r[i] if i < len(r) else None
+            if isinstance(v, (int, float)):
+                anios[y].append((m, float(v)))
+            elif isinstance(v, str) and v.strip().upper().startswith("EXTERNO"):
+                if externo_desde is None:
+                    externo_desde = f"{y:04d}-{m:02d}"
+        # % efectivo por año = minimo numerico del año
+        pct_por_anio = {y: min(p for _, p in lst) for y, lst in anios.items() if lst}
+        # % pre-roster = primer mes con dato numerico
+        pct_pre = None
+        todos = sorted((y, m, p) for y in anios for m, p in anios[y])
+        if todos:
+            pct_pre = todos[0][2]
+        roster[tal] = {
+            "pct_por_anio": {str(y): p for y, p in pct_por_anio.items()},
+            "pct_pre": pct_pre,
+            "externo_desde": externo_desde,
+        }
+    print(f"  Roster: {len(roster)} talentos con % ZAS")
+    return roster
+
+
 def cargar_pagos():
     if openpyxl is None or not os.path.exists(XLS_PAGOS):
         print(f"  (sin {XLS_PAGOS}, sin datos de pagos)")
@@ -317,6 +372,7 @@ def main():
 
     cargar_historico(general, talentos_mes, odoo_keys)
     pagos = cargar_pagos()
+    roster = cargar_roster()
 
     talentos_out = {}
     for t, meses in talentos_mes.items():
@@ -332,6 +388,8 @@ def main():
         "general":       dict(general),
         "talentos":      talentos_out,
         "pagos":         pagos,
+        "roster":        roster,
+        "pct_referencia": PCT_REFERENCIA,
     }
 
     with open("data.json", "w", encoding="utf-8") as f:
@@ -339,7 +397,7 @@ def main():
 
     print(f"\n  OK data.json generado")
     print(f"  Meses: {min(general)} -> {max(general)}")
-    print(f"  Talentos con ventas: {len(talentos_out)} | con pagos: {len(pagos)}")
+    print(f"  Talentos con ventas: {len(talentos_out)} | con pagos: {len(pagos)} | en roster: {len(roster)}")
 
 if __name__ == "__main__":
     main()
