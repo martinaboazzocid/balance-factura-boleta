@@ -95,11 +95,6 @@
   .deuda-item{display:flex;flex-direction:column;gap:3px}
   .deuda-item-lbl{font-size:11px;color:var(--muted)}
   .deuda-item-val{font-size:17px;font-weight:700;letter-spacing:-.3px}
-  .fee-input-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-bottom:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-  .fee-input-wrap label{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap}
-  .fee-input-wrap input[type=number]{width:90px;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:15px;font-weight:700;color:var(--text);background:var(--bg);outline:none;text-align:center;transition:border-color .12s}
-  .fee-input-wrap input[type=number]:focus{border-color:var(--blue)}
-  .fee-input-wrap .fee-hint{font-size:12px;color:var(--hint)}
   @media(max-width:580px){.shell{padding:18px 14px 50px}.kpi-val{font-size:19px}}
 </style>
 </head>
@@ -140,75 +135,106 @@ function pagoTalento(nombre){
   return p ? {total: p.total || 0, n: p.n || 0} : {total: 0, n: 0};
 }
 
-function calcularBalance(){
-  const input = document.getElementById('pctZasInput');
-  if(!input || !talSel || talSel==='(Todos)') return;
-  const val = parseFloat(input.value);
-  if(isNaN(val) || val < 0 || val > 100) return;
-  const pctZas = val / 100;
-  const pctTal = 1 - pctZas;
+function pctZasAnio(nombre, anio){
+  // Devuelve {pct, ref} donde ref=true si es % de referencia (externo/sin dato)
+  const r = (DATA.roster || {})[nombre];
+  const refPct = (DATA.pct_referencia != null ? DATA.pct_referencia : 0.30);
+  if(!r) return {pct: refPct, ref: true};
+  const y = String(anio);
+  if(r.pct_por_anio && r.pct_por_anio[y] != null) return {pct: r.pct_por_anio[y], ref: false};
+  // año sin dato numérico: si hay % pre-roster (primer mes disponible), usarlo para años anteriores
+  if(r.pct_pre != null){
+    const anios = Object.keys(r.pct_por_anio || {}).map(Number);
+    const minAnio = anios.length ? Math.min(...anios) : null;
+    if(minAnio != null && anio < minAnio) return {pct: r.pct_pre, ref: false};
+  }
+  return {pct: refPct, ref: true};
+}
 
-  const talentos = DATA.talentos;
-  const mesesData = talentos[talSel] || {};
+function balanceTalento(nombre){
+  // Suma ponderada por año: cada año usa su % efectivo del roster.
+  const mesesData = (DATA.talentos || {})[nombre] || {};
+  const porAnio = {};   // anio -> {f, b}
+  Object.entries(mesesData).forEach(([m, d]) => {
+    const anio = m.slice(0,4);
+    if(!porAnio[anio]) porAnio[anio] = {f:0, b:0};
+    porAnio[anio].f += d.f;
+    porAnio[anio].b += d.b;
+  });
 
-  let totalF = 0, totalB = 0;
-  Object.values(mesesData).forEach(d => { totalF += d.f; totalB += d.b; });
+  let zasDebePorFactura = 0, talentoDebePorBoleta = 0, totalF = 0, totalB = 0;
+  let usaReferencia = false;
+  const detalleAnios = [];
+  Object.keys(porAnio).sort().forEach(anio => {
+    const {f, b} = porAnio[anio];
+    const {pct, ref} = pctZasAnio(nombre, +anio);
+    if(ref && (f>0 || b>0)) usaReferencia = true;
+    zasDebePorFactura   += f * (1 - pct);   // parte del talento en facturas
+    talentoDebePorBoleta += b * pct;         // comisión ZAS sobre boletas
+    totalF += f; totalB += b;
+    detalleAnios.push({anio, f, b, pct, ref});
+  });
 
-  // Factura: ZAS cobró el 100% → le debe al talento su parte (pctTal de las facturas)
-  const zasDebePorFactura = totalF * pctTal;
-  // Boleta: el talento cobró el 100% → le debe a ZAS su comisión (pctZas de las boletas)
-  const talentoDebePorBoleta = totalB * pctZas;
-  // Lo que ZAS ya le pagó al talento (planilla de pagos, todos los estados)
-  const yaPagado = pagoTalento(talSel).total;
-
-  // Saldo desde la perspectiva de ZAS:
-  //   +  lo que ZAS debe al talento por facturas
-  //   −  lo ya pagado por ZAS
-  //   −  lo que el talento debe a ZAS por boletas
+  const yaPagado = pagoTalento(nombre).total;
   const saldo = zasDebePorFactura - yaPagado - talentoDebePorBoleta;
+  return {zasDebePorFactura, talentoDebePorBoleta, yaPagado, saldo, totalF, totalB, detalleAnios, usaReferencia};
+}
 
+function renderBalance(nombre){
   const box = document.getElementById('balanceBox');
   if(!box) return;
+  const b = balanceTalento(nombre);
 
   let cls, titulo, saldoLbl;
-  if(saldo > 0){
-    cls = 'zas-debe';
-    titulo = 'ZAS tiene un saldo pendiente con el talento';
-    saldoLbl = 'ZAS aún debe pagar';
-  } else if(saldo < 0){
-    cls = 'talento-debe';
-    titulo = 'El talento tiene saldo a favor de ZAS';
-    saldoLbl = 'A favor de ZAS';
+  if(b.saldo > 0){
+    cls = 'zas-debe'; titulo = 'ZAS tiene un saldo pendiente con el talento'; saldoLbl = 'ZAS aún debe pagar';
+  } else if(b.saldo < 0){
+    cls = 'talento-debe'; titulo = 'El talento tiene saldo a favor de ZAS'; saldoLbl = 'A favor de ZAS';
   } else {
-    cls = 'neutro';
-    titulo = 'Cuentas al día';
-    saldoLbl = 'Saldo';
+    cls = 'neutro'; titulo = 'Cuentas al día'; saldoLbl = 'Saldo';
   }
 
+  const r = (DATA.roster || {})[nombre];
+  let avisoExterno = '';
+  if(r && r.externo_desde){
+    avisoExterno = `<div class="note" style="margin:0 0 12px">
+      Desde ${ml(r.externo_desde)} pasó a ser externa. No hay % acordado: el comercial puede venderlo a cualquier %.
+      Se deja ${Math.round((DATA.pct_referencia||0.3)*100)}% ZAS como referencia.</div>`;
+  } else if(b.usaReferencia){
+    avisoExterno = `<div class="note" style="margin:0 0 12px">
+      Algunos períodos no tienen % en el roster. Se usa ${Math.round((DATA.pct_referencia||0.3)*100)}% como referencia.</div>`;
+  }
+
+  // Chips de % por año (solo años con ventas)
+  const chips = b.detalleAnios.filter(d=>d.f>0||d.b>0).map(d =>
+    `<span style="display:inline-block;padding:2px 9px;border-radius:10px;font-size:11px;font-weight:600;margin:2px 4px 2px 0;background:${d.ref?'#FEF3E3':'#EAF1FB'};color:${d.ref?'#9A5200':'#1059A8'}">${d.anio}: ${Math.round(d.pct*100)}% ZAS${d.ref?' (ref)':''}</span>`
+  ).join('');
+
   box.className = `deuda-box ${cls}`;
-  box.innerHTML = `
+  box.innerHTML = avisoExterno + `
     <div class="deuda-title ${cls}">${titulo}</div>
     <div class="deuda-grid">
       <div class="deuda-item">
-        <span class="deuda-item-lbl">ZAS debe al talento (${Math.round(pctTal*100)}% de facturas)</span>
-        <span class="deuda-item-val">${clp(zasDebePorFactura)}</span>
+        <span class="deuda-item-lbl">ZAS debe al talento (parte de facturas)</span>
+        <span class="deuda-item-val">${clp(b.zasDebePorFactura)}</span>
       </div>
       <div class="deuda-item">
         <span class="deuda-item-lbl">Ya pagado por ZAS</span>
-        <span class="deuda-item-val" style="color:#1A7A47">${clp(yaPagado)}</span>
+        <span class="deuda-item-val" style="color:#1A7A47">${clp(b.yaPagado)}</span>
       </div>
       <div class="deuda-item">
-        <span class="deuda-item-lbl">Talento debe a ZAS (${Math.round(pctZas*100)}% de boletas)</span>
-        <span class="deuda-item-val">${clp(talentoDebePorBoleta)}</span>
+        <span class="deuda-item-lbl">Talento debe a ZAS (comisión de boletas)</span>
+        <span class="deuda-item-val">${clp(b.talentoDebePorBoleta)}</span>
       </div>
       <div class="deuda-item">
         <span class="deuda-item-lbl">${saldoLbl}</span>
-        <span class="deuda-item-val" style="color:var(--${cls==='zas-debe'?'amber':cls==='talento-debe'?'blue':'muted'})">${clp(Math.abs(saldo))}</span>
+        <span class="deuda-item-val" style="color:var(--${cls==='zas-debe'?'amber':cls==='talento-debe'?'blue':'muted'})">${clp(Math.abs(b.saldo))}</span>
       </div>
     </div>
-    <div style="font-size:11px;color:var(--hint);margin-top:12px;line-height:1.5">
-      Ventas: Factura ${clp(totalF)} · Boleta ${clp(totalB)}. El saldo = parte del talento en facturas
-      − lo ya pagado − comisión ZAS sobre boletas. Las ventas históricas previas a 2025 están incluidas.
+    <div style="margin-top:12px">${chips}</div>
+    <div style="font-size:11px;color:var(--hint);margin-top:10px;line-height:1.5">
+      % ZAS aplicado por año (el más favorable alcanzado cada año). Saldo = parte del talento en facturas
+      − lo ya pagado − comisión ZAS sobre boletas. Incluye ventas históricas previas a 2025.
     </div>`;
 }
 
@@ -423,30 +449,26 @@ function mostrarTalento(nombre){
     const{f,b}=dataMes[m];
     const t=f+b, pF=t?Math.round(f/t*100):0;
     const esActual = m === '2026-06';
+    const anio = +m.slice(0,4);
+    const pz = nombre==='(Todos)' ? null : pctZasAnio(nombre, anio);
+    const pzCell = pz ? `<span style="font-weight:600;color:${pz.ref?'var(--amber)':'var(--text)'}">${Math.round(pz.pct*100)}%${pz.ref?' <span style="font-size:10px;color:var(--hint)">(ref)</span>':''}</span>` : '—';
     return `<tr class="mes-row${esActual?' abierto':''}" onclick="toggleDetalle(this,'${nombre}','${m}')">
       <td><span class="mes-toggle"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg><strong>${ml(m)}</strong></span></td>
       <td class="r" style="color:var(--blue)">${clp(f)}</td>
       <td class="r" style="color:var(--amber)">${clp(b)}</td>
       <td class="r"><strong>${clp(t)}</strong></td>
+      <td class="r">${pzCell}</td>
       <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pF}%"></div></div><span class="prg-lbl">${pF}% F</span></div></td>
     </tr>
     <tr class="detalle-row" id="dr-${m}" style="${esActual?'':'display:none'}">
-      <td colspan="5"><div class="detalle-inner">${buildDetalleHTML(nombre,m)}</div></td>
+      <td colspan="6"><div class="detalle-inner">${buildDetalleHTML(nombre,m)}</div></td>
     </tr>`;
   }).join('');
 
-  // Bloque fee manual + balance
+  // Balance automático (% ZAS por año desde el roster)
   let balanceHTML = '';
   if(nombre !== '(Todos)'){
-    balanceHTML = `
-    <div class="fee-input-wrap">
-      <label for="pctZasInput">% ZAS para ${nombre}:</label>
-      <input type="number" id="pctZasInput" min="0" max="100" step="1" placeholder="ej: 20" oninput="calcularBalance()" />
-      <span class="fee-hint">Ingresá el porcentaje que le corresponde a ZAS según el acuerdo con este talento.</span>
-    </div>
-    <div id="balanceBox" class="deuda-box neutro">
-      <div class="deuda-title neutro">Ingresá el % ZAS para ver el balance</div>
-    </div>`
+    balanceHTML = `<div id="balanceBox" class="deuda-box neutro"></div>`;
   }
 
   document.getElementById('talDetalle').innerHTML=balanceHTML+`
@@ -462,7 +484,7 @@ function mostrarTalento(nombre){
         <div class="tbl-wrap"><table>
           <thead><tr>
             <th>Mes</th><th class="r">Factura</th><th class="r">Boleta</th>
-            <th class="r">Total neto</th><th>Proporción F/B</th>
+            <th class="r">Total neto</th><th class="r">% ZAS</th><th>Proporción F/B</th>
           </tr></thead>
           <tbody>${filas}</tbody>
           <tfoot><tr class="total-row">
@@ -470,6 +492,7 @@ function mostrarTalento(nombre){
             <td class="r" style="color:var(--blue)">${clp(tF)}</td>
             <td class="r" style="color:var(--amber)">${clp(tB)}</td>
             <td class="r">${clp(tot)}</td>
+            <td class="r">—</td>
             <td><div class="prg"><div class="prg-bar"><div class="prg-fill" style="width:${pFt}%"></div></div><span class="prg-lbl">${pFt}% F</span></div></td>
           </tr></tfoot>
         </table></div>
@@ -489,6 +512,8 @@ function mostrarTalento(nombre){
         </div>
       </div>
     </div>`;
+
+  if(nombre !== '(Todos)') renderBalance(nombre);
 
   requestAnimationFrame(()=>{
     if(c2){c2.destroy();c2=null;}
