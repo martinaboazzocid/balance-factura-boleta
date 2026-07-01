@@ -1,7 +1,12 @@
 {
-  "updated_at": "2026-07-01T13:47:57.332391+00:00",
-  "total_ordenes": 1132,
+  "updated_at": "2026-07-01T14:22:15.018394+00:00",
+  "total_ordenes": 1133,
   "general": {
+    "2026-07": {
+      "f": 379200.0,
+      "b": 0.0,
+      "usd": true
+    },
     "2026-06": {
       "f": 128791168.8,
       "b": 28320000.0,
@@ -334,6 +339,90 @@
     }
   },
   "talentos": {
+    "ISIORTRIP": {
+      "2026-07": {
+        "f": 379200.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ISIORTRIP (Contenido para pauta)",
+            "orden": "CL03044",
+            "tipo": "Factura",
+            "monto_clp": 379200,
+            "monto_orig": 400,
+            "moneda": "USD",
+            "fecha": "2026-07-01",
+            "fuente": "odoo"
+          }
+        ]
+      },
+      "2026-06": {
+        "f": 329700.0,
+        "b": 1050000.0,
+        "ordenes": [
+          {
+            "nombre": "ISIORTRIP (IG Reel)",
+            "orden": "CL03045",
+            "tipo": "Boleta",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
+            "orden": "CL03045",
+            "tipo": "Boleta",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (Exclusivity)",
+            "orden": "CL03045",
+            "tipo": "Boleta",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (IG Story )",
+            "orden": "CL03027",
+            "tipo": "Boleta",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
+            "orden": "CL03027",
+            "tipo": "Boleta",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (Tik Tok de musica)",
+            "orden": "CL02991",
+            "tipo": "Factura",
+            "monto_clp": 329700,
+            "monto_orig": 350,
+            "moneda": "USD",
+            "fecha": "2026-06-15",
+            "fuente": "odoo"
+          }
+        ]
+      }
+    },
     "MANDY": {
       "2026-06": {
         "f": 0.0,
@@ -14302,74 +14391,6 @@
             "moneda": "CLP",
             "fecha": "2024-12-01",
             "fuente": "historico"
-          }
-        ]
-      }
-    },
-    "ISIORTRIP": {
-      "2026-06": {
-        "f": 329700.0,
-        "b": 1050000.0,
-        "ordenes": [
-          {
-            "nombre": "ISIORTRIP (IG Reel)",
-            "orden": "CL03045",
-            "tipo": "Boleta",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2026-06-26",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
-            "orden": "CL03045",
-            "tipo": "Boleta",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2026-06-26",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (Exclusivity)",
-            "orden": "CL03045",
-            "tipo": "Boleta",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2026-06-26",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (IG Story )",
-            "orden": "CL03027",
-            "tipo": "Boleta",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
-            "orden": "CL03027",
-            "tipo": "Boleta",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (Tik Tok de musica)",
-            "orden": "CL02991",
-            "tipo": "Factura",
-            "monto_clp": 329700,
-            "monto_orig": 350,
-            "moneda": "USD",
-            "fecha": "2026-06-15",
-            "fuente": "odoo"
           }
         ]
       }
@@ -81796,5 +81817,2023 @@
       "total": 420000,
       "n": 1
     }
-  }
+  },
+  "roster": {
+    "SABRI IBANEZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "MORE ANDRADE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.275,
+        "2026": 0.275
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MARTU ORTIZ": {
+      "pct_por_anio": {
+        "2024": 0.25,
+        "2025": 0.25,
+        "2026": 0.2
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MATEO GUASCONI": {
+      "pct_por_anio": {
+        "2024": 0.275,
+        "2025": 0.275,
+        "2026": 0.25
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MARTY D": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "DOMI FAENA": {
+      "pct_por_anio": {
+        "2024": 0.275,
+        "2025": 0.25,
+        "2026": 0.25
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "AREKA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-02"
+    },
+    "GASPAR BIDART": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-12"
+    },
+    "VALEN GRONDONA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-04"
+    },
+    "CELE ALOE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CAMI GORDILLO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.275
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "JUANI ALBINA": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "FRAN RABINOVICH": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-06"
+    },
+    "MARIAN SOLER": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "JACINTA DE OROMI": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.275,
+        "2026": 0.25
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MILO GONZALEZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.275,
+        "2026": 0.275
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ARIN KIM": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "FINO Y ELEGANTE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.275,
+        "2026": 0.275
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ANTO ARBOSCELLI": {
+      "pct_por_anio": {
+        "2024": 0.275,
+        "2025": 0.275
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-02"
+    },
+    "FACTURITA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MAMMAMINAS": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.275
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "EZZEQUIEL": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "PAU BOLZAN": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": "2025-01"
+    },
+    "CANDE COPELLO": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": "2025-01"
+    },
+    "LUNA PICON": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MARCOS DUCUING": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "GUADA POMPEI": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "GALI ANDRADE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LOLI PAGANO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "PIPA BARBATO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "KERUZA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LA TOBA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "FEDE ROBELLO": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "KIARI HERNANDEZ": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MALE RIESGO": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-08"
+    },
+    "TALLER DE CALU": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "VALENTINO DIAZ": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-09"
+    },
+    "NACHI DOLDAN": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "JULI BIANCO": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LULA ALONSO": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.275
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "PIPA Y KERUZA": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LA CASITA PINTEREST": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "RECONTRA LUCHITA": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "SHELAO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-11"
+    },
+    "AGUS GARCIA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-02"
+    },
+    "VICKY GILS": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.275
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CHEFSALE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-04"
+    },
+    "NATI SAAL": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": "2024-09"
+    },
+    "IMANOL PARISE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "SIMONA ALVAREZ": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "JULIETA BOSSI": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "IMANOL": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MERI VIDOSEVICH": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-02"
+    },
+    "PILAR ORTIZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-06"
+    },
+    "FEDE HOFFMANN": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "EZE KATZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "AGUS HABIF": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "IMA PARISE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "DELFI PENA": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "RAMA PALOMEQUE": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CAMI GORBAN": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "VIATICOS": {
+      "pct_por_anio": {
+        "2024": 0.0,
+        "2025": 0.0,
+        "2026": 0.0
+      },
+      "pct_pre": 0.0,
+      "externo_desde": null
+    },
+    "FER FIGUEROA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "SOFIA MALUK": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "KARLA MELO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-05"
+    },
+    "NATALIA MANDIOLA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "LUCAS CRESPO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CAMILISIMA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "ICATA": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "DIEGO JEREZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "CRITICAS QLS": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "RAKYZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-06"
+    },
+    "ITAY": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MEMI": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LAURA DE LA FUENTE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-05"
+    },
+    "CHRISTELL RODRIGUEZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-05"
+    },
+    "LUCAS PIRAINO": {
+      "pct_por_anio": {
+        "2024": 0.25,
+        "2025": 0.25,
+        "2026": 0.25
+      },
+      "pct_pre": 0.25,
+      "externo_desde": null
+    },
+    "JOSA PRADO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CARLITA": {
+      "pct_por_anio": {
+        "2024": 0.25,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.25,
+      "externo_desde": null
+    },
+    "JACOB RIQUELME": {
+      "pct_por_anio": {
+        "2024": 0.275,
+        "2025": 0.275,
+        "2026": 0.275
+      },
+      "pct_pre": 0.275,
+      "externo_desde": null
+    },
+    "CAMILO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "ANTO SEGOVIA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "RO CROCE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.275,
+        "2026": 0.275
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "AYLEN MILLA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-02"
+    },
+    "CATA CAZU": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "GABRIEL SUAZO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "BRUNO NERVI": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "TOMAS EL AMIGO": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "LORENA SALINAS": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-05"
+    },
+    "YUHUI": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "CATA AGUILAR": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "FELIPE HERNANDEZ": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": "2025-01"
+    },
+    "BLUME": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "JOSE TOMAS SALAS": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "BENJAMIN MIRANDA": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-12"
+    },
+    "MATT HUNTER": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "YOGA WOMAN": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "LOS REGINATO": {
+      "pct_por_anio": {
+        "2025": 0.25,
+        "2026": 0.25
+      },
+      "pct_pre": 0.25,
+      "externo_desde": null
+    },
+    "ALFREDO DE VIAJE": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": "2025-08"
+    },
+    "TANZA VARELA": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "CRISTIAN GHOST": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "SIMPLY JESU": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-12"
+    },
+    "COCINA DE CLAUDIA ROJAS": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-06"
+    },
+    "CONTULIANO": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-12"
+    },
+    "IGNACIA ANTONIA": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CESAR SEKKID": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "AGUSTINA MARTINEZ": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "JANO JEY": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "BUENA PAL CUENTO": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "ISI SERRANO": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-12"
+    },
+    "MARCELO ALCAZAR": {
+      "pct_por_anio": {
+        "2024": 0.25,
+        "2025": 0.25,
+        "2026": 0.25
+      },
+      "pct_pre": 0.25,
+      "externo_desde": "2026-05"
+    },
+    "MANUEL DE TEZANOS": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "ALEJANDRO BARROS": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "MANDY": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LUMY": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "DOMINGA GUZMAN": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LAURA RODRIGUEZ": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "DANI Y CAMI": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "DANIELA ARISTIZABAL": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "KAM JURADO": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CAMILO MAYA": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "JULIAN FORERO": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LINCOLN PALOMEQUE": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "SOFI CANON": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "TAYA NOVOA": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MICHELL OROZCO": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MARIANA SALAZAR": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "VALERIA QUINTERO": {
+      "pct_por_anio": {
+        "2026": 0.25
+      },
+      "pct_pre": 0.25,
+      "externo_desde": null
+    },
+    "ESTEFANIA GAVIRIA": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "IRIS": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CAMILO HENAO": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "BETO PASILLAS": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "GIO REYNAUD": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ALE RIOS": {
+      "pct_por_anio": {
+        "2024": 0.225,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LUCAS PETRONI": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CELE PELLEGRINI": {
+      "pct_por_anio": {
+        "2024": 0.225,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "TAVO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "BANAZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "PALOMARES": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.275,
+        "2026": 0.25
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "DANIE IBANEZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "PASQUALE": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-02"
+    },
+    "ALE IVANOVA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-12"
+    },
+    "PITTER RIOS": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "BUSH": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.25
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "PABLO CAMPOS": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "CELESTE SANAZI": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "PATO RAMIREZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-11"
+    },
+    "PAU G MELO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "PONGAMOSLO A PRUEBA": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.25
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "LEGNA": {
+      "pct_por_anio": {
+        "2024": 0.275,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-12"
+    },
+    "SOFIA MATA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LUZ BEETRAVELER": {
+      "pct_por_anio": {
+        "2024": 0.225,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ROBERTO CARLO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "EDNA ALANIS": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.22
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "HELIAN EVANS": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "MARIOLA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "VAGABOOM": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ANDY ALDUCIN": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "HERNAN MARTINEZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "ARA Y PUNTO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "SOY RUTH": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CIELO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "PLAN B": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "SOFI SOLARES": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ALEJANDRO GOGUET": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "SOY NESTOR": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ANA PAOLA LYNCH": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ANA PAO FLORES": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "JOSE ANGEL GLZ": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "RENATO GUTS": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CELINA GARZA": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "HYPATIA": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.22
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "TAMARA VINDAS": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MITZY CASTRO": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "JAZMIN ARIAS": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "RUBEN TUESTA": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "VALERIA SOSA": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "MARTHA DEL HOYO": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "DANIELA RUEDA": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "INNA MOLL": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-07"
+    },
+    "LYNDA PARRA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-12"
+    },
+    "CAMIE PP": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "OMAHI": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": "2026-01"
+    },
+    "EL SENOR DE LA TIENDA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "CAMI STUARDO": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "MELISSA LOBATON": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "GIANCARLO GRANDA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "LA MAFIA CHIC": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "I LOVE CHAUFA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "SOY EDUARDA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "ANA PAULA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "GIANE MARQUINA": {
+      "pct_por_anio": {
+        "2024": 0.275,
+        "2025": 0.275
+      },
+      "pct_pre": 0.275,
+      "externo_desde": "2025-07"
+    },
+    "SOFIA SANTAELLA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "CAROLAIN CAWEN": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "CAMILA HEREDIA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "ANGEL RAMIREZ": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "MARIANA ESPINOZA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "DAMARIS": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "MARIO CORTIJO": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "ETERNA PRIMERIZA": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-07"
+    },
+    "IGNACIO BALADAN": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": null
+    },
+    "LIZ SANDOVAL": {
+      "pct_por_anio": {
+        "2024": 0.25,
+        "2025": 0.25
+      },
+      "pct_pre": 0.25,
+      "externo_desde": "2025-07"
+    },
+    "SAID PALAO": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "KELLY FLORES": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-12"
+    },
+    "ELS DEMON": {
+      "pct_por_anio": {
+        "2025": 0.25
+      },
+      "pct_pre": 0.25,
+      "externo_desde": "2026-01"
+    },
+    "ANA PAULA CONSORTE": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-08"
+    },
+    "FIORELLA PEREZ": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "FATIMA AGUILAR": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "FRANCIS HERRERA": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-09"
+    },
+    "HUMBERTO BOGGIANO": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "PASAJE EN MANO": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "CAZANDO POINTS": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "GIANELLA CLAVIJO": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "LUINTO": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-12"
+    },
+    "RAISAYLUCIA": {
+      "pct_por_anio": {
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "JUAN ZUPREME": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "JOSI MARTINEZ": {
+      "pct_por_anio": {
+        "2024": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-01"
+    },
+    "OSITA ANDREA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-06"
+    },
+    "VALERIA SAAVEDRA": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": "2025-01"
+    },
+    "SAM LOBATON": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": "2025-01"
+    },
+    "LORELEIN PALAO": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "HI MARI": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "COLLEEN BARRY": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "SOUPYGARBAGEJUICE": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "PAOLA DESIDERI": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "ANDREA RECETAS": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": "2026-01"
+    },
+    "JESUS GARCIA": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "SAMANTHA ROSAO": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "MADDISON": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "REYNA VILLALOBOS": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "PETE SCIARRINO": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": "2026-01"
+    },
+    "MAYA RONDON": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": "2025-08"
+    },
+    "DUSTIN LUKE": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "SARAH LINDAUER": {
+      "pct_por_anio": {
+        "2025": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": "2025-08"
+    },
+    "4PLUSONE": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "MANU BRAVO": {
+      "pct_por_anio": {
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "RAZA": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": "2026-01"
+    },
+    "CLAUDIPIA": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "YESSICA LANGE": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "MACHI": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "VALERIA VILLALOBOS": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.25
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2026-01"
+    },
+    "RAFA JIRAFITA": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.3
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "CRIS & TREY": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "PAISA Y GRINGA": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "JUNIOR AVILA": {
+      "pct_por_anio": {
+        "2025": 0.2,
+        "2026": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": null
+    },
+    "HELENA IBARRA": {
+      "pct_por_anio": {
+        "2025": 0.3,
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ALEXIA BARNECHEA": {
+      "pct_por_anio": {
+        "2024": 0.2,
+        "2025": 0.2
+      },
+      "pct_pre": 0.2,
+      "externo_desde": "2026-01"
+    },
+    "MANUEL CONECTA": {
+      "pct_por_anio": {
+        "2024": 0.3,
+        "2025": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": "2025-10"
+    },
+    "CHRIS MOLL": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "BLU DUMAY": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "ISIORTRIPPP": {
+      "pct_por_anio": {
+        "2026": 0.3
+      },
+      "pct_pre": 0.3,
+      "externo_desde": null
+    },
+    "EXTERNOS": {
+      "pct_por_anio": {},
+      "pct_pre": null,
+      "externo_desde": null
+    }
+  },
+  "pct_referencia": 0.3
 }
