@@ -135,6 +135,11 @@ function clp(n){ return '$\u202F'+Math.round(n).toLocaleString('es-CL'); }
 function ml(k){ const[y,m]=k.split('-'); return MESES[+m-1]+' '+y.slice(2); }
 function pct(a,t){ return t?Math.round(a/t*100)+'%':'—'; }
 
+function pagoTalento(nombre){
+  const p = (DATA.pagos || {})[nombre];
+  return p ? {total: p.total || 0, n: p.n || 0} : {total: 0, n: 0};
+}
+
 function calcularBalance(){
   const input = document.getElementById('pctZasInput');
   if(!input || !talSel || talSel==='(Todos)') return;
@@ -149,29 +154,35 @@ function calcularBalance(){
   let totalF = 0, totalB = 0;
   Object.values(mesesData).forEach(d => { totalF += d.f; totalB += d.b; });
 
-  // Boleta: el talento cobró todo → le debe a ZAS su porcentaje
-  const talentoDebe = totalB * pctZas;
-  // Factura: ZAS cobró todo → le debe al talento su porcentaje
-  const zasDebe = totalF * pctTal;
-  // Balance neto desde la perspectiva de ZAS
-  const balance = zasDebe - talentoDebe;
+  // Factura: ZAS cobró el 100% → le debe al talento su parte (pctTal de las facturas)
+  const zasDebePorFactura = totalF * pctTal;
+  // Boleta: el talento cobró el 100% → le debe a ZAS su comisión (pctZas de las boletas)
+  const talentoDebePorBoleta = totalB * pctZas;
+  // Lo que ZAS ya le pagó al talento (planilla de pagos, todos los estados)
+  const yaPagado = pagoTalento(talSel).total;
+
+  // Saldo desde la perspectiva de ZAS:
+  //   +  lo que ZAS debe al talento por facturas
+  //   −  lo ya pagado por ZAS
+  //   −  lo que el talento debe a ZAS por boletas
+  const saldo = zasDebePorFactura - yaPagado - talentoDebePorBoleta;
 
   const box = document.getElementById('balanceBox');
   if(!box) return;
 
-  let cls, titulo, balanceLbl;
-  if(balance > 0){
+  let cls, titulo, saldoLbl;
+  if(saldo > 0){
     cls = 'zas-debe';
-    titulo = '⚠ ZAS le debe al talento';
-    balanceLbl = 'ZAS debe pagar';
-  } else if(balance < 0){
+    titulo = 'ZAS tiene un saldo pendiente con el talento';
+    saldoLbl = 'ZAS aún debe pagar';
+  } else if(saldo < 0){
     cls = 'talento-debe';
-    titulo = '✓ El talento le debe a ZAS';
-    balanceLbl = 'El talento debe pagar';
+    titulo = 'El talento tiene saldo a favor de ZAS';
+    saldoLbl = 'A favor de ZAS';
   } else {
     cls = 'neutro';
-    titulo = 'Balanceado';
-    balanceLbl = 'Saldo';
+    titulo = 'Cuentas al día';
+    saldoLbl = 'Saldo';
   }
 
   box.className = `deuda-box ${cls}`;
@@ -179,25 +190,25 @@ function calcularBalance(){
     <div class="deuda-title ${cls}">${titulo}</div>
     <div class="deuda-grid">
       <div class="deuda-item">
-        <span class="deuda-item-lbl">Total Factura (cobró ZAS)</span>
-        <span class="deuda-item-val" style="color:var(--blue)">${clp(totalF)}</span>
-      </div>
-      <div class="deuda-item">
-        <span class="deuda-item-lbl">Total Boleta (cobró talento)</span>
-        <span class="deuda-item-val" style="color:var(--amber)">${clp(totalB)}</span>
-      </div>
-      <div class="deuda-item">
         <span class="deuda-item-lbl">ZAS debe al talento (${Math.round(pctTal*100)}% de facturas)</span>
-        <span class="deuda-item-val">${clp(zasDebe)}</span>
+        <span class="deuda-item-val">${clp(zasDebePorFactura)}</span>
+      </div>
+      <div class="deuda-item">
+        <span class="deuda-item-lbl">Ya pagado por ZAS</span>
+        <span class="deuda-item-val" style="color:#1A7A47">${clp(yaPagado)}</span>
       </div>
       <div class="deuda-item">
         <span class="deuda-item-lbl">Talento debe a ZAS (${Math.round(pctZas*100)}% de boletas)</span>
-        <span class="deuda-item-val">${clp(talentoDebe)}</span>
+        <span class="deuda-item-val">${clp(talentoDebePorBoleta)}</span>
       </div>
       <div class="deuda-item">
-        <span class="deuda-item-lbl">${balanceLbl}</span>
-        <span class="deuda-item-val" style="color:var(--${cls==='zas-debe'?'amber':cls==='talento-debe'?'blue':'muted'})">${clp(Math.abs(balance))}</span>
+        <span class="deuda-item-lbl">${saldoLbl}</span>
+        <span class="deuda-item-val" style="color:var(--${cls==='zas-debe'?'amber':cls==='talento-debe'?'blue':'muted'})">${clp(Math.abs(saldo))}</span>
       </div>
+    </div>
+    <div style="font-size:11px;color:var(--hint);margin-top:12px;line-height:1.5">
+      Ventas: Factura ${clp(totalF)} · Boleta ${clp(totalB)}. El saldo = parte del talento en facturas
+      − lo ya pagado − comisión ZAS sobre boletas. Las ventas históricas previas a 2025 están incluidas.
     </div>`;
 }
 
@@ -406,6 +417,7 @@ function mostrarTalento(nombre){
   const pFt=tot?Math.round(tF/tot*100):0;
 
   const talentoData = nombre==='(Todos)' ? null : DATA.talentos[nombre];
+  const pagoInfo = nombre==='(Todos)' ? {total:0,n:0} : pagoTalento(nombre);
 
   const filas=mesesDesc.map(m=>{
     const{f,b}=dataMes[m];
@@ -439,9 +451,10 @@ function mostrarTalento(nombre){
 
   document.getElementById('talDetalle').innerHTML=balanceHTML+`
     <div class="kpi-row">
-      <div class="kpi"><div class="kpi-lbl">Total neto</div><div class="kpi-val">${clp(tot)}</div></div>
+      <div class="kpi"><div class="kpi-lbl">Total neto vendido</div><div class="kpi-val">${clp(tot)}</div></div>
       <div class="kpi"><div class="kpi-lbl">Factura</div><div class="kpi-val blue">${clp(tF)}</div><div class="kpi-sub">${pct(tF,tot)}</div></div>
       <div class="kpi"><div class="kpi-lbl">Boleta</div><div class="kpi-val amber">${clp(tB)}</div><div class="kpi-sub">${pct(tB,tot)}</div></div>
+      <div class="kpi"><div class="kpi-lbl">Total pagado al talento</div><div class="kpi-val" style="color:#1A7A47">${clp(pagoInfo.total)}</div><div class="kpi-sub">${pagoInfo.n} pago${pagoInfo.n===1?'':'s'} · ZAS Chile</div></div>
     </div>
     <div class="card">
       <div class="card-head"><span class="card-title">Detalle mes a mes · ${nombre}</span></div>
@@ -502,7 +515,7 @@ fetch('./data.json?t='+Date.now())
   .then(d=>{
     DATA=d;
     const upd=new Date(d.updated_at).toLocaleString('es-AR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
-    document.getElementById('subtitle').textContent=`Datos al ${upd} · ${d.total_ordenes} órdenes · Campañas Chile · se actualiza todos los días a las 8:30 hs`;
+    document.getElementById('subtitle').textContent=`Datos al ${upd} · ${d.total_ordenes} órdenes en Odoo + ventas históricas · Campañas Chile · se actualiza todos los días a las 8:30 hs`;
     renderGeneral(d.general);
     renderTalento(d.talentos);
   })
