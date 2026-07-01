@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-01T14:22:15.018394+00:00",
-  "total_ordenes": 1133,
+  "updated_at": "2026-07-01T18:29:24.375116+00:00",
+  "total_ordenes": 1134,
   "general": {
     "2026-07": {
-      "f": 379200.0,
+      "f": 4329200.0,
       "b": 0.0,
       "usd": true
     },
@@ -339,91 +339,73 @@
     }
   },
   "talentos": {
-    "ISIORTRIP": {
+    "MANDY": {
       "2026-07": {
-        "f": 379200.0,
+        "f": 3950000.0,
         "b": 0.0,
         "ordenes": [
           {
-            "nombre": "ISIORTRIP (Contenido para pauta)",
-            "orden": "CL03044",
+            "nombre": "MANDY (IG Reel)",
+            "orden": "CL03069",
             "tipo": "Factura",
-            "monto_clp": 379200,
-            "monto_orig": 400,
-            "moneda": "USD",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-07-01",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "MANDY (IG Story )",
+            "orden": "CL03069",
+            "tipo": "Factura",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-07-01",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "MANDY (Tiktok)",
+            "orden": "CL03069",
+            "tipo": "Factura",
+            "monto_clp": 600000,
+            "monto_orig": 600000,
+            "moneda": "CLP",
+            "fecha": "2026-07-01",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "MANDY (Contenido para pauta)",
+            "orden": "CL03069",
+            "tipo": "Factura",
+            "monto_clp": 150000,
+            "monto_orig": 150000,
+            "moneda": "CLP",
+            "fecha": "2026-07-01",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "MANDY (Exclusivity)",
+            "orden": "CL03069",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
+            "fecha": "2026-07-01",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "MANDY (Attendance )",
+            "orden": "CL03069",
+            "tipo": "Factura",
+            "monto_clp": 1000000,
+            "monto_orig": 1000000,
+            "moneda": "CLP",
             "fecha": "2026-07-01",
             "fuente": "odoo"
           }
         ]
       },
-      "2026-06": {
-        "f": 329700.0,
-        "b": 1050000.0,
-        "ordenes": [
-          {
-            "nombre": "ISIORTRIP (IG Reel)",
-            "orden": "CL03045",
-            "tipo": "Boleta",
-            "monto_clp": 400000,
-            "monto_orig": 400000,
-            "moneda": "CLP",
-            "fecha": "2026-06-26",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
-            "orden": "CL03045",
-            "tipo": "Boleta",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2026-06-26",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (Exclusivity)",
-            "orden": "CL03045",
-            "tipo": "Boleta",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2026-06-26",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (IG Story )",
-            "orden": "CL03027",
-            "tipo": "Boleta",
-            "monto_clp": 200000,
-            "monto_orig": 200000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
-            "orden": "CL03027",
-            "tipo": "Boleta",
-            "monto_clp": 50000,
-            "monto_orig": 50000,
-            "moneda": "CLP",
-            "fecha": "2026-06-22",
-            "fuente": "odoo"
-          },
-          {
-            "nombre": "ISIORTRIP (Tik Tok de musica)",
-            "orden": "CL02991",
-            "tipo": "Factura",
-            "monto_clp": 329700,
-            "monto_orig": 350,
-            "moneda": "USD",
-            "fecha": "2026-06-15",
-            "fuente": "odoo"
-          }
-        ]
-      }
-    },
-    "MANDY": {
       "2026-06": {
         "f": 0.0,
         "b": 1000000.0,
@@ -826,6 +808,90 @@
             "monto_orig": 50000,
             "moneda": "CLP",
             "fecha": "2026-01-08",
+            "fuente": "odoo"
+          }
+        ]
+      }
+    },
+    "ISIORTRIP": {
+      "2026-07": {
+        "f": 379200.0,
+        "b": 0.0,
+        "ordenes": [
+          {
+            "nombre": "ISIORTRIP (Contenido para pauta)",
+            "orden": "CL03044",
+            "tipo": "Factura",
+            "monto_clp": 379200,
+            "monto_orig": 400,
+            "moneda": "USD",
+            "fecha": "2026-07-01",
+            "fuente": "odoo"
+          }
+        ]
+      },
+      "2026-06": {
+        "f": 329700.0,
+        "b": 1050000.0,
+        "ordenes": [
+          {
+            "nombre": "ISIORTRIP (IG Reel)",
+            "orden": "CL03045",
+            "tipo": "Boleta",
+            "monto_clp": 400000,
+            "monto_orig": 400000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
+            "orden": "CL03045",
+            "tipo": "Boleta",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (Exclusivity)",
+            "orden": "CL03045",
+            "tipo": "Boleta",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-26",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (IG Story )",
+            "orden": "CL03027",
+            "tipo": "Boleta",
+            "monto_clp": 200000,
+            "monto_orig": 200000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (Use of image (ads) x 30 days)",
+            "orden": "CL03027",
+            "tipo": "Boleta",
+            "monto_clp": 50000,
+            "monto_orig": 50000,
+            "moneda": "CLP",
+            "fecha": "2026-06-22",
+            "fuente": "odoo"
+          },
+          {
+            "nombre": "ISIORTRIP (Tik Tok de musica)",
+            "orden": "CL02991",
+            "tipo": "Factura",
+            "monto_clp": 329700,
+            "monto_orig": 350,
+            "moneda": "USD",
+            "fecha": "2026-06-15",
             "fuente": "odoo"
           }
         ]
