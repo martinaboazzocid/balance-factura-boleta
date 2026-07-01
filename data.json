@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-01T13:36:53.442856+00:00",
+  "updated_at": "2026-07-01T13:47:57.332391+00:00",
   "total_ordenes": 1132,
   "general": {
     "2026-06": {
@@ -28,9 +28,9 @@
       "usd": true
     },
     "2026-01": {
-      "f": 431057750.0,
+      "f": 79685750.0,
       "b": 0.0,
-      "usd": true
+      "usd": false
     },
     "2025-12": {
       "f": 144201600.0,
@@ -2592,16 +2592,16 @@
         ]
       },
       "2026-01": {
-        "f": 353728000.0,
+        "f": 2356000.0,
         "b": 0.0,
         "ordenes": [
           {
             "nombre": "ICATA (Pauta por 30 días)",
             "orden": "CL02396",
             "tipo": "Factura",
-            "monto_clp": 351728000,
+            "monto_clp": 356000,
             "monto_orig": 356000,
-            "moneda": "USD",
+            "moneda": "CLP",
             "fecha": "2026-01-16",
             "fuente": "odoo"
           },
@@ -29621,7 +29621,7 @@
             "tipo": "Factura",
             "monto_clp": 0,
             "monto_orig": 0,
-            "moneda": "USD",
+            "moneda": "CLP",
             "fecha": "2026-01-16",
             "fuente": "odoo"
           },
