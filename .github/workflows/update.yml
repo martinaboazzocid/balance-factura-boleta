@@ -21,10 +21,12 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Instalar dependencias
+        run: pip install openpyxl
+
       - name: Correr fetch_data.py
         env:
           ODOO_PASSWORD:  ${{ secrets.ODOO_PASSWORD }}
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: python fetch_data.py
 
       - name: Commit y push data.json
